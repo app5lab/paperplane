@@ -1,0 +1,77 @@
+page-home{
+      .example {
+          height: 150px;
+      position: relative;
+      -webkit-animation-name: example;
+      animation-iteration-count: infinite;
+      /* Safari 4.0 - 8.0 */
+      animation-name: example;
+        //   animation-direction: reverse;
+animation-timing-function: linear;
+      animation-duration: 3s;
+    }
+  
+    @keyframes example {
+      0% {
+        left: 500px;
+      }
+      100% {
+        left: -200px;
+      }
+    }
+
+    .gh{
+      width: 100% !important;
+    }
+
+    .cus{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .newcard{
+        height:50%;
+    }
+
+    .roowww{
+        height: 70% !important;
+    }
+    .meracard{
+        margin-top: 10px;
+        height: 100% !important;
+        transition: height 0.5s;        
+    }
+    .offer{
+        height: 115% !important;
+    }
+
+    .offer2{
+        height: 55% !important;
+    }
+    ion-card{
+        height: 100%;
+        border: #671a94 1.5px solid;        
+    }
+    .card-md{
+        height: 56%;
+    }
+    .card2{
+        height: 35%;
+        transition: height 0.5s;
+        position: relative;
+    }
+
+    .asd{
+        position: absolute;
+        float: bottom;
+        bottom: -84px;
+    } 
+    .test{
+        width: 90%;
+    }
+    .sho{
+        bottom: 10px !important;
+    }
+  
+}
