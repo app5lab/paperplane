@@ -10,16 +10,26 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AnimationService, AnimatesDirective } from 'css-animator';
 import { Keyboard } from '@ionic-native/keyboard';
+import { HttpModule } from '@angular/http';
+
+
 
 @NgModule({
   declarations: [
     MyApp,
-    AnimatesDirective
+    AnimatesDirective 
   ],
   imports: [
     ResponsiveModule.forRoot(),
     BrowserModule,
-    IonicModule.forRoot( MyApp, { scrollAssist: false, autoFocusAssist: false})
+    HttpModule,
+    IonicModule.forRoot( MyApp, { 
+      scrollAssist: false, 
+      autoFocusAssist: false,
+      iconMode: 'ios',
+      pageTransition: 'ios-transition',
+      mode: 'ios'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

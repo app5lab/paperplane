@@ -34,30 +34,48 @@ animation-timing-function: linear;
         height:50%;
     }
 
+    .rows{
+        height: 310px; 
+        transition: height 0.5s;
+        margin-bottom: 10px;
+    }
+
+    .im{
+        width: 100px;
+        height: 100px;
+        // max-width: 35%;
+        // height: 35%;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+    button{
+        height: 40px !important;
+    }
     .roowww{
-        height: 70% !important;
+        height: 440px !important;
     }
     .meracard{
         margin-top: 10px;
-        height: 100% !important;
+        height: 300px !important;
         transition: height 0.5s;        
     }
     .offer{
-        height: 115% !important;
+        height: 430px !important;
     }
 
     .offer2{
-        height: 55% !important;
+        height: 250px !important;
     }
     ion-card{
         height: 100%;
         border: #671a94 1.5px solid;        
     }
+    
     .card-md{
         height: 56%;
     }
     .card2{
-        height: 35%;
+        height: 115px;
         transition: height 0.5s;
         position: relative;
     }

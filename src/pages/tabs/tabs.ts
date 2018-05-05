@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 
 /**
  * Generated class for the TabsPage page.
@@ -16,14 +17,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class TabsPage {
 
   tab1Root = 'HomePage';
-  tab2Root = 'AccountPage';
-  tab3Root = 'HistoryPage';
+  tab2Root = 'FlightsPage';
+  tab3Root = 'AccountPage';
+  tab4Root = 'HistoryPage';
+  tab5Root = 'ChatPage';
+  a = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public event: Events,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
   }
-
 }

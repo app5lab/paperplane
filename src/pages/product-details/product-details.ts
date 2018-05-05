@@ -20,7 +20,7 @@ export class ProductDetailsPage
 
     this.product = {
       name:'Nike Air',
-      images: ['assets/imgs/s1.jpg', 'assets/imgs/s2.jpg','assets/imgs/s3.jpg'],
+      images: ['../../assets/imgs/s1.jpg', 'assets/imgs/s2.jpg','assets/imgs/s3.jpg'],
       categories: ['Shoes','Air','Nike'],
       price: 200
     }

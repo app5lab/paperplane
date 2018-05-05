@@ -10,7 +10,7 @@
 
     <ion-slides #slides>
       <ion-slide *ngFor="let image of product.images">
-        <img-loader src="{{image}}" useImg></img-loader>
+        <img src="{{image}}" />
       </ion-slide>
     </ion-slides>
 
@@ -25,8 +25,16 @@
         <h1>from <b>$10</b></h1> 
       <p *ngIf="product.short_description" [innerHTML]="product.short_description"></p>
 
+      <ion-item>
+        <ion-label>Amount</ion-label>
+        <ion-input type="number" value=""></ion-input>
+      </ion-item>
+      <ion-item (click)='flight()'>
+        <ion-label>Select Flight</ion-label>
+        <ion-input disabled type="number" value=""></ion-input>
+      </ion-item>
       <button ion-button icon-left block outline color="primary">
-       Make an Offer
+        Send Offer
       </button>
     </ion-card-content>
 
