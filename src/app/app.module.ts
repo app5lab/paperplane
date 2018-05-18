@@ -12,7 +12,7 @@ import { AnimationService, AnimatesDirective } from 'css-animator';
 import { Keyboard } from '@ionic-native/keyboard';
 import { HttpModule } from '@angular/http';
 
-
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AnimationService,
-    Keyboard
+    Keyboard,
+    GoogleMaps
   ]
 })
 export class AppModule {}

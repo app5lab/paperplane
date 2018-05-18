@@ -25832,11 +25832,6 @@ page-home .offer2 {
   height: 250px !important;
 }
 
-page-home ion-card {
-  height: 100%;
-  border: #671a94 1.5px solid;
-}
-
 page-home .card-md {
   height: 56%;
 }
@@ -25860,6 +25855,19 @@ page-home .test {
 
 page-home .sho {
   bottom: 10px !important;
+}
+
+page-home #meracard {
+  position: relative;
+}
+
+page-home .card-a {
+  position: absolute;
+  top: 3%;
+  font-size: 3.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
 }
 
 page-login .getstart {

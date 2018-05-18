@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 declare var google: any;
-
+import
+{
+  GoogleMaps,
+  GoogleMap,
+  LatLng,
+  GoogleMapsEvent,
+} from '@ionic-native/google-maps';
 import { Http } from '@angular/http'
 /**
  * Generated class for the FlightsPage page.
@@ -16,43 +22,56 @@ import { Http } from '@angular/http'
   templateUrl: 'flights.html',
 })
 export class FlightsPage {
-  public map: any;
+  @ViewChild( 'map' ) mapElement: ElementRef;
+  private map: GoogleMap;
+  private location: LatLng;
 
-  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
-  }
+  constructor( public http: Http, public navCtrl: NavController, public navParams: NavParams, private platform: Platform,
+  private googleMaps: GoogleMaps) {
+    this.location = new LatLng( 42.346903, -71.135101 );
+}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FlightsPage');
-    this.initializeMap();
+  ionViewDidLoad ()
+  {
+    this.platform.ready().then( () =>
+    {
+      let element = this.mapElement.nativeElement;
+      this.map = this.googleMaps.create( element );
 
-    // this.http.get('/assets/test.php').subscribe( (res => {
-    //   console.log(res); 
-    // }) )
+      this.map.one( GoogleMapsEvent.MAP_READY ).then( () =>
+      {
+        let options = {
+          target: this.location,
+          zoom: 8
+        };
+
+        this.map.moveCamera( options );
+      } );
+    } );
   }
   initializeMap ()
   {
-    var minZoomLevel = 19;
+    var minZoomLevel = 2;
 
-    this.map = new google.maps.Map( document.getElementById( 'map_canvas' ), {
-      zoom: minZoomLevel,
-      center: new google.maps.LatLng( 31.420671, 74.182747 ),
-      mapTypeId: 'terrain'
+    this.map = new google.maps.Map( this.mapElement.nativeElement, {
+      zoom: 7,
+      center: { lat: 41.85, lng: -87.65 }
     } );
-    var flightPlanCoordinates = [
-      { lat: 37.772, lng: -122.214 },
-      { lat: 21.291, lng: -157.821 },
-      { lat: -18.142, lng: 178.431 },
-      { lat: -27.467, lng: 153.027 }
-    ];
-    var flightPath = new google.maps.Polyline( {
-      path: flightPlanCoordinates,
-      geodesic: true,
-      strokeColor: '#FF0000',
-      strokeOpacity: 1.0,
-      strokeWeight: 2
-    } );
+    // var flightPlanCoordinates = [
+    //   { lat: 37.772, lng: -122.214 },
+    //   { lat: 21.291, lng: -157.821 },
+    //   { lat: -18.142, lng: 178.431 },
+    //   { lat: -27.467, lng: 153.027 }
+    // ];
+    // var flightPath = new google.maps.Polyline( {
+    //   path: flightPlanCoordinates,
+    //   geodesic: true,
+    //   strokeColor: '#FF0000',
+    //   strokeOpacity: 1.0,
+    //   strokeWeight: 2
+    // } );
 
-    flightPath.setMap( this.map );
+    // flightPath.setMap( this.map );
   }
 
 }

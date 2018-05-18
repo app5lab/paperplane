@@ -1,3 +1,7 @@
+.tabbar {
+  margin: 0 !important;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -9643,7 +9647,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   .grid[fixed] {
     width: 720px;
     max-width: 100%;
@@ -9811,7 +9815,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-1] {
     padding: 5px;
   }
@@ -9839,7 +9843,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-2] {
     padding: 5px;
   }
@@ -9867,7 +9871,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-3] {
     padding: 5px;
   }
@@ -9895,7 +9899,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-4] {
     padding: 5px;
   }
@@ -9923,7 +9927,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-5] {
     padding: 5px;
   }
@@ -9951,7 +9955,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-6] {
     padding: 5px;
   }
@@ -9979,7 +9983,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-7] {
     padding: 5px;
   }
@@ -10007,7 +10011,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-8] {
     padding: 5px;
   }
@@ -10035,7 +10039,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-9] {
     padding: 5px;
   }
@@ -10063,7 +10067,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-10] {
     padding: 5px;
   }
@@ -10091,7 +10095,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-11] {
     padding: 5px;
   }
@@ -10119,7 +10123,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-12] {
     padding: 5px;
   }
@@ -10147,7 +10151,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col] {
     padding: 5px;
   }
@@ -10450,7 +10454,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-1] {
     padding: 5px;
   }
@@ -10478,7 +10482,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-2] {
     padding: 5px;
   }
@@ -10506,7 +10510,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-3] {
     padding: 5px;
   }
@@ -10534,7 +10538,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-4] {
     padding: 5px;
   }
@@ -10562,7 +10566,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-5] {
     padding: 5px;
   }
@@ -10590,7 +10594,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-6] {
     padding: 5px;
   }
@@ -10618,7 +10622,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-7] {
     padding: 5px;
   }
@@ -10646,7 +10650,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-8] {
     padding: 5px;
   }
@@ -10674,7 +10678,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-9] {
     padding: 5px;
   }
@@ -10702,7 +10706,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-10] {
     padding: 5px;
   }
@@ -10730,7 +10734,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-11] {
     padding: 5px;
   }
@@ -10758,7 +10762,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm-12] {
     padding: 5px;
   }
@@ -10786,7 +10790,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-sm] {
     padding: 5px;
   }
@@ -11044,7 +11048,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-1] {
     padding: 5px;
   }
@@ -11072,7 +11076,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-2] {
     padding: 5px;
   }
@@ -11100,7 +11104,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-3] {
     padding: 5px;
   }
@@ -11128,7 +11132,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-4] {
     padding: 5px;
   }
@@ -11156,7 +11160,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-5] {
     padding: 5px;
   }
@@ -11184,7 +11188,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-6] {
     padding: 5px;
   }
@@ -11212,7 +11216,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-7] {
     padding: 5px;
   }
@@ -11240,7 +11244,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-8] {
     padding: 5px;
   }
@@ -11268,7 +11272,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-9] {
     padding: 5px;
   }
@@ -11296,7 +11300,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-10] {
     padding: 5px;
   }
@@ -11324,7 +11328,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-11] {
     padding: 5px;
   }
@@ -11352,7 +11356,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md-12] {
     padding: 5px;
   }
@@ -11380,7 +11384,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md] {
     padding: 5px;
   }
@@ -11398,7 +11402,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-md] {
     -webkit-flex-basis: 0;
     -ms-flex-preferred-size: 0;
@@ -11638,7 +11642,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-1] {
     padding: 5px;
   }
@@ -11666,7 +11670,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-2] {
     padding: 5px;
   }
@@ -11694,7 +11698,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-3] {
     padding: 5px;
   }
@@ -11722,7 +11726,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-4] {
     padding: 5px;
   }
@@ -11750,7 +11754,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-5] {
     padding: 5px;
   }
@@ -11778,7 +11782,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-6] {
     padding: 5px;
   }
@@ -11806,7 +11810,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-7] {
     padding: 5px;
   }
@@ -11834,7 +11838,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-8] {
     padding: 5px;
   }
@@ -11862,7 +11866,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-9] {
     padding: 5px;
   }
@@ -11890,7 +11894,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-10] {
     padding: 5px;
   }
@@ -11918,7 +11922,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-11] {
     padding: 5px;
   }
@@ -11946,7 +11950,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg-12] {
     padding: 5px;
   }
@@ -11974,7 +11978,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-lg] {
     padding: 5px;
   }
@@ -12232,7 +12236,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-1] {
     padding: 5px;
   }
@@ -12260,7 +12264,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-2] {
     padding: 5px;
   }
@@ -12288,7 +12292,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-3] {
     padding: 5px;
   }
@@ -12316,7 +12320,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-4] {
     padding: 5px;
   }
@@ -12344,7 +12348,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-5] {
     padding: 5px;
   }
@@ -12372,7 +12376,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-6] {
     padding: 5px;
   }
@@ -12400,7 +12404,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-7] {
     padding: 5px;
   }
@@ -12428,7 +12432,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-8] {
     padding: 5px;
   }
@@ -12456,7 +12460,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-9] {
     padding: 5px;
   }
@@ -12484,7 +12488,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-10] {
     padding: 5px;
   }
@@ -12512,7 +12516,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-11] {
     padding: 5px;
   }
@@ -12540,7 +12544,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl-12] {
     padding: 5px;
   }
@@ -12568,7 +12572,7 @@ ion-fab-list[side=right] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   [col-xl] {
     padding: 5px;
   }
@@ -25724,6 +25728,20 @@ ion-navbar.toolbar {
   background-color: transparent;
 }
 
+page-chat ion-note {
+  font-size: 14px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: 14px;
+}
+
+page-flights ion-card {
+  margin-top: 50% !important;
+  border: #671a94 1.5px solid;
+  border-radius: 20px !important;
+}
+
 page-home .example {
   height: 150px;
   position: relative;
@@ -25777,24 +25795,45 @@ page-home .newcard {
   height: 50%;
 }
 
+page-home .rows {
+  height: 310px;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  margin-bottom: 10px;
+}
+
+page-home .im {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+page-home button {
+  height: 40px !important;
+}
+
+page-home .roowww {
+  height: 440px !important;
+}
+
 page-home .meracard {
   margin-top: 10px;
-  height: 100%;
+  height: 300px !important;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
 }
 
 page-home .offer {
-  height: 150%;
+  height: 430px !important;
 }
 
 page-home .offer2 {
-  height: 55% !important;
+  height: 250px !important;
 }
 
 page-home ion-card {
   height: 100%;
-  border: #671a94 1.5px solid;
 }
 
 page-home .card-md {
@@ -25802,7 +25841,7 @@ page-home .card-md {
 }
 
 page-home .card2 {
-  height: 35%;
+  height: 115px;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
   position: relative;
