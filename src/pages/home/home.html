@@ -20,7 +20,6 @@
   </ion-card>
 
   <ion-grid style="min-height: 100%;">
-    <ion-row class="rows" [ngClass]="{'roowww': active > 0}">
       <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor='let post of posts;' style="height: 100%;">
           <ion-card [ngClass]="{'offer': post.active == 'true'}" class="meracard">
             <ion-item>
@@ -81,6 +80,5 @@
             </ion-card>
           </ion-card>
       </ion-col>
-    </ion-row>
   </ion-grid>
 </ion-content>

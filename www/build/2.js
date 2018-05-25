@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 410:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(439);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var TabsPageModule = /** @class */ (function () {
+    function TabsPageModule() {
     }
-    LoginPageModule = __decorate([
+    TabsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]),
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]
+                __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]
             ]
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], TabsPageModule);
+    return TabsPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=tabs.module.js.map
 
 /***/ }),
 
-/***/ 424:
+/***/ 439:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__ = __webpack_require__(248);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,63 +59,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the TabsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(Keyboard, platform, alert, navCtrl, navParams, load) {
-        this.Keyboard = Keyboard;
-        this.platform = platform;
-        this.alert = alert;
+var TabsPage = /** @class */ (function () {
+    function TabsPage(event, navCtrl, navParams) {
+        this.event = event;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.load = load;
-        this.username = '';
-        this.password = '';
+        this.tab1Root = 'HomePage';
+        this.tab2Root = 'FlightsPage';
+        this.tab3Root = 'AccountPage';
+        this.tab4Root = 'HistoryPage';
+        this.tab5Root = 'ChatPage';
+        this.a = true;
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
+    TabsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TabsPage');
     };
-    LoginPage.prototype.ionViewDidEnter = function () {
-        // this.platform.ready().then( () =>
-        // {
-        //   this.Keyboard.disableScroll( true );
-        // } );
-    };
-    LoginPage.prototype.ionViewWillLeave = function () {
-        // this.platform.ready().then( () =>
-        // {
-        //   this.Keyboard.disableScroll( false );
-        // } );
-    };
-    LoginPage.prototype.login = function () {
-        var l = this.load.create({
-            spinner: 'hide',
-            content: "<img src=\"assets/imgs/l.gif\"/>",
-            duration: 3000,
-        });
-        // l.present()
-        if (this.username == '' && this.password == '')
-            this.navCtrl.setRoot('TabsPage');
-        else {
-            this.alert.create({ title: 'Invalid Username or Password', buttons: ['OK'] }).present();
-            // l.dismiss()
-        }
-    };
-    LoginPage = __decorate([
+    TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/login/login.html"*/'<ion-content padding class="getstart">\n    <img src="assets/imgs/final.png" alt="" style="height: 350px;">\n      <ion-item class="in">\n        <ion-label fixed>\n          <ion-icon name="person"></ion-icon>\n          Username</ion-label>\n        <ion-input type="text" [(ngModel)]="username"></ion-input>\n      </ion-item>\n    <br>\n    <ion-item class="in">\n      <ion-label fixed>\n        <ion-icon name="lock"></ion-icon>\n         Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n    </ion-item>\n<br>\n    \n    <button id=\'t\' ion-button full round (click)="login()">Sign In</button>\n    <br>\n    <br>\n    <br> \n    <div style="width: 100%;display: grid;">\n      <a href="" style="text-align: center;font-size: 20px;">Sign Up?</a>\n    </div>   \n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/login/login.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="My Flights" tabIcon="paper-plane"></ion-tab>  \n  <ion-tab [root]="tab4Root" tabTitle="History" tabIcon="paper"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="Messages" tabIcon="chatbubbles"></ion-tab>  \n  <ion-tab [root]="tab3Root" tabTitle="Settings" tabIcon="settings"></ion-tab>  \n</ion-tabs>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/tabs/tabs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+    ], TabsPage);
+    return TabsPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=tabs.js.map
 
 /***/ })
 

@@ -1,7 +1,27 @@
 page-flights {
-    ion-card{
+    #asd{
         margin-top: 50% !important;
          border: #671a94 1.5px solid;        
          border-radius: 20px !important;
+    }
+    ion-card{
+         border: #671a94 1.5px solid;        
+         border-radius: 10px !important;
+        
+    }
+    h1{
+        font-size: 20px !important;
+        font-weight: bold !important;
+    }
+    h2 {
+        width: 100%; 
+        text-align: center; 
+        border-bottom: 1px solid #000; 
+        line-height: 0.1em;
+        margin: 10px 0 20px; 
+    } 
+    h2 span { 
+        background:#fff; 
+        padding:0 10px; 
     }
 }

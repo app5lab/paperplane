@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Platform } from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,9 +16,9 @@ import { Keyboard } from '@ionic-native/keyboard';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username: string = '';
-  password: string = '';
-  constructor( public Keyboard: Keyboard,public platform: Platform,public alert:AlertController, public navCtrl: NavController, public navParams: NavParams, public load: LoadingController) {
+  username: string = 'hassan@appslab.io';
+  password: string = '123456';
+  constructor(public api: ApiProvider, public Keyboard: Keyboard,public platform: Platform,public alert:AlertController, public navCtrl: NavController, public navParams: NavParams, public load: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -37,20 +38,20 @@ export class LoginPage {
     // {
     //   this.Keyboard.disableScroll( false );
     // } );
-  }
+  }  
   login(){
-    var l = this.load.create({
-      spinner: 'hide',
-      content: `<img src="assets/imgs/l.gif"/>`,      
-      duration:3000,  
-    })
-    // l.present()
-    if(this.username == '' && this.password == '')
-      this.navCtrl.setRoot( 'TabsPage' ) 
-    else
-      {
-        this.alert.create({title:'Invalid Username or Password',buttons:['OK']}).present()
-        // l.dismiss()
+    var l = this.load.create({})
+    l.setContent('Signing In...')
+    l.present()
+    this.api.login(this.username, this.password).then((r)=>{
+      if(r){
+        this.navCtrl.setRoot( 'TabsPage' ); l.dismiss()
       }
+      else
+      {
+        this.alert.create( { title: 'Invalid Username or Password', buttons: ['OK'] } ).present()
+        l.dismiss()
+      }       
+    })
   }
 }

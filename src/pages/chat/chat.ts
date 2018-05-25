@@ -23,7 +23,7 @@ export class ChatPage {
   }
 
   openChat(){
-    this.modal.create('').present();
+    this.modal.create('ConversationPage').present();
   }
 
 }

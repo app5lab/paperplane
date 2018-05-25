@@ -13,6 +13,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { HttpModule } from '@angular/http';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { ApiProvider } from '../providers/api/api';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AnimationService,
     Keyboard,
-    GoogleMaps
+    GoogleMaps,
+    ApiProvider
   ]
 })
 export class AppModule {}

@@ -25736,10 +25736,51 @@ page-chat ion-note {
   margin-top: 14px;
 }
 
-page-flights ion-card {
+page-conversation ion-label {
+  margin: 0 !important;
+}
+
+page-conversation ion-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+page-conversation ion-item > .item-inner {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+page-conversation .chatPageFooter .toolbar {
+  padding: 4px 8px !important;
+}
+
+page-flights #asd {
   margin-top: 50% !important;
   border: #671a94 1.5px solid;
   border-radius: 20px !important;
+}
+
+page-flights ion-card {
+  border: #671a94 1.5px solid;
+  border-radius: 10px !important;
+}
+
+page-flights h1 {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+page-flights h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+page-flights h2 span {
+  background: #fff;
+  padding: 0 10px;
 }
 
 page-home .example {
