@@ -11,7 +11,7 @@ import
 } from '@ionic-native/google-maps';
 import { Http } from '@angular/http'
 
-import * as md5 from 'md5';
+//import * as md5 from 'md5';
 /**
  * Generated class for the FlightsPage page.
  *
@@ -58,7 +58,7 @@ export class FlightsPage {
     this.http.post( 'https://zipship.io/manage-data.php', data).subscribe( res => {
       console.log((res)); 
     })
-    console.log( md5( '123456' ) )//= '$2y$10$MIVI73kil.V3WvspSjg87eK/QsGgH3NPUgqj8cIq0URYEyFBKO2fa' ); 
+    //console.log( md5( '123456' ) )//= '$2y$10$MIVI73kil.V3WvspSjg87eK/QsGgH3NPUgqj8cIq0URYEyFBKO2fa' ); 
     // this.http.get( 'https://zipship.io/retrieve-data.php' ).subscribe( res =>
     // {
     //   console.log(JSON.parse( res._body )); 

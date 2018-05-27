@@ -12,6 +12,7 @@ export class ProductDetailsPage
   public product: any;
   private wooCommerce: any;
   public reviews: any[] = [];
+  public details :any[] = [];
 
   constructor(
     public navCtrl: NavController,
@@ -28,7 +29,14 @@ export class ProductDetailsPage
     this.reviews = [{ 
       reviewer_name: 'Hassan Ali',
       review: `'So comfortable and durable. Definitely get them if you need comfy shoes, I don't run in them, I use them for fashion and I can say they go with everything.'`
-  }]
+ 
+ 
+    }]
+
+    this.details =[{
+    title:'Product details',
+    p_det:'-Color Blue -Size 7 -Nike Sole -Soft Rubber -Blue Laces '
+    }]
   }
 
   //Slider options

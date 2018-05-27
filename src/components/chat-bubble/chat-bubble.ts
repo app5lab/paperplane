@@ -11,8 +11,8 @@ import { Component } from '@angular/core';
   templateUrl: 'chat-bubble.html'
 })
 export class ChatBubbleComponent {
-   public chatMessage: ChatMessage;
-   public messageType = MessageType;
+  // public chatMessage: ChatMessage;
+  // public messageType = MessageType;
 
   constructor()
   {
