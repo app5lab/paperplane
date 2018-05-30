@@ -25728,6 +25728,15 @@ ion-navbar.toolbar {
   background-color: transparent;
 }
 
+page-account ion-avatar {
+  height: 100px;
+  width: 100px;
+}
+
+page-account ion-avatar img {
+  border-radius: 50%;
+}
+
 page-chat ion-note {
   font-size: 14px;
   -webkit-align-self: flex-start;
@@ -25763,6 +25772,10 @@ page-flights #asd {
 page-flights ion-card {
   border: #671a94 1.5px solid;
   border-radius: 10px !important;
+  background-image: url("../../assets/imgs/step0001.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 page-flights h1 {

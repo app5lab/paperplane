@@ -1,13 +1,16 @@
 page-flights {
     #asd{
         margin-top: 50% !important;
-         border: #671a94 1.5px solid;        
-         border-radius: 20px !important;
+        border: #671a94 1.5px solid;        
+        border-radius: 20px !important;
     }
     ion-card{
-         border: #671a94 1.5px solid;        
-         border-radius: 10px !important;
-        
+        border: #671a94 1.5px solid;        
+        border-radius: 10px !important;
+        background-image: url('../../assets/imgs/step0001.jpg') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: cover !important;
     }
     h1{
         font-size: 20px !important;

@@ -11,7 +11,6 @@ import
 } from '@ionic-native/google-maps';
 import { Http } from '@angular/http'
 
-//import * as md5 from 'md5';
 /**
  * Generated class for the FlightsPage page.
  *

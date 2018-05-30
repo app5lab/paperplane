@@ -1,3 +1,9 @@
 page-account {
-
+    ion-avatar{
+        height: 100px;
+        width: 100px;
+    }
+    ion-avatar img{
+        border-radius: 50%;
+    }
 }

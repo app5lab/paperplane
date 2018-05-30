@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams, LoadingController, App } from 'ion
   templateUrl: 'account.html',
 })
 export class AccountPage {
-
+settings:any = 'profile'
   constructor(public app: App ,public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     let loading = this.loadingCtrl.create( {
       spinner: 'hide',

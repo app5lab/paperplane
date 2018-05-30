@@ -14,11 +14,10 @@ import { HttpModule } from '@angular/http';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { ApiProvider } from '../providers/api/api';
-
 @NgModule({
   declarations: [
     MyApp,
-    AnimatesDirective 
+    AnimatesDirective,
   ],
   imports: [
     ResponsiveModule.forRoot(),
