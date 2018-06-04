@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 404:
+/***/ 412:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountPageModule", function() { return AccountPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatPageModule", function() { return ChatPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(418);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(429);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountPageModule = /** @class */ (function () {
-    function AccountPageModule() {
+var ChatPageModule = /** @class */ (function () {
+    function ChatPageModule() {
     }
-    AccountPageModule = __decorate([
+    ChatPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */],
+                __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */]),
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]
+                __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */]
             ]
         })
-    ], AccountPageModule);
-    return AccountPageModule;
+    ], ChatPageModule);
+    return ChatPageModule;
 }());
 
-//# sourceMappingURL=account.module.js.map
+//# sourceMappingURL=chat.module.js.map
 
 /***/ }),
 
-/***/ 418:
+/***/ 429:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -60,40 +60,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the AccountPage page.
+ * Generated class for the ChatPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var AccountPage = /** @class */ (function () {
-    function AccountPage(app, loadingCtrl, navCtrl, navParams) {
-        this.app = app;
-        this.loadingCtrl = loadingCtrl;
+var ChatPage = /** @class */ (function () {
+    function ChatPage(modal, navCtrl, navParams) {
+        this.modal = modal;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        var loading = this.loadingCtrl.create({
-            spinner: 'hide',
-            content: "<img src=\"assets/imgs/l.gif\"/>\n      <h3 style=\"text-align:center;\">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLoading...</h3",
-            duration: 30000
-        });
-        // loading.present();
     }
-    AccountPage.prototype.logout = function () {
-        this.app.getRootNav().setRoot('LoginPage');
+    ChatPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ChatPage');
     };
-    AccountPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AccountPage');
+    ChatPage.prototype.openChat = function () {
+        this.modal.create('ConversationPage').present();
     };
-    AccountPage = __decorate([
+    ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-account',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/account/account.html"*/'<!--\n  Generated template for the AccountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>account</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n      <button ion-button full round (click)="logout()">Log Out</button>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/account/account.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/chat/chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>chat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-item (click)=\'openChat()\'>\n      <ion-avatar item-start>\n        <img src="assets/imgs/s1.jpg">\n      </ion-avatar>\n      <h2>Hamza</h2>\n      <p>Bla bla bl looks good. Let\'s discuss it more bla bla bla</p>\n      <ion-note item-end>3:43 pm</ion-note>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/chat/chat.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
-    ], AccountPage);
-    return AccountPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+    ], ChatPage);
+    return ChatPage;
 }());
 
-//# sourceMappingURL=account.js.map
+//# sourceMappingURL=chat.js.map
 
 /***/ })
 

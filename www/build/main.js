@@ -159,11 +159,62 @@ var ApiProvider = /** @class */ (function () {
         });
         return promise;
     };
+    ApiProvider.prototype.addPost = function (title, des, im1, im2, im3, tr, from, to, touser, buy) {
+        var _this = this;
+        var data = {
+            title: title,
+            description: des,
+            image1: im1,
+            image2: im2,
+            image3: im3,
+            treward: tr,
+            from: from,
+            to: to,
+            touser: touser,
+            buy: buy,
+            key: 'addPost',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/user-posts.php', data)
+                .toPromise()
+                .then(function (res) {
+                console.log(res);
+                // if ( res.text() != 'User already Exist' && res.text() == '1' )
+                //   resolve( true );
+                // else
+                //   resolve( false )
+            });
+        });
+        return promise;
+    };
+    ApiProvider.prototype.getPostbyLoc = function (from, to) {
+        var _this = this;
+        var data = {
+            from_loc: from,
+            to_loc: to,
+            key: 'getPostbyLoc',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/user-posts.php', data)
+                .toPromise()
+                .then(function (res) {
+                console.log(res);
+                // if ( res.text() != 'User already Exist' && res.text() == '1' )
+                //   resolve( true );
+                // else
+                //   resolve( false )
+            });
+        });
+        return promise;
+    };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
     ], ApiProvider);
     return ApiProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=api.js.map

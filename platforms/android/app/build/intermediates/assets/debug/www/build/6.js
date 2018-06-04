@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 407:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatPageModule", function() { return ChatPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlightsPageModule", function() { return FlightsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(421);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flights__ = __webpack_require__(431);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChatPageModule = /** @class */ (function () {
-    function ChatPageModule() {
+var FlightsPageModule = /** @class */ (function () {
+    function FlightsPageModule() {
     }
-    ChatPageModule = __decorate([
+    FlightsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */],
+                __WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */]),
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */]
+                __WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */]
             ]
         })
-    ], ChatPageModule);
-    return ChatPageModule;
+    ], FlightsPageModule);
+    return FlightsPageModule;
 }());
 
-//# sourceMappingURL=chat.module.js.map
+//# sourceMappingURL=flights.module.js.map
 
 /***/ }),
 
-/***/ 421:
+/***/ 431:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlightsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_maps__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(126);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,34 +61,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
- * Generated class for the ChatPage page.
+ * Generated class for the FlightsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ChatPage = /** @class */ (function () {
-    function ChatPage(modal, navCtrl, navParams) {
-        this.modal = modal;
+var FlightsPage = /** @class */ (function () {
+    function FlightsPage(http, navCtrl, navParams, platform, googleMaps) {
+        this.http = http;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.platform = platform;
+        this.googleMaps = googleMaps;
     }
-    ChatPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ChatPage');
+    FlightsPage.prototype.ionViewDidLoad = function () {
+        this.platform.ready().then(function () {
+        });
     };
-    ChatPage.prototype.openChat = function () {
-        this.modal.create('').present();
+    FlightsPage.prototype.addFlight = function () {
+        // var data = {
+        //   firstname:'Hassan',
+        //   lastname:'Ali',
+        //   address:'363 E1 Johar Town',
+        //   email:'ali@appslab.io',
+        //   phone:'03134698550',
+        //   password:'test123',
+        //   key:'create',
+        //   sec:'((|m5DlhrplfKx1'
+        // }
+        var data = {
+            email: 'hassan@appslab.io',
+            password: '123456',
+            key: 'login',
+            sec: '((|m5DlhrplfKx1'
+        };
+        this.http.post('https://zipship.io/manage-data.php', data).subscribe(function (res) {
+            console.log((res));
+        });
+        //console.log( md5( '123456' ) )//= '$2y$10$MIVI73kil.V3WvspSjg87eK/QsGgH3NPUgqj8cIq0URYEyFBKO2fa' ); 
+        // this.http.get( 'https://zipship.io/retrieve-data.php' ).subscribe( res =>
+        // {
+        //   console.log(JSON.parse( res._body )); 
+        // })
     };
-    ChatPage = __decorate([
+    FlightsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chat',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/chat/chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>chat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list>\n    <ion-item (click)=\'openChat()\'>\n      <ion-avatar item-start>\n        <img src="assets/imgs/s1.jpg">\n      </ion-avatar>\n      <h2>Hamza</h2>\n      <p>Bla bla bl looks good. Let\'s discuss it more bla bla bla</p>\n      <ion-note item-end>3:43 pm</ion-note>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/chat/chat.html"*/,
+            selector: 'page-flights',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/flights/flights.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>flights</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<ion-card id=\'asd\' *ngIf="true">\n  <ion-card-content text-center>\n    <ion-card-title>\n      Travelling Somewhere?\n    </ion-card-title>\n    <p>\n      Post a flight and start making money!\n    </p>\n    <br><br>\n    <button ion-button outline item-center (click)=\'addFlight()\'>Add Flight</button>\n  </ion-card-content>\n</ion-card>\n\n\n<ion-card text-center>\n  <ion-grid>\n    <ion-row style="height: 70px;">\n        <ion-col col-4 align-self-center>\n            <h1>USA</h1>\n        </ion-col>\n        \n        <ion-col col-4 align-self-center>\n          <h2>\n            <span>11/06</span>\n          </h2>\n        </ion-col>\n\n        <ion-col col-4 align-self-center>\n            <h1>Pakistan</h1>\n        </ion-col>\n    </ion-row>\n    <ion-row>\n        <button ion-button outline style="width: 48%;">Remove</button>\n        <button ion-button style="width: 48%;">Edit</button>\n    </ion-row>\n  </ion-grid>\n  \n</ion-card>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/flights/flights.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
-    ], ChatPage);
-    return ChatPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_maps__["a" /* GoogleMaps */]])
+    ], FlightsPage);
+    return FlightsPage;
 }());
 
-//# sourceMappingURL=chat.js.map
+//# sourceMappingURL=flights.js.map
 
 /***/ })
 

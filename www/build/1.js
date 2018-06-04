@@ -1,6 +1,10 @@
 webpackJsonp([1],{
 
+<<<<<<< HEAD
 /***/ 418:
+=======
+/***/ 420:
+>>>>>>> ae1630a576233fde526bb69701ba306f95d35791
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +12,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(440);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(443);
+>>>>>>> ae1630a576233fde526bb69701ba306f95d35791
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +49,11 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 440:
+=======
+/***/ 443:
+>>>>>>> ae1630a576233fde526bb69701ba306f95d35791
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

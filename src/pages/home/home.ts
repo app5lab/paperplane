@@ -137,4 +137,8 @@ export class HomePage {
   openProduct(){
     this.navCtrl.push('ProductDetailsPage')
   }
+
+  addPost(){
+    this.navCtrl.push('AddPostPage')
+  }
 }

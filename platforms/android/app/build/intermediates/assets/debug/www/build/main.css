@@ -25728,6 +25728,15 @@ ion-navbar.toolbar {
   background-color: transparent;
 }
 
+page-account ion-avatar {
+  height: 100px;
+  width: 100px;
+}
+
+page-account ion-avatar img {
+  border-radius: 50%;
+}
+
 page-chat ion-note {
   font-size: 14px;
   -webkit-align-self: flex-start;
@@ -25736,10 +25745,55 @@ page-chat ion-note {
   margin-top: 14px;
 }
 
-page-flights ion-card {
+page-conversation ion-label {
+  margin: 0 !important;
+}
+
+page-conversation ion-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+page-conversation ion-item > .item-inner {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+page-conversation .chatPageFooter .toolbar {
+  padding: 4px 8px !important;
+}
+
+page-flights #asd {
   margin-top: 50% !important;
   border: #671a94 1.5px solid;
   border-radius: 20px !important;
+}
+
+page-flights ion-card {
+  border: #671a94 1.5px solid;
+  border-radius: 10px !important;
+  background-image: url("../../assets/imgs/step0001.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+page-flights h1 {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+page-flights h2 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+page-flights h2 span {
+  background: #fff;
+  padding: 0 10px;
 }
 
 page-home .example {
@@ -25809,6 +25863,10 @@ page-home .im {
   border-radius: 5px;
 }
 
+page-home #tha {
+  height: 56px !important;
+}
+
 page-home button {
   height: 40px !important;
 }
@@ -25830,10 +25888,6 @@ page-home .offer {
 
 page-home .offer2 {
   height: 250px !important;
-}
-
-page-home ion-card {
-  height: 100%;
 }
 
 page-home .card-md {
@@ -25859,6 +25913,19 @@ page-home .test {
 
 page-home .sho {
   bottom: 10px !important;
+}
+
+page-home #meracard {
+  position: relative;
+}
+
+page-home .card-a {
+  position: absolute;
+  top: 3%;
+  font-size: 3.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
 }
 
 page-login .getstart {
