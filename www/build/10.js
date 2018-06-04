@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 409:
+/***/ 416:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountPageModule", function() { return AccountPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(425);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(432);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var AccountPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 425:
+/***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71,6 +71,7 @@ var AccountPage = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.user = { firstname: 'hassan', lastname: 'ali', address: 'asdasdasdas', phone: '03000417591', email: 'megatubelite@gmail.com', password: 'qwerty', rp: 'qwerty' };
         this.settings = 'profile';
         var loading = this.loadingCtrl.create({
             spinner: 'hide',
@@ -87,12 +88,11 @@ var AccountPage = /** @class */ (function () {
     };
     AccountPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-account',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/account/account.html"*/'<!--\n  Generated template for the AccountPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar>\n    <ion-segment [(ngModel)]="settings" color="light">\n      <ion-segment-button value="profile" checked>\n        Profile\n      </ion-segment-button>\n      <ion-segment-button value="info">\n        Info\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n  <div [ngSwitch]="settings">\n    <ion-list *ngSwitchCase="\'profile\'">\n      <ion-card>\n        <div style="width: 100%;display: flex;justify-content: center;">\n          <ion-avatar>\n            <img src="assets/imgs/logo.jpg">\n          </ion-avatar>\n        </div>\n        <ion-card-content>\n          \n        </ion-card-content>\n      </ion-card>\n      <button style="width: 100%;" ion-button round outline (click)="logout()">Log Out</button>\n    </ion-list>\n  \n    <ion-list *ngSwitchCase="\'info\'">\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/account/account.html"*/,
+            selector: 'page-account',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\account\account.html"*/'<!--\n\n  Generated template for the AccountPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-toolbar>\n\n    <ion-segment [(ngModel)]="settings" color="light">\n\n      <ion-segment-button value="profile" checked>\n\n        Profile\n\n      </ion-segment-button>\n\n      <ion-segment-button value="info">\n\n        Info\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div [ngSwitch]="settings">\n\n    <ion-list *ngSwitchCase="\'profile\'">\n\n      <ion-card>\n\n        <div style="width: 100%;display: flex;justify-content: center; ">\n\n          <ion-avatar>\n\n            <img src="assets/imgs/logo.jpg">\n\n          </ion-avatar>\n\n        </div>\n\n        <ion-card-content>\n\n          <h2 style="text-align:center;">Hassan Ali</h2>\n\n        </ion-card-content>\n\n        <ion-list >\n\n           \n\n          <ion-item>\n\n              <ion-label floating>Address</ion-label>\n\n            <ion-input [disabled]="true" type="text" [(ngModel)]="user.address"></ion-input>\n\n          </ion-item>\n\n       \n\n        \n\n          <ion-item>\n\n            \n\n              <ion-label floating>Phone</ion-label>\n\n            <ion-input [disabled]="true" type="text" [(ngModel)]="user.phone"></ion-input>\n\n          </ion-item>\n\n        \n\n          <ion-item>\n\n              <ion-label floating>Email</ion-label>\n\n            <ion-input [disabled]="true" type="text"[(ngModel)]="user.email"></ion-input>\n\n          </ion-item>\n\n        \n\n\n\n\n\n          \n\n          <ion-item>\n\n          \n\n              <ion-badge  style="height:30%;" item-end>  <ion-icon name="create"></ion-icon>Edit</ion-badge>\n\n             \n\n          </ion-item>\n\n        </ion-list>\n\n\n\n      </ion-card>\n\n      <button style="width: 100%;" ion-button round outline (click)="logout()">Log Out</button>\n\n    </ion-list>\n\n  \n\n    <ion-list *ngSwitchCase="\'info\'">\n\n    </ion-list>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\account\account.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
     ], AccountPage);
     return AccountPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=account.js.map

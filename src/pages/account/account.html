@@ -22,14 +22,43 @@
   <div [ngSwitch]="settings">
     <ion-list *ngSwitchCase="'profile'">
       <ion-card>
-        <div style="width: 100%;display: flex;justify-content: center;">
+        <div style="width: 100%;display: flex;justify-content: center; ">
           <ion-avatar>
             <img src="assets/imgs/logo.jpg">
           </ion-avatar>
         </div>
         <ion-card-content>
-          
+          <h2 style="text-align:center;">Hassan Ali</h2>
         </ion-card-content>
+        <ion-list >
+           
+          <ion-item>
+              <ion-label floating>Address</ion-label>
+            <ion-input [disabled]="true" type="text" [(ngModel)]="user.address"></ion-input>
+          </ion-item>
+       
+        
+          <ion-item>
+            
+              <ion-label floating>Phone</ion-label>
+            <ion-input [disabled]="true" type="text" [(ngModel)]="user.phone"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+              <ion-label floating>Email</ion-label>
+            <ion-input [disabled]="true" type="text"[(ngModel)]="user.email"></ion-input>
+          </ion-item>
+        
+
+
+          
+          <ion-item>
+          
+              <ion-badge  style="height:30%;" item-end>  <ion-icon name="create"></ion-icon>Edit</ion-badge>
+             
+          </ion-item>
+        </ion-list>
+
       </ion-card>
       <button style="width: 100%;" ion-button round outline (click)="logout()">Log Out</button>
     </ion-list>
