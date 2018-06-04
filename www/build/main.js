@@ -1,4 +1,4 @@
-webpackJsonp([11],{
+webpackJsonp([12],{
 
 /***/ 140:
 /***/ (function(module, exports) {
@@ -22,11 +22,15 @@ webpackEmptyAsyncContext.id = 140;
 
 var map = {
 	"../pages/account/account.module": [
+		410,
+		11
+	],
+	"../pages/add-post/add-post.module": [
 		409,
 		10
 	],
 	"../pages/card/card.module": [
-		410,
+		412,
 		9
 	],
 	"../pages/chat/chat.module": [
@@ -34,19 +38,19 @@ var map = {
 		8
 	],
 	"../pages/conversation/conversation.module": [
-		412,
+		413,
 		7
 	],
 	"../pages/flights/flights.module": [
-		413,
+		414,
 		6
 	],
 	"../pages/history/history.module": [
-		414,
+		415,
 		5
 	],
 	"../pages/home/home.module": [
-		415,
+		417,
 		4
 	],
 	"../pages/login/login.module": [
@@ -54,15 +58,15 @@ var map = {
 		3
 	],
 	"../pages/product-details/product-details.module": [
-		417,
+		418,
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		418,
+		419,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		419,
+		420,
 		1
 	]
 };
@@ -89,7 +93,7 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -159,12 +163,61 @@ var ApiProvider = /** @class */ (function () {
         });
         return promise;
     };
+    ApiProvider.prototype.addPost = function (title, des, im1, im2, im3, tr, from, to, touser, buy) {
+        var _this = this;
+        var data = {
+            title: title,
+            description: des,
+            image1: im1,
+            image2: im2,
+            image3: im3,
+            treward: tr,
+            from: from,
+            to: to,
+            touser: touser,
+            buy: buy,
+            key: 'addPost',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/user-posts.php', data)
+                .toPromise()
+                .then(function (res) {
+                console.log(res);
+                // if ( res.text() != 'User already Exist' && res.text() == '1' )
+                //   resolve( true );
+                // else
+                //   resolve( false )
+            });
+        });
+        return promise;
+    };
+    ApiProvider.prototype.getPostbyLoc = function (from, to) {
+        var _this = this;
+        var data = {
+            from_loc: from,
+            to_loc: to,
+            key: 'getPostbyLoc',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/user-posts.php', data)
+                .toPromise()
+                .then(function (res) {
+                console.log(res);
+                // if ( res.text() != 'User already Exist' && res.text() == '1' )
+                //   resolve( true );
+                // else
+                //   resolve( false )
+            });
+        });
+        return promise;
+    };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], ApiProvider);
     return ApiProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
@@ -197,9 +250,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(248);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(246);
@@ -242,14 +295,15 @@ var AppModule = /** @class */ (function () {
                     mode: 'ios'
                 }, {
                     links: [
+                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }

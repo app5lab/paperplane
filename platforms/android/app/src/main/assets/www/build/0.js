@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 411:
+/***/ 416:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,8 +8,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductDetailsPageModule", function() { return ProductDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__product_details__ = __webpack_require__(425);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_image_loader__ = __webpack_require__(426);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__product_details__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_image_loader__ = __webpack_require__(434);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var ProductDetailsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 413:
+/***/ 421:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -241,19 +241,19 @@ ImageLoaderConfig.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 414:
+/***/ 422:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImageLoader; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_file__ = __webpack_require__(416);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(417);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__image_loader_config__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_file__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(425);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__image_loader_config__ = __webpack_require__(421);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_first__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_first__ = __webpack_require__(438);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_first___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_first__);
 
 
@@ -801,14 +801,14 @@ ImageLoader.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 415:
+/***/ 423:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ImgLoader; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_image_loader__ = __webpack_require__(414);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_image_loader_config__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_image_loader__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_image_loader_config__ = __webpack_require__(421);
 
 
 
@@ -1032,7 +1032,7 @@ ImgLoader.propDecorators = {
 
 /***/ }),
 
-/***/ 416:
+/***/ 424:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1978,7 +1978,7 @@ var File = (function (_super) {
 
 /***/ }),
 
-/***/ 417:
+/***/ 425:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2016,11 +2016,11 @@ var File = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operator_concatMap__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operator_concatMap__ = __webpack_require__(436);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operator_concatMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_operator_concatMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_filter__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_filter__ = __webpack_require__(437);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_filter__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_map__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_map__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_tslib__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(50);
@@ -4776,7 +4776,7 @@ var HttpClientJsonpModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 425:
+/***/ 433:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4799,6 +4799,7 @@ var ProductDetailsPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.reviews = [];
+        this.details = [];
         this.product = {
             name: 'Nike Air',
             images: ['../../assets/imgs/s1.jpg', 'assets/imgs/s2.jpg', 'assets/imgs/s3.jpg'],
@@ -4808,6 +4809,10 @@ var ProductDetailsPage = /** @class */ (function () {
         this.reviews = [{
                 reviewer_name: 'Hassan Ali',
                 review: "'So comfortable and durable. Definitely get them if you need comfy shoes, I don't run in them, I use them for fashion and I can say they go with everything.'"
+            }];
+        this.details = [{
+                title: 'Product details',
+                p_det: '-Color Blue -Size 7 -Nike Sole -Soft Rubber -Blue Laces '
             }];
     }
     //Slider options
@@ -4822,7 +4827,7 @@ var ProductDetailsPage = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */])
     ], ProductDetailsPage.prototype, "slides", void 0);
     ProductDetailsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-product-details',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/product-details/product-details.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>{{ product.name}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-card>\n\n    <ion-slides #slides>\n      <ion-slide *ngFor="let image of product.images">\n        <img src="{{image}}" />\n      </ion-slide>\n    </ion-slides>\n\n    <ion-card-content>\n      <ion-card-title>\n        <!-- <ion-chip color="dark" style="margin-right: 5px" *ngFor="let cat of product.categories" center>\n          <ion-label color="light" > {{ cat }} </ion-label>\n        </ion-chip> -->\n        <ion-label>Item Price <b>${{product.price}}</b></ion-label>\n      </ion-card-title>\n        <ion-label style="text-align: center"> <u> Traveler\'s Reward </u></ion-label>\n        <h1>from <b>$10</b></h1> \n      <p *ngIf="product.short_description" [innerHTML]="product.short_description"></p>\n\n      <ion-item>\n        <ion-label>Amount</ion-label>\n        <ion-input type="number" value=""></ion-input>\n      </ion-item>\n      <ion-item (click)=\'flight()\'>\n        <ion-label>Select Flight</ion-label>\n        <ion-input disabled type="number" value=""></ion-input>\n      </ion-item>\n      <button ion-button icon-left block outline color="primary">\n        Send Offer\n      </button>\n    </ion-card-content>\n\n  </ion-card>\n\n  <ion-card *ngIf="reviews.length > 0">\n    <ion-card-content>\n      <ion-card-title>\n         REVIEWS\n      </ion-card-title>\n\n      <ion-grid>\n        <ion-row *ngFor="let review of reviews">\n          <ion-col col-4>\n            <b>{{ review.reviewer_name }}</b>\n            <br/>\n            <span *ngIf="review.rating >= 1">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 2">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 3">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 4">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 5">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n\n          </ion-col>\n          <ion-col col-8>\n            {{ review.review }}\n          </ion-col>\n\n        </ion-row>\n      </ion-grid>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/product-details/product-details.html"*/ }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({ selector: 'page-product-details',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/product-details/product-details.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>{{ product.name}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-card>\n\n    <ion-slides #slides>\n      <ion-slide *ngFor="let image of product.images">\n        <img src="{{image}}" />\n      </ion-slide>\n    </ion-slides>\n\n    <ion-card-content>\n      <ion-card-title>\n        <!-- <ion-chip color="dark" style="margin-right: 5px" *ngFor="let cat of product.categories" center>\n          <ion-label color="light" > {{ cat }} </ion-label>\n        </ion-chip> -->\n\n        <ion-list>\n         <ion-item>\n          <ion-label style="font-size:25px;" >Nike Air <b>(Shoes)</b>  </ion-label>\n         </ion-item>       \n        </ion-list>\n\n        <ion-label style="margin-left:12px">Item Price <b>${{product.price}}</b></ion-label>\n         </ion-card-title>\n        <ion-label style="text-align: center"> <u> Traveler\'s Reward </u></ion-label>\n        <h1>from <b>$10</b></h1> \n      <p *ngIf="product.short_description" [innerHTML]="product.short_description"></p>\n\n      <ion-item>\n        <ion-label>Amount</ion-label>\n        <ion-input type="number" value=""></ion-input>\n      </ion-item>\n      <ion-item (click)=\'flight()\'>\n        <ion-label>Select Flight</ion-label>\n        <ion-input disabled type="number" value=""></ion-input>\n      </ion-item>\n      <button ion-button icon-left block outline color="primary">\n        Send Offer\n      </button>\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  \n\n\n  <ion-card *ngIf="details.length > 0">\n    <ion-card-content>\n      <ion-card-title>\n         DETAILS\n      </ion-card-title>\n\n      <ion-grid>\n        <ion-row *ngFor="let detail of details">\n          <ion-col col-4>\n            <b>{{ detail.title }}</b>\n            <br/>\n    \n          </ion-col>\n          <ion-col col-8>\n            {{ detail.p_det }}\n          </ion-col>\n\n        </ion-row>\n      </ion-grid>\n    </ion-card-content>\n\n    <ion-item >\n      <ion-avatar item-start style="margin-left:40%;">\n        <img  style="width:60px; height:60px" src="assets/imgs/s1.jpg">   \n      </ion-avatar>    \n    </ion-item>\n    <h2 style="margin-left:15%"><b>Uzair</b> requested 22 minutes ago</h2>\n\n    <button ion-button   style="border:#671a94; margin-left:25% ; color:white">\n      <ion-icon name=\'mail\' is-active="false" style=""></ion-icon>\n     &nbsp;&nbsp; Chat with <b>&nbsp;&nbsp;Uzair </b>\n</button>\n\n<div style="margin:30px; font-size:50%;">\n  <h6>Deliver to Hamza</h6>\n  <h6>From USA</h6>\n  <h6> <ion-icon name=\'pin\'></ion-icon> &nbsp; Where to buy<a href="www.amazon.com">www.amazon.com</a></h6>\n  <h6> <ion-icon name=\'basket\'></ion-icon> &nbsp; Quantity 1</h6>\n</div>\n\n<button ion-button outline style="width: 48%;">\n    <ion-icon name=\'logo-facebook\'></ion-icon>&nbsp;Facebook</button>\n<button ion-button outline style="width: 48%;">\n    <ion-icon name=\'logo-instagram\'></ion-icon>&nbsp;Instagram</button>\n\n  </ion-card>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  <ion-card *ngIf="reviews.length > 0">\n    <ion-card-content>\n      <ion-card-title>\n         REVIEWS\n      </ion-card-title>\n\n      <ion-grid>\n        <ion-row *ngFor="let review of reviews">\n          <ion-col col-4>\n            <b>{{ review.reviewer_name }}</b>\n            <br/>\n            <span *ngIf="review.rating >= 1">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 2">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 3">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 4">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n            <span *ngIf="review.rating >= 5">\n              <ion-icon style="color: #d4af37" small name="star"></ion-icon>\n            </span>\n\n          </ion-col>\n          <ion-col col-8>\n            {{ review.review }}\n          </ion-col>\n\n        </ion-row>\n      </ion-grid>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/product-details/product-details.html"*/ }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
     ], ProductDetailsPage);
@@ -4833,17 +4838,17 @@ var ProductDetailsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 426:
+/***/ 434:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__image_loader_module__ = __webpack_require__(427);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__image_loader_module__ = __webpack_require__(435);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__image_loader_module__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_img_loader__ = __webpack_require__(415);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_img_loader__ = __webpack_require__(423);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_image_loader_config__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_image_loader_config__ = __webpack_require__(421);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_image_loader__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_image_loader__ = __webpack_require__(422);
 /* unused harmony namespace reexport */
 
 
@@ -4853,18 +4858,18 @@ var ProductDetailsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 427:
+/***/ 435:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IonicImageLoader; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_img_loader__ = __webpack_require__(415);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_image_loader__ = __webpack_require__(414);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_image_loader_config__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_img_loader__ = __webpack_require__(423);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_image_loader__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_image_loader_config__ = __webpack_require__(421);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(416);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(425);
 
 
 
@@ -4908,7 +4913,7 @@ IonicImageLoader.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 428:
+/***/ 436:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4982,7 +4987,7 @@ exports.concatMap = concatMap;
 
 /***/ }),
 
-/***/ 429:
+/***/ 437:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5036,19 +5041,19 @@ exports.filter = filter;
 
 /***/ }),
 
-/***/ 430:
+/***/ 438:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Observable_1 = __webpack_require__(9);
-var first_1 = __webpack_require__(431);
+var first_1 = __webpack_require__(439);
 Observable_1.Observable.prototype.first = first_1.first;
 //# sourceMappingURL=first.js.map
 
 /***/ }),
 
-/***/ 431:
+/***/ 439:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

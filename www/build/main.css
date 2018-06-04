@@ -25863,6 +25863,10 @@ page-home .im {
   border-radius: 5px;
 }
 
+page-home #tha {
+  height: 56px !important;
+}
+
 page-home button {
   height: 40px !important;
 }

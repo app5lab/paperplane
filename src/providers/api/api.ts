@@ -70,5 +70,69 @@ export class ApiProvider {
     return promise;
   }
 
+  addPost ( title, des, im1, im2, im3, tr, from, to, touser, buy ): Promise<any>
+  {
+    var data={
+      title:title,
+      description:des,
+      image1: im1,
+      image2: im2,
+      image3: im3,
+      treward:tr,
+      from:from,
+      to:to,
+      touser:touser,
+      buy:buy,
+      key: 'addPost',
+      sec: '((|m5DlhrplfKx1'
+    }
+
+    let promise = new Promise( ( resolve ) =>
+    {
+      this.http.post( 'https://zipship.io/user-posts.php', data )
+        .toPromise()
+        .then(
+          res =>
+          {
+            console.log(res);
+            
+            // if ( res.text() != 'User already Exist' && res.text() == '1' )
+            //   resolve( true );
+            // else
+            //   resolve( false )
+          }
+        );
+    } );
+    return promise;
+
+  }
+
+  getPostbyLoc (from,to): Promise<any>
+  {
+    var data = {
+      from_loc: from,
+      to_loc: to,
+      key: 'getPostbyLoc',
+      sec: '((|m5DlhrplfKx1'
+    }
+
+    let promise = new Promise( ( resolve ) =>
+    {
+      this.http.post( 'https://zipship.io/user-posts.php', data )
+        .toPromise()
+        .then(
+          res =>
+          {
+            console.log( res );
+
+            // if ( res.text() != 'User already Exist' && res.text() == '1' )
+            //   resolve( true );
+            // else
+            //   resolve( false )
+          }
+        );
+    } );
+    return promise;
+  }
 
 }
