@@ -22,7 +22,7 @@ webpackEmptyAsyncContext.id = 140;
 
 var map = {
 	"../pages/account/account.module": [
-		410,
+		411,
 		11
 	],
 	"../pages/add-post/add-post.module": [
@@ -30,31 +30,31 @@ var map = {
 		10
 	],
 	"../pages/card/card.module": [
-		412,
+		410,
 		9
 	],
 	"../pages/chat/chat.module": [
-		411,
+		412,
 		8
 	],
 	"../pages/conversation/conversation.module": [
-		413,
+		415,
 		7
 	],
 	"../pages/flights/flights.module": [
-		414,
+		413,
 		6
 	],
 	"../pages/history/history.module": [
-		415,
+		414,
 		5
 	],
 	"../pages/home/home.module": [
-		417,
+		416,
 		4
 	],
 	"../pages/login/login.module": [
-		416,
+		417,
 		3
 	],
 	"../pages/product-details/product-details.module": [
@@ -119,20 +119,59 @@ var ApiProvider = /** @class */ (function () {
     }
     ApiProvider.prototype.login = function (email, pass) {
         var _this = this;
-        var data = {
+        var dataa = {
             email: email,
             password: pass,
             key: 'login',
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/manage-data.php', data)
+            _this.http.post('https://zipship.io/manage-data.php', dataa)
                 .toPromise()
                 .then(function (res) {
-                if (res.text() != 'Invalid User')
+                if (res.text() != 'Invalid User') {
+                    console.log(JSON.parse(res.text()));
+                    var data = JSON.parse(res.text());
+                    var temp = {
+                        email: data.email,
+                        id: data.id,
+                        fname: data.firstname,
+                        lname: data.lastname,
+                        verified: data.verified,
+                        created: data.created,
+                        phone: data.phone,
+                        address: data.address
+                    };
+                    localStorage.setItem('zip_user', JSON.stringify(temp));
+                    localStorage.setItem('zip_login', 'true');
                     resolve(true);
+                }
                 else
                     resolve(false);
+            });
+        });
+        return promise;
+    };
+    ApiProvider.prototype.addFlight = function (src_cr, src_ct, des_cr, des_ct, time, id) {
+        var _this = this;
+        var dataa = {
+            source_country: src_cr,
+            source_city: src_ct,
+            destination_country: des_cr,
+            destination_city: des_ct,
+            time: time,
+            userid: id,
+            key: 'addflight',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/flight-data.php', dataa)
+                .toPromise()
+                .then(function (res) {
+                console.log(res);
+                //   resolve( true );
+                // else
+                //   resolve( false )
             });
         });
         return promise;
@@ -215,9 +254,10 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
     ], ApiProvider);
     return ApiProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
@@ -250,9 +290,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(248);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(246);
@@ -296,14 +336,14 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }

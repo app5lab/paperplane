@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http'
 import * as md5 from 'md5'
+import { log } from 'util';
 /*
   Generated class for the ApiProvider provider.
 
@@ -15,7 +16,7 @@ export class ApiProvider {
   }
 
   login(email,pass):Promise<any>{
-    var data = {
+    var dataa = {
       email: email,
       password: pass,
       key: 'login',
@@ -23,15 +24,59 @@ export class ApiProvider {
     }
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/manage-data.php', data )
+      this.http.post( 'https://zipship.io/manage-data.php', dataa )
         .toPromise()
         .then(
           res =>
           {
-            if ( res.text() != 'Invalid User' )
+            if ( res.text() != 'Invalid User' ){
+              console.log(JSON.parse(res.text()));
+              var data = JSON.parse( res.text() )
+              var temp = {
+                email:data.email,
+                id:data.id,
+                fname:data.firstname,
+                lname:data.lastname,
+                verified:data.verified,
+                created:data.created,
+                phone:data.phone,
+                address:data.address
+              }
+              localStorage.setItem('zip_user', JSON.stringify(temp))
+              localStorage.setItem('zip_login', 'true')
               resolve(true);
+            }
             else
             resolve(false)
+          }
+        );
+    } );
+    return promise;
+  }
+  addFlight ( src_cr,src_ct, des_cr,des_ct, time, id ): Promise<any>
+  {
+    var dataa = {
+      source_country: src_cr,
+      source_city: src_ct,      
+      destination_country: des_cr,
+      destination_city: des_ct,      
+      time:time,
+      userid:id,
+      key: 'addflight',
+      sec: '((|m5DlhrplfKx1'
+    }
+    let promise = new Promise( ( resolve ) =>
+    {
+      this.http.post( 'https://zipship.io/flight-data.php', dataa )
+        .toPromise()
+        .then(
+          res =>
+          {
+            console.log(res);
+            
+            //   resolve( true );
+            // else
+            //   resolve( false )
           }
         );
     } );

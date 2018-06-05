@@ -10,6 +10,7 @@ import
   GoogleMapsEvent,
 } from '@ionic-native/google-maps';
 import { Http } from '@angular/http'
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the FlightsPage page.
@@ -25,7 +26,9 @@ import { Http } from '@angular/http'
 })
 export class FlightsPage {
   constructor( public http: Http, public navCtrl: NavController, public navParams: NavParams, private platform: Platform,
-  private googleMaps: GoogleMaps) {
+      public api: ApiProvider,
+
+    private googleMaps: GoogleMaps) {
 }
 
   ionViewDidLoad ()
@@ -36,32 +39,12 @@ export class FlightsPage {
   }
 
   addFlight(){
-    // var data = {
-    //   firstname:'Hassan',
-    //   lastname:'Ali',
-    //   address:'363 E1 Johar Town',
-    //   email:'ali@appslab.io',
-    //   phone:'03134698550',
-    //   password:'test123',
-    //   key:'create',
-    //   sec:'((|m5DlhrplfKx1'
-    // }
-
-    var data = {
-      email: 'hassan@appslab.io',
-      password:'123456' ,
-      key:'login',
-      sec: '((|m5DlhrplfKx1'
-
-    }
-    this.http.post( 'https://zipship.io/manage-data.php', data).subscribe( res => {
-      console.log((res)); 
-    })
-    //console.log( md5( '123456' ) )//= '$2y$10$MIVI73kil.V3WvspSjg87eK/QsGgH3NPUgqj8cIq0URYEyFBKO2fa' ); 
-    // this.http.get( 'https://zipship.io/retrieve-data.php' ).subscribe( res =>
-    // {
-    //   console.log(JSON.parse( res._body )); 
-    // })
-
+      var  scr = 'USA';
+      var scity = 'New York';
+      var dcr = 'Pakistan';
+      var dct = 'Lahore';
+      var time = '15:34:23';
+      var userid =  '1';
+      this.api.addFlight(scr, scity, dcr, dct, time, userid)
   }
 }
