@@ -1,4 +1,4 @@
-webpackJsonp([12],{
+webpackJsonp([13],{
 
 /***/ 140:
 /***/ (function(module, exports) {
@@ -22,51 +22,55 @@ webpackEmptyAsyncContext.id = 140;
 
 var map = {
 	"../pages/account/account.module": [
-		411,
-		11
+		409,
+		12
 	],
 	"../pages/add-post/add-post.module": [
-		409,
+		410,
+		11
+	],
+	"../pages/addflight/addflight.module": [
+		411,
 		10
 	],
 	"../pages/card/card.module": [
-		410,
+		412,
 		9
 	],
 	"../pages/chat/chat.module": [
-		412,
+		413,
 		8
 	],
 	"../pages/conversation/conversation.module": [
-		415,
+		414,
 		7
 	],
 	"../pages/flights/flights.module": [
-		413,
+		415,
 		6
 	],
 	"../pages/history/history.module": [
-		414,
+		416,
 		5
 	],
 	"../pages/home/home.module": [
-		416,
+		417,
 		4
 	],
 	"../pages/login/login.module": [
-		417,
+		418,
 		3
 	],
 	"../pages/product-details/product-details.module": [
-		418,
+		419,
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		419,
+		420,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		420,
+		421,
 		1
 	]
 };
@@ -119,59 +123,20 @@ var ApiProvider = /** @class */ (function () {
     }
     ApiProvider.prototype.login = function (email, pass) {
         var _this = this;
-        var dataa = {
+        var data = {
             email: email,
             password: pass,
             key: 'login',
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/manage-data.php', dataa)
+            _this.http.post('https://zipship.io/manage-data.php', data)
                 .toPromise()
                 .then(function (res) {
-                if (res.text() != 'Invalid User') {
-                    console.log(JSON.parse(res.text()));
-                    var data = JSON.parse(res.text());
-                    var temp = {
-                        email: data.email,
-                        id: data.id,
-                        fname: data.firstname,
-                        lname: data.lastname,
-                        verified: data.verified,
-                        created: data.created,
-                        phone: data.phone,
-                        address: data.address
-                    };
-                    localStorage.setItem('zip_user', JSON.stringify(temp));
-                    localStorage.setItem('zip_login', 'true');
+                if (res.text() != 'Invalid User')
                     resolve(true);
-                }
                 else
                     resolve(false);
-            });
-        });
-        return promise;
-    };
-    ApiProvider.prototype.addFlight = function (src_cr, src_ct, des_cr, des_ct, time, id) {
-        var _this = this;
-        var dataa = {
-            source_country: src_cr,
-            source_city: src_ct,
-            destination_country: des_cr,
-            destination_city: des_ct,
-            time: time,
-            userid: id,
-            key: 'addflight',
-            sec: '((|m5DlhrplfKx1'
-        };
-        var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/flight-data.php', dataa)
-                .toPromise()
-                .then(function (res) {
-                console.log(res);
-                //   resolve( true );
-                // else
-                //   resolve( false )
             });
         });
         return promise;
@@ -254,10 +219,9 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], ApiProvider);
     return ApiProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
@@ -335,13 +299,14 @@ var AppModule = /** @class */ (function () {
                     mode: 'ios'
                 }, {
                     links: [
-                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
@@ -406,7 +371,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);

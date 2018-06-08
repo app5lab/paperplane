@@ -7,8 +7,9 @@
 </ion-header>
 
 
-<ion-content padding>
-<ion-card id='asd' *ngIf="true">
+ <ion-content padding class="bg">
+ 
+<ion-card id='asd' *ngIf="true" class="Main" >
   <ion-card-content text-center>
     <ion-card-title>
       Travelling Somewhere?
@@ -17,12 +18,13 @@
       Post a flight and start making money!
     </p>
     <br><br>
-    <button ion-button outline item-center (click)='addFlight()'>Add Flight</button>
+    <button ion-button outline item-center (click)='addFlight()' (click)='flights()'>Add Flight</button>
   </ion-card-content>
 </ion-card>
 
 
-<ion-card text-center>
+
+<ion-card text-center class="crd">
   <ion-grid>
     <ion-row style="height: 70px;">
         <ion-col col-4 align-self-center>
@@ -46,6 +48,56 @@
   </ion-grid>
   
 </ion-card>
+<ion-card text-center class="crd1">
+    <ion-grid>
+      <ion-row style="height: 70px;">
+          <ion-col col-4 align-self-center>
+              <h1>Paris</h1>
+          </ion-col>
+          
+          <ion-col col-4 align-self-center>
+            <h2>
+              <span>11/06</span>
+            </h2>
+          </ion-col>
+  
+          <ion-col col-4 align-self-center>
+              <h1>Pakistan</h1>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <button ion-button outline style="width: 48%;">Remove</button>
+          <button ion-button style="width: 48%;">Edit</button>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-card>
+
+<ion-card text-center class="crd2">
+    <ion-grid>
+      <ion-row style="height: 70px;">
+          <ion-col col-4 align-self-center>
+              <h1>UAE</h1>
+          </ion-col>
+          
+          <ion-col col-4 align-self-center>
+            <h2>
+              <span>11/06</span>
+            </h2>
+          </ion-col>
+  
+          <ion-col col-4 align-self-center>
+              <h1>Pakistan</h1>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <button ion-button outline style="width: 48%;">Remove</button>
+          <button ion-button style="width: 48%;">Edit</button>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-card>
+
 
 
 </ion-content>

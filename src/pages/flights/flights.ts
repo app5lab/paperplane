@@ -47,4 +47,7 @@ export class FlightsPage {
       var userid =  '1';
       this.api.addFlight(scr, scity, dcr, dct, time, userid)
   }
+  flights(){
+    this.navCtrl.push('AddflightPage')
+  }
 }
