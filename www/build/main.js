@@ -1,6 +1,6 @@
 webpackJsonp([13],{
 
-/***/ 140:
+/***/ 139:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,64 +13,64 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 140;
+webpackEmptyAsyncContext.id = 139;
 
 /***/ }),
 
-/***/ 183:
+/***/ 182:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/account/account.module": [
-		409,
+		413,
 		12
 	],
 	"../pages/add-post/add-post.module": [
-		410,
+		415,
 		11
 	],
 	"../pages/addflight/addflight.module": [
-		411,
+		414,
 		10
 	],
 	"../pages/card/card.module": [
-		412,
+		417,
 		9
 	],
 	"../pages/chat/chat.module": [
-		413,
+		416,
 		8
 	],
 	"../pages/conversation/conversation.module": [
-		414,
+		418,
 		7
 	],
 	"../pages/flights/flights.module": [
-		415,
+		420,
 		6
 	],
 	"../pages/history/history.module": [
-		416,
+		421,
 		5
 	],
 	"../pages/home/home.module": [
-		417,
+		419,
 		4
 	],
 	"../pages/login/login.module": [
-		418,
+		422,
 		3
 	],
 	"../pages/product-details/product-details.module": [
-		419,
+		423,
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		420,
+		425,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		421,
+		424,
 		1
 	]
 };
@@ -85,7 +85,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 183;
+webpackAsyncContext.id = 182;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -96,8 +96,8 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -123,20 +123,74 @@ var ApiProvider = /** @class */ (function () {
     }
     ApiProvider.prototype.login = function (email, pass) {
         var _this = this;
-        var data = {
+        var dataa = {
             email: email,
             password: pass,
             key: 'login',
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/manage-data.php', data)
-                .toPromise()
+            _this.http.post('https://zipship.io/manage-data.php', dataa, {})
                 .then(function (res) {
-                if (res.text() != 'Invalid User')
+                if (res.data != 'Invalid User') {
+                    var data = res.data;
+                    var temp = {
+                        email: data.email,
+                        id: data.id,
+                        fname: data.firstname,
+                        lname: data.lastname,
+                        verified: data.verified,
+                        created: data.created,
+                        phone: data.phone,
+                        address: data.address
+                    };
+                    localStorage.setItem('zip_user', JSON.stringify(temp));
+                    localStorage.setItem('zip_login', 'true');
                     resolve(true);
+                }
                 else
                     resolve(false);
+            });
+        });
+        return promise;
+    };
+    ApiProvider.prototype.addFlight = function (src_cr, src_ct, des_cr, des_ct, time, id) {
+        var _this = this;
+        var dataa = {
+            source_country: src_cr,
+            source_city: src_ct,
+            destination_country: des_cr,
+            destination_city: des_ct,
+            time: time,
+            userid: id,
+            key: 'addflight',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/flight-data.php', dataa, {})
+                .then(function (res) {
+                console.log(res);
+                //   resolve( true );
+                // else
+                //   resolve( false )
+            });
+        });
+        return promise;
+    };
+    ApiProvider.prototype.getFlights = function (id) {
+        var _this = this;
+        var dataa = {
+            id: id,
+            key: 'userId',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/flight-data.php', dataa, {})
+                .then(function (res) {
+                if (res.data != 'Invalid Data')
+                    resolve(res.data);
+                else
+                    resolve('false');
             });
         });
         return promise;
@@ -156,10 +210,9 @@ var ApiProvider = /** @class */ (function () {
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/manage-data.php', data)
-                .toPromise()
+            _this.http.post('https://zipship.io/manage-data.php', data, {})
                 .then(function (res) {
-                if (res.text() != 'User already Exist' && res.text() == '1')
+                if (res.data != 'User already Exist' && res.data == '1')
                     resolve(true);
                 else
                     resolve(false);
@@ -184,11 +237,10 @@ var ApiProvider = /** @class */ (function () {
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/user-posts.php', data)
-                .toPromise()
+            _this.http.post('https://zipship.io/user-posts.php', data, {})
                 .then(function (res) {
                 console.log(res);
-                // if ( res.text() != 'User already Exist' && res.text() == '1' )
+                // if ( res.data != 'User already Exist' && res.data == '1' )
                 //   resolve( true );
                 // else
                 //   resolve( false )
@@ -205,11 +257,32 @@ var ApiProvider = /** @class */ (function () {
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/user-posts.php', data)
-                .toPromise()
+            _this.http.post('https://zipship.io/user-posts.php', data, {})
                 .then(function (res) {
                 console.log(res);
-                // if ( res.text() != 'User already Exist' && res.text() == '1' )
+                // if ( res.data != 'User already Exist' && res.data == '1' )
+                //   resolve( true );
+                // else
+                //   resolve( false )
+            });
+        });
+        return promise;
+    };
+    ApiProvider.prototype.bid = function (pid, uid, amount, flight) {
+        var _this = this;
+        var data = {
+            post_id: pid,
+            user_id: uid,
+            amount: amount,
+            flight_id: flight,
+            key: 'addbid',
+            sec: '((|m5DlhrplfKx1'
+        };
+        var promise = new Promise(function (resolve) {
+            _this.http.post('https://zipship.io/biddingBc.php', data, {})
+                .then(function (res) {
+                console.log(res);
+                // if ( res.data != 'User already Exist' && res.data == '1' )
                 //   resolve( true );
                 // else
                 //   resolve( false )
@@ -219,7 +292,7 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]])
     ], ApiProvider);
     return ApiProvider;
 }());
@@ -228,13 +301,13 @@ var ApiProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 253:
+/***/ 256:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(264);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -242,30 +315,38 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 261:
+/***/ 264:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_file_transfer__ = __webpack_require__(412);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_file__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_image_picker__ = __webpack_require__(249);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -300,18 +381,18 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -322,11 +403,13 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_7_css_animator__["AnimationService"],
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__["a" /* Keyboard */],
                 __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__["a" /* GoogleMaps */],
-                __WEBPACK_IMPORTED_MODULE_11__providers_api_api__["a" /* ApiProvider */]
+                __WEBPACK_IMPORTED_MODULE_11__providers_api_api__["a" /* ApiProvider */],
+                __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__["a" /* HTTP */],
+                __WEBPACK_IMPORTED_MODULE_13__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_14__ionic_native_file__["a" /* File */], __WEBPACK_IMPORTED_MODULE_15__ionic_native_image_picker__["a" /* ImagePicker */],
+                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] }
             ]
         })
     ], AppModule);
@@ -337,14 +420,14 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 312:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(229);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -371,7 +454,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -382,5 +465,5 @@ var MyApp = /** @class */ (function () {
 
 /***/ })
 
-},[253]);
+},[256]);
 //# sourceMappingURL=main.js.map

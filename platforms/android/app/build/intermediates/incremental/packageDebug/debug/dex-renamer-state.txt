@@ -1,4 +1,4 @@
-#Sat Jun 02 23:42:37 PKT 2018
+#Fri Jun 08 23:10:42 PKT 2018
 base.0=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 file.0=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex

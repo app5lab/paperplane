@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http'
+import { HTTP, HTTPResponse } from '@ionic-native/http';
 import * as md5 from 'md5'
 import { log } from 'util';
 /*
@@ -12,7 +12,7 @@ import { log } from 'util';
 @Injectable()
 export class ApiProvider {
 
-  constructor(public http: Http) {
+  constructor(public http: HTTP) {
   }
 
   login(email,pass):Promise<any>{
@@ -24,14 +24,12 @@ export class ApiProvider {
     }
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/manage-data.php', dataa )
-        .toPromise()
+      this.http.post( 'https://zipship.io/manage-data.php', dataa ,{} )
         .then(
           res =>
           {
-            if ( res.text() != 'Invalid User' ){
-              console.log(JSON.parse(res.text()));
-              var data = JSON.parse( res.text() )
+            if ( res.data != 'Invalid User' ){
+              var data =res.data
               var temp = {
                 email:data.email,
                 id:data.id,
@@ -67,8 +65,7 @@ export class ApiProvider {
     }
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/flight-data.php', dataa )
-        .toPromise()
+      this.http.post( 'https://zipship.io/flight-data.php', dataa ,{})
         .then(
           res =>
           {
@@ -82,7 +79,28 @@ export class ApiProvider {
     } );
     return promise;
   }
-
+  getFlights(id):Promise<any>
+  {
+    var dataa = {
+      id: id,
+      key: 'userId',
+      sec: '((|m5DlhrplfKx1'
+    }
+    let promise = new Promise( ( resolve ) =>
+    {
+      this.http.post( 'https://zipship.io/flight-data.php', dataa ,{} )
+        .then(
+          res =>
+          {
+            if(res.data != 'Invalid Data')
+              resolve( res.data );
+            else
+              resolve( 'false' )
+          }
+        );
+    } );
+    return promise;
+  }
   register ( firstname, lastname, address,phone, email, password ): Promise<any>
   {
     var p = md5( password );
@@ -100,12 +118,11 @@ export class ApiProvider {
     }
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/manage-data.php', data )
-        .toPromise()
+      this.http.post( 'https://zipship.io/manage-data.php', data ,{})
         .then(
           res =>
           {
-            if ( res.text() != 'User already Exist' && res.text() == '1' )
+            if ( res.data != 'User already Exist' && res.data == '1' )
               resolve( true );
             else
               resolve( false )
@@ -134,14 +151,13 @@ export class ApiProvider {
 
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/user-posts.php', data )
-        .toPromise()
+      this.http.post( 'https://zipship.io/user-posts.php', data,{} )
         .then(
           res =>
           {
             console.log(res);
             
-            // if ( res.text() != 'User already Exist' && res.text() == '1' )
+            // if ( res.data != 'User already Exist' && res.data == '1' )
             //   resolve( true );
             // else
             //   resolve( false )
@@ -163,14 +179,42 @@ export class ApiProvider {
 
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/user-posts.php', data )
-        .toPromise()
+      this.http.post( 'https://zipship.io/user-posts.php', data,{} )
         .then(
           res =>
           {
             console.log( res );
 
-            // if ( res.text() != 'User already Exist' && res.text() == '1' )
+            // if ( res.data != 'User already Exist' && res.data == '1' )
+            //   resolve( true );
+            // else
+            //   resolve( false )
+          }
+        );
+    } );
+    return promise;
+  }
+
+  bid(pid,uid,amount,flight): Promise<any>
+  {
+    var data = {
+      post_id:pid,
+      user_id: uid,
+      amount:amount,
+      flight_id:flight,
+      key: 'addbid',
+      sec: '((|m5DlhrplfKx1'
+    }
+
+    let promise = new Promise( ( resolve ) =>
+    {
+      this.http.post( 'https://zipship.io/biddingBc.php', data ,{})
+        .then(
+          res =>
+          {
+            console.log( res );
+
+            // if ( res.data != 'User already Exist' && res.data == '1' )
             //   resolve( true );
             // else
             //   resolve( false )

@@ -71,11 +71,18 @@
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
+        <key>192.168.10.12</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
       </dict>
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
     <key>UILaunchStoryboardName</key>
     <string>CDVLaunchScreen</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>add images</string>
   </dict>
 </plist>

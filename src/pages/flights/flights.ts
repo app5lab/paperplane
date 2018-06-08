@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, AlertController } from 'ionic-angular';
 
 declare var google: any;
 import
@@ -25,10 +25,17 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'flights.html',
 })
 export class FlightsPage {
+  flightss: any[]=[]
   constructor( public http: Http, public navCtrl: NavController, public navParams: NavParams, private platform: Platform,
-      public api: ApiProvider,
+      public api: ApiProvider, public alert: AlertController,
 
     private googleMaps: GoogleMaps) {
+    var user = JSON.parse(localStorage.getItem('zip_user'))
+      this.api.getFlights(user.id).then( (data) => {
+        this.flightss = data
+        console.log(this.flightss);
+        
+      })
 }
 
   ionViewDidLoad ()

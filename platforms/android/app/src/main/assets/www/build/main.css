@@ -25737,6 +25737,10 @@ page-account ion-avatar img {
   border-radius: 50%;
 }
 
+page-account ion-label {
+  color: #671a94;
+}
+
 page-chat ion-note {
   font-size: 14px;
   -webkit-align-self: flex-start;
@@ -25769,10 +25773,49 @@ page-flights #asd {
   border-radius: 20px !important;
 }
 
-page-flights ion-card {
+page-flights .crd {
+  border: #671a94 1.5px solid;
+  color: #671a94;
+  border-radius: 10px !important;
+  background-image: url("../../assets/imgs/Statue.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+page-flights .crd1 {
+  border: #671a94 1.5px solid;
+  color: #671a94;
+  border-radius: 10px !important;
+  background-image: url("../../assets/imgs/Eifil.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+page-flights .crd2 {
+  border: #671a94 1.5px solid;
+  color: #671a94;
+  border-radius: 10px !important;
+  background-image: url("../../assets/imgs/UAE.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+page-flights .Main {
   border: #671a94 1.5px solid;
   border-radius: 10px !important;
-  background-image: url("../../assets/imgs/step0001.jpg") !important;
+  background-image: url("../../assets/imgs/") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+page-flights .bg {
+  border: #671a94 1.5px solid;
+  border-radius: 10px !important;
+  background-image: url("../../assets/imgs/ptrn11.jpg") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;

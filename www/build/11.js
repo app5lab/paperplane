@@ -1,6 +1,6 @@
 webpackJsonp([11],{
 
-/***/ 410:
+/***/ 415:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPostPageModule", function() { return AddPostPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_post__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_post__ = __webpack_require__(432);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -39,7 +39,7 @@ var AddPostPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 428:
+/***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47,6 +47,7 @@ var AddPostPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__ = __webpack_require__(249);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,20 +60,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the AddPostPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 var AddPostPage = /** @class */ (function () {
-    function AddPostPage(api, navCtrl, navParams) {
+    function AddPostPage(image, file, api, navCtrl, navParams) {
+        this.image = image;
+        this.file = file;
         this.api = api;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.files = [];
     }
     AddPostPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AddPostPage');
+    };
+    AddPostPage.prototype.upload = function () {
+        var _this = this;
+        var options = {
+            quality: 50,
+            maximumImagesCount: 3
+        };
+        // this.camera.getPicture( options ).then( ( imageData ) =>
+        // {
+        //   // imageData is either a base64 encoded string or a file URI
+        //   // If it's base64:
+        //   this.files = 'data:image/jpeg;base64,' + imageData;
+        // }, ( err ) =>
+        // {
+        //   // Handle error
+        //   console.log(err);
+        // } );
+        this.image.getPictures(options).then(function (results) {
+            _this.files = results;
+            for (var i = 0; i < results.length; i++) {
+                console.log('Image URI: ' + results[i]);
+            }
+        }, function (err) { });
     };
     AddPostPage.prototype.add = function () {
         this.api.getPostbyLoc('USA', 'Pakistan');
@@ -80,9 +102,9 @@ var AddPostPage = /** @class */ (function () {
     };
     AddPostPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-add-post',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\add-post\add-post.html"*/'<!--\n\n  Generated template for the AddPostPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>add-post</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n\n\n        <ion-item>\n\n          <ion-label floating>Title</ion-label>\n\n          <ion-input type="text"></ion-input>\n\n        </ion-item>\n\n      \n\n        <ion-item>\n\n          <ion-label floating>Discription</ion-label>\n\n          <ion-input type="text"></ion-input>\n\n        </ion-item>\n\n      \n\n        <ion-item>\n\n            <ion-label floating>Images</ion-label>\n\n            <ion-input type="text"></ion-input>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n              <ion-label floating>Traveler Reward</ion-label>\n\n              <ion-input type="number"></ion-input>\n\n            </ion-item>\n\n            \n\n            <ion-item>\n\n                <ion-label floating>From</ion-label>\n\n                <ion-input type="text"></ion-input>\n\n              </ion-item>\n\n\n\n           <ion-item>\n\n                <ion-label floating>To</ion-label>\n\n                <ion-input type="text"></ion-input>\n\n           </ion-item>\n\n\n\n           <ion-item>\n\n              <ion-label floating>Note</ion-label>\n\n              <ion-input type="text"></ion-input>\n\n         </ion-item>\n\n\n\n         <ion-item>\n\n            <ion-label floating>Item_url</ion-label>\n\n            <ion-input type="text"></ion-input>\n\n       </ion-item>\n\n\n\n       <ion-item>\n\n          <ion-label floating></ion-label>\n\n          <ion-input type="date"></ion-input>\n\n     </ion-item>\n\n\n\n     <ion-item>\n\n        <ion-label floating>Quentity</ion-label>\n\n        <ion-input type="number"></ion-input>\n\n   </ion-item>\n\n\n\n    </ion-list>\n\n  <button ion-button (click)=\'add()\'> Add </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\add-post\add-post.html"*/,
+            selector: 'page-add-post',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/add-post/add-post.html"*/'<!--\n  Generated template for the AddPostPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>add-post</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n\n        <ion-item>\n          <ion-label floating>Title</ion-label>\n          <ion-input type="text"></ion-input>\n        </ion-item>\n      \n        <ion-item>\n          <ion-label floating>Discription</ion-label>\n          <ion-input type="text"></ion-input>\n        </ion-item>\n      \n        <div>\n          <ion-item>\n            <ion-label floating>Images</ion-label>\n            <ion-input type="text"></ion-input>\n          </ion-item>\n          <button ion-button full round (click)="upload()">\n            Choose Images\n          </button>\n          <img src="{{file}}" *ngFor="let file of files">\n          \n        </div>\n\n          <ion-item>\n              <ion-label floating>Traveler Reward</ion-label>\n              <ion-input type="number"></ion-input>\n            </ion-item>\n            \n            <ion-item>\n                <ion-label floating>From</ion-label>\n                <ion-input type="text"></ion-input>\n              </ion-item>\n\n           <ion-item>\n                <ion-label floating>To</ion-label>\n                <ion-input type="text"></ion-input>\n           </ion-item>\n\n           <ion-item>\n              <ion-label floating>Note</ion-label>\n              <ion-input type="text"></ion-input>\n         </ion-item>\n\n         <ion-item>\n            <ion-label floating>Item_url</ion-label>\n            <ion-input type="text"></ion-input>\n       </ion-item>\n\n       <ion-item>\n          <ion-label floating></ion-label>\n          <ion-input type="date"></ion-input>\n     </ion-item>\n\n     <ion-item>\n        <ion-label floating>Quantity</ion-label>\n        <ion-input type="number"></ion-input>\n   </ion-item>\n\n    </ion-list>\n  <button ion-button full round (click)=\'add()\'> Add </button>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/add-post/add-post.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */], File, __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
     ], AddPostPage);
     return AddPostPage;
 }());

@@ -44,10 +44,19 @@
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
+    </feature>
+    <feature name="CordovaHttpPlugin">
+        <param name="ios-package" value="CordovaHttpPlugin" />
+    </feature>
+    <feature name="FilePicker">
+        <param name="ios-package" value="FilePicker" />
+    </feature>
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.10.12:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -58,6 +67,7 @@
     <allow-navigation href="http://192.168.10.4:8100" />
     <allow-navigation href="http://192.168.10.3:8100" />
     <allow-navigation href="http://192.168.10.6:8100" />
+    <allow-navigation href="http://192.168.10.12:8100" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />
@@ -116,4 +126,15 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="1000" />
     <preference name="Fullscreen" value="true" />
+    <feature name="PhotoLibrary">
+        <param name="ios-package" value="PhotoLibrary" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <preference name="CameraUsesGeolocation" value="false" />
+    <feature name="ImagePicker">
+        <param name="ios-package" value="SOSPicker" />
+    </feature>
 </widget>

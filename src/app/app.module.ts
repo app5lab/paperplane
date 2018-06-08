@@ -14,6 +14,12 @@ import { HttpModule } from '@angular/http';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { ApiProvider } from '../providers/api/api';
+import { HTTP } from '@ionic-native/http';
+
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,11 +44,13 @@ import { ApiProvider } from '../providers/api/api';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     AnimationService,
     Keyboard,
     GoogleMaps,
-    ApiProvider
+    ApiProvider,
+    HTTP,
+    FileTransfer, File, ImagePicker,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }    
   ]
 })
 export class AppModule {}

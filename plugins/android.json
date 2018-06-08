@@ -7,10 +7,31 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-filechooser": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-filepicker": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-ionic-keyboard": {
@@ -22,10 +43,13 @@
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-statusbar": {
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
