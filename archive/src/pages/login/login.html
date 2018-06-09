@@ -1,0 +1,27 @@
+<ion-content padding class="getstart">
+    <img src="assets/imgs/final.png" alt="" style="height: 350px;">
+      <ion-item class="in">
+        <ion-label fixed>
+          <ion-icon name="person"></ion-icon>
+          Username</ion-label>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
+      </ion-item>
+    <br>
+    <ion-item class="in">
+      <ion-label fixed>
+        <ion-icon name="lock"></ion-icon>
+         Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+<br>
+    
+    <button id='t' ion-button full round (click)="login()">Sign In</button>
+    <br>
+    <br>
+    <br> 
+    <div style="width: 100%;display: flex;justify-content: center;">
+      <button ion-button outline color=light round style="width: 60%;" (click)='signup()'>
+        Sign Up?
+      </button>   
+    </div>
+</ion-content>

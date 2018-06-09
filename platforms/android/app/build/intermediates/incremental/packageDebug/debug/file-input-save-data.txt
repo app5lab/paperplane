@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jun 08 23:10:43 PKT 2018
+#Sat Jun 09 01:17:45 PKT 2018
 20.base=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_
 143.base=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/assets/debug
 493.base=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_
