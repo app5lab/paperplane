@@ -1,4 +1,4 @@
-#Sun Jun 10 00:22:00 PKT 2018
-base.0=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Mon Jun 11 22:33:09 PKT 2018
+base.0=C\:\\Users\\tooth\\OneDrive\\Desktop\\zip\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
-file.0=/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex
+file.0=C\:\\Users\\tooth\\OneDrive\\Desktop\\zip\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

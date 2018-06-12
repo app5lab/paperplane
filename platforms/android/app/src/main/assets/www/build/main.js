@@ -22,15 +22,15 @@ webpackEmptyAsyncContext.id = 139;
 
 var map = {
 	"../pages/account/account.module": [
-		415,
+		413,
 		12
 	],
 	"../pages/add-post/add-post.module": [
-		413,
+		414,
 		11
 	],
 	"../pages/addflight/addflight.module": [
-		414,
+		415,
 		10
 	],
 	"../pages/card/card.module": [
@@ -46,27 +46,27 @@ var map = {
 		7
 	],
 	"../pages/flights/flights.module": [
-		421,
+		419,
 		6
 	],
 	"../pages/history/history.module": [
-		419,
+		420,
 		5
 	],
 	"../pages/home/home.module": [
-		420,
+		422,
 		4
 	],
 	"../pages/login/login.module": [
-		422,
+		421,
 		3
 	],
 	"../pages/product-details/product-details.module": [
-		423,
+		424,
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		424,
+		423,
 		2
 	],
 	"../pages/tabs/tabs.module": [
@@ -97,7 +97,7 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -124,16 +124,18 @@ var ApiProvider = /** @class */ (function () {
     ApiProvider.prototype.login = function (email, pass) {
         var _this = this;
         var dataa = {
-            email: email,
-            password: pass,
+            email: email + '',
+            password: pass + '',
             key: 'login',
             sec: '((|m5DlhrplfKx1'
         };
+        console.log(JSON.stringify(dataa));
         var promise = new Promise(function (resolve) {
             _this.http.post('https://zipship.io/manage-data.php', dataa, {})
                 .then(function (res) {
-                if (res.data != 'Invalid User') {
+                if (res.data != 'Invalid User' && res.data != 'Security key is invalid') {
                     var data = res.data;
+                    console.log(JSON.stringify(res.data));
                     var temp = {
                         email: data.email,
                         id: data.id,
@@ -146,6 +148,7 @@ var ApiProvider = /** @class */ (function () {
                     };
                     localStorage.setItem('zip_user', JSON.stringify(temp));
                     localStorage.setItem('zip_login', 'true');
+                    console.log(localStorage.getItem('zip_user'));
                     resolve(true);
                 }
                 else
@@ -179,15 +182,17 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider.prototype.getFlights = function (id) {
         var _this = this;
-        var dataa = {
+        var datas = {
             id: id,
             key: 'userId',
             sec: '((|m5DlhrplfKx1'
         };
+        console.log(datas.id);
         var promise = new Promise(function (resolve) {
-            _this.http.post('https://zipship.io/flight-data.php', dataa, {})
+            _this.http.post('https://zipship.io/flight-data.php', datas, {})
                 .then(function (res) {
-                if (res.data != 'Invalid Data')
+                console.log(res.data);
+                if (res.data != 'Invalid Data' && res.data != 'Security Key is invalid')
                     resolve(res.data);
                 else
                     resolve('false');
@@ -301,13 +306,13 @@ var ApiProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 256:
+/***/ 255:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(257);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(263);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -315,7 +320,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 264:
+/***/ 263:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -323,15 +328,15 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(315);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(246);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_file_transfer__ = __webpack_require__(412);
@@ -380,18 +385,18 @@ var AppModule = /** @class */ (function () {
                     mode: 'ios'
                 }, {
                     links: [
+                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
                 })
@@ -420,7 +425,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 315:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -454,7 +459,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -465,5 +470,5 @@ var MyApp = /** @class */ (function () {
 
 /***/ })
 
-},[256]);
+},[255]);
 //# sourceMappingURL=main.js.map

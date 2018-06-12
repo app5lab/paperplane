@@ -2,6 +2,7 @@ import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController, Events, Keyboard } from 'ionic-angular';
 import { AnimationService, AnimationBuilder } from 'css-animator';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ApiProvider } from '../../providers/api/api';
 /**
  * Generated class for the HomePage page.
  *
@@ -22,7 +23,7 @@ export class HomePage {
   posts2: any[] = [];  
   @ViewChild( 'ok' ) myElem;
   private animator: AnimationBuilder;
-  constructor( private event: Events, public Keyboard: Keyboard, public alert: AlertController, private ref:ChangeDetectorRef,private statusBar: StatusBar, animationService: AnimationService,public loading: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public api: ApiProvider, private event: Events, public Keyboard: Keyboard, public alert: AlertController, private ref:ChangeDetectorRef,private statusBar: StatusBar, animationService: AnimationService,public loading: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     this.animator = animationService.builder();
 
     this.event.subscribe( 'open', () =>
@@ -48,40 +49,6 @@ export class HomePage {
         user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
         product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
       })
-    this.posts.push(
-      {
-        active: 'false',
-        user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
-        product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
-      } )
-
-    this.posts.push(
-      {
-        active: 'false',
-        user: { name: 'Hassan Ali', img: 'assets/imgs/logo.jpg' },
-        product: { name: 'Nike Air', price: '200', from: 'USA', to: 'Pakistan', reward: '10', img: 'assets/imgs/s1.jpg' }
-      } )
-
-    this.posts.push(
-      {
-        active: 'false',
-        user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
-        product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
-      } )
-    this.posts.push(
-      {
-        active: 'false',
-        user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
-        product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
-      } )
-
-    this.loading.create({
-      spinner:'hide',
-      content:`&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               Loading
-               <img src = "assets/imgs/planes.gif">`,
-    })
   }
   select: any;
   animateElem (post,ele)
@@ -111,22 +78,20 @@ export class HomePage {
   }
 
   flight(){
+    
     var alert = this.alert.create({
       title:'Choose your flight'
     })
 
-    alert.addInput( {
-      type: 'radio',
-      label: 'USA - PAK',
-      value: 'blue',
-      checked: true
-    } );
-    alert.addInput( {
-      type: 'radio',
-      label: 'PAK - KSA',
-      value: 'blue',
-      checked: false
-    } )
+    this.api.allFlights.forEach(element => {
+      alert.addInput( {
+        type: 'radio',
+        label: element.source_country+' - '+ element.destination_country,
+        value: element.id,
+        checked: false
+      } );
+    })
+
     alert.addButton({text:'Confirm'})
     alert.present()
   }

@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 414:
+/***/ 415:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddflightPageModule", function() { return AddflightPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addflight__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addflight__ = __webpack_require__(432);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var AddflightPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 431:
+/***/ 432:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72,7 +72,7 @@ var AddflightPage = /** @class */ (function () {
     };
     AddflightPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-addflight',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/addflight/addflight.html"*/'<!--\n  Generated template for the AddflightPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>addflight</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n            <ion-item>\n              <ion-label floating>Source Country</ion-label>\n              <ion-input type="text"></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label floating>Destination Country</ion-label>\n              <ion-input type="text"></ion-input>\n            </ion-item>\n            \n            <ion-item>\n                <ion-label floating></ion-label>\n                <ion-input type="date"></ion-input>\n           </ion-item>\n\n           <button ion-button outline item-center >Add</button>\n</ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/addflight/addflight.html"*/,
+            selector: 'page-addflight',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\addflight\addflight.html"*/'<!--\n\n  Generated template for the AddflightPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>addflight</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n            <ion-item>\n\n              <ion-label floating>Source Country</ion-label>\n\n              <ion-input type="text"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n              <ion-label floating>Destination Country</ion-label>\n\n              <ion-input type="text"></ion-input>\n\n            </ion-item>\n\n            \n\n            <ion-item>\n\n                <ion-label floating></ion-label>\n\n                <ion-input type="date"></ion-input>\n\n           </ion-item>\n\n\n\n           <button ion-button outline item-center >Add</button>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\addflight\addflight.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
     ], AddflightPage);

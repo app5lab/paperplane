@@ -11,25 +11,28 @@ import { log } from 'util';
 */
 @Injectable()
 export class ApiProvider {
-
+allFlights: any [] = []
   constructor(public http: HTTP) {
   }
 
   login(email,pass):Promise<any>{
-    var dataa = {
-      email: email,
-      password: pass,
-      key: 'login',
-      sec: '((|m5DlhrplfKx1'
-    }
+    let dataa =  ({
+      "email": email+"",
+      "password": pass+"",
+      "key": 'login',
+      "sec": '((|m5DlhrplfKx1'
+    })
+      //console.log(JSON.stringify(dataa));
+
     let promise = new Promise( ( resolve ) =>
     {
+      this.http.setDataSerializer('json')
       this.http.post( 'https://zipship.io/manage-data.php', dataa ,{} )
         .then(
           res =>
           {
-            if ( res.data != 'Invalid User' ){
-              var data =res.data
+            if ( res.data != 'Invalid User' && res.data != 'Security Key is invalid' ){
+              var data = JSON.parse (res.data)
               var temp = {
                 email:data.email,
                 id:data.id,
@@ -40,12 +43,15 @@ export class ApiProvider {
                 phone:data.phone,
                 address:data.address
               }
-              localStorage.setItem('zip_user', JSON.stringify(temp))
-              localStorage.setItem('zip_login', 'true')
+              let t = JSON.stringify(temp)
+              
+              localStorage.setItem('zip_user', t)
+              localStorage.setItem('zip_login', 'true')         
+              
               resolve(true);
             }
             else
-            resolve(false)
+              resolve(false)
           }
         );
     } );
@@ -65,6 +71,8 @@ export class ApiProvider {
     }
     let promise = new Promise( ( resolve ) =>
     {
+      this.http.setDataSerializer('json')
+
       this.http.post( 'https://zipship.io/flight-data.php', dataa ,{})
         .then(
           res =>
@@ -81,21 +89,26 @@ export class ApiProvider {
   }
   getFlights(id):Promise<any>
   {
-    var dataa = {
+    var datas = {
       id: id,
       key: 'userId',
       sec: '((|m5DlhrplfKx1'
     }
+    
     let promise = new Promise( ( resolve ) =>
     {
-      this.http.post( 'https://zipship.io/flight-data.php', dataa ,{} )
+      this.http.setDataSerializer('json')
+      this.http.post( 'https://zipship.io/flight-data.php', datas ,{} )
         .then(
           res =>
           {
-            if(res.data != 'Invalid Data')
-              resolve( res.data );
+            if(res.data != 'Invalid Data' && res.data != 'Security Key is invalid')
+              {
+                this.allFlights = JSON.parse( res.data )
+                resolve(this.allFlights)
+              }
             else
-              resolve( 'false' )
+              resolve( 'false' ) 
           }
         );
     } );
@@ -118,6 +131,7 @@ export class ApiProvider {
     }
     let promise = new Promise( ( resolve ) =>
     {
+      this.http.setDataSerializer('json')
       this.http.post( 'https://zipship.io/manage-data.php', data ,{})
         .then(
           res =>
@@ -151,6 +165,7 @@ export class ApiProvider {
 
     let promise = new Promise( ( resolve ) =>
     {
+      this.http.setDataSerializer('json')
       this.http.post( 'https://zipship.io/user-posts.php', data,{} )
         .then(
           res =>
@@ -179,16 +194,19 @@ export class ApiProvider {
 
     let promise = new Promise( ( resolve ) =>
     {
+      this.http.setDataSerializer('json')
       this.http.post( 'https://zipship.io/user-posts.php', data,{} )
         .then(
           res =>
           {
             console.log( res );
 
-            // if ( res.data != 'User already Exist' && res.data == '1' )
-            //   resolve( true );
-            // else
-            //   resolve( false )
+            if(res.data != 'Data not Found' && res.data != 'Security Key is invalid')
+              {
+                resolve(JSON.parse( res.data ))
+              }
+            else
+              resolve( 'false' ) 
           }
         );
     } );
@@ -208,6 +226,7 @@ export class ApiProvider {
 
     let promise = new Promise( ( resolve ) =>
     {
+      this.http.setDataSerializer('json')
       this.http.post( 'https://zipship.io/biddingBc.php', data ,{})
         .then(
           res =>

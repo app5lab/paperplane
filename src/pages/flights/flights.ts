@@ -1,23 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, AlertController } from 'ionic-angular';
-
-declare var google: any;
-import
-{
-  GoogleMaps,
-  GoogleMap,
-  LatLng,
-  GoogleMapsEvent,
-} from '@ionic-native/google-maps';
 import { Http } from '@angular/http'
 import { ApiProvider } from '../../providers/api/api';
-
-/**
- * Generated class for the FlightsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,14 +11,10 @@ import { ApiProvider } from '../../providers/api/api';
 export class FlightsPage {
   flightss: any[]=[]
   constructor( public http: Http, public navCtrl: NavController, public navParams: NavParams, private platform: Platform,
-      public api: ApiProvider, public alert: AlertController,
-
-    private googleMaps: GoogleMaps) {
+      public api: ApiProvider, public alert: AlertController) {
     var user = JSON.parse(localStorage.getItem('zip_user'))
       this.api.getFlights(user.id).then( (data) => {
         this.flightss = data
-        console.log(this.flightss);
-        
       })
 }
 
@@ -46,15 +26,23 @@ export class FlightsPage {
   }
 
   addFlight(){
-      var  scr = 'USA';
-      var scity = 'New York';
-      var dcr = 'Pakistan';
-      var dct = 'Lahore';
-      var time = '15:34:23';
-      var userid =  '1';
-      this.api.addFlight(scr, scity, dcr, dct, time, userid)
+      // var  scr = 'USA';
+      // var scity = 'New York';
+      // var dcr = 'Pakistan';
+      // var dct = 'Lahore';
+      // var time = '15:34:23';
+      // var userid =  '1';
+      // this.api.addFlight(scr, scity, dcr, dct, time, userid)
+    var user = JSON.parse(localStorage.getItem('zip_user'))      
+    console.log(JSON.stringify( user))
+    
+      // this.api.getFlights(user.id).then( (data) => {
+      //   // this.flightss = data
+      //   console.log(data);
+      // })
   }
   flights(){
-    this.navCtrl.push('AddflightPage')
+    // this.navCtrl.push('AddflightPage')
+    this.addFlight()
   }
 }

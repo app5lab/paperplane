@@ -1,6 +1,6 @@
 webpackJsonp([11],{
 
-/***/ 413:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPostPageModule", function() { return AddPostPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_post__ = __webpack_require__(430);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_post__ = __webpack_require__(431);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -39,7 +39,7 @@ var AddPostPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 430:
+/***/ 431:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76,10 +76,14 @@ var AddPostPage = /** @class */ (function () {
         var _this = this;
         var options = {
             quality: 50,
-            maximumImagesCount: 3
+            maximumImagesCount: 3,
+            outputType: 1
         };
         this.image.getPictures(options).then(function (results) {
-            _this.files = results;
+            var i = 0;
+            results.forEach(function (Img) {
+                _this.files[i++] = 'data:image/jpeg;base64,' + Img;
+            });
             console.log(_this.files[0]);
         }, function (err) { });
     };
@@ -89,7 +93,7 @@ var AddPostPage = /** @class */ (function () {
     };
     AddPostPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-add-post',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/add-post/add-post.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>add-post</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <ion-item>\n          <ion-label floating>Title</ion-label>\n          <ion-input type="text"></ion-input>\n        </ion-item>\n      \n        <ion-item>\n          <ion-label floating>Discription</ion-label>\n          <ion-input type="text"></ion-input>\n        </ion-item>\n      \n        <div>\n          <ion-item>\n            <ion-label floating>Images</ion-label>\n            <ion-input type="text"></ion-input>\n          </ion-item>\n          <button ion-button full round (click)="upload()">\n            Choose Images\n          </button>\n          <img src="{{file}}" *ngFor="let file of files">\n          <ion-img width="80" height="80" src="{{file}}"></ion-img>\n        </div>\n\n          <ion-item>\n              <ion-label floating>Traveler Reward</ion-label>\n              <ion-input type="number"></ion-input>\n            </ion-item>\n            \n            <ion-item>\n                <ion-label floating>From</ion-label>\n                <ion-input type="text"></ion-input>\n              </ion-item>\n\n           <ion-item>\n                <ion-label floating>To</ion-label>\n                <ion-input type="text"></ion-input>\n           </ion-item>\n\n           <ion-item>\n              <ion-label floating>Note</ion-label>\n              <ion-input type="text"></ion-input>\n         </ion-item>\n\n         <ion-item>\n            <ion-label floating>Item_url</ion-label>\n            <ion-input type="text"></ion-input>\n       </ion-item>\n\n       <ion-item>\n          <ion-label floating></ion-label>\n          <ion-input type="date"></ion-input>\n     </ion-item>\n\n     <ion-item>\n        <ion-label floating>Quantity</ion-label>\n        <ion-input type="number"></ion-input>\n   </ion-item>\n\n    </ion-list>\n  <button ion-button full round (click)=\'add()\'> Add </button>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/add-post/add-post.html"*/,
+            selector: 'page-add-post',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\add-post\add-post.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>add-post</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <ion-item>\n\n          <ion-label floating>Title</ion-label>\n\n          <ion-input type="text"></ion-input>\n\n        </ion-item>\n\n      \n\n        <ion-item>\n\n          <ion-label floating>Description</ion-label>\n\n          <ion-input type="text"></ion-input>\n\n        </ion-item>\n\n      \n\n        <div>\n\n          <ion-item>\n\n            <ion-label floating>Images</ion-label>\n\n            <ion-input type="text"></ion-input>\n\n          </ion-item>\n\n          <button ion-button full round (click)="upload()">\n\n            Choose Images\n\n          </button>\n\n          <img src="{{file}}" *ngFor="let file of files">\n\n        </div>\n\n\n\n          <ion-item>\n\n              <ion-label floating>Traveler Reward</ion-label>\n\n              <ion-input type="number"></ion-input>\n\n            </ion-item>\n\n            \n\n            <ion-item>\n\n                <ion-label floating>From</ion-label>\n\n                <ion-input type="text"></ion-input>\n\n              </ion-item>\n\n\n\n           <ion-item>\n\n                <ion-label floating>To</ion-label>\n\n                <ion-input type="text"></ion-input>\n\n           </ion-item>\n\n\n\n           <ion-item>\n\n              <ion-label floating>Note</ion-label>\n\n              <ion-input type="text"></ion-input>\n\n         </ion-item>\n\n\n\n         <ion-item>\n\n            <ion-label floating>Item_url</ion-label>\n\n            <ion-input type="text"></ion-input>\n\n       </ion-item>\n\n\n\n       <ion-item>\n\n          <ion-label floating></ion-label>\n\n          <ion-input type="date"></ion-input>\n\n     </ion-item>\n\n\n\n     <ion-item>\n\n        <ion-label floating>Quantity</ion-label>\n\n        <ion-input type="number"></ion-input>\n\n   </ion-item>\n\n\n\n    </ion-list>\n\n  <button ion-button full round (click)=\'add()\'> Add </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\add-post\add-post.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
