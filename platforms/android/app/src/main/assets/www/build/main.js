@@ -1,6 +1,6 @@
-webpackJsonp([13],{
+webpackJsonp([14],{
 
-/***/ 139:
+/***/ 140:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,64 +13,68 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 139;
+webpackEmptyAsyncContext.id = 140;
 
 /***/ }),
 
-/***/ 182:
+/***/ 183:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/account/account.module": [
 		413,
-		12
+		13
 	],
 	"../pages/add-post/add-post.module": [
 		414,
-		11
+		12
 	],
 	"../pages/addflight/addflight.module": [
 		415,
-		10
+		11
 	],
 	"../pages/card/card.module": [
 		416,
-		9
+		10
 	],
 	"../pages/chat/chat.module": [
 		417,
-		8
+		9
 	],
 	"../pages/conversation/conversation.module": [
 		418,
-		7
+		8
 	],
 	"../pages/flights/flights.module": [
 		419,
-		6
+		7
 	],
 	"../pages/history/history.module": [
 		420,
-		5
+		6
 	],
 	"../pages/home/home.module": [
 		421,
-		4
+		5
 	],
 	"../pages/login/login.module": [
 		422,
+		4
+	],
+	"../pages/orders/orders.module": [
+		423,
 		3
 	],
 	"../pages/product-details/product-details.module": [
-		423,
+		424,
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		424,
+		425,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		425,
+		426,
 		1
 	]
 };
@@ -85,19 +89,19 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 182;
+webpackAsyncContext.id = 183;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 246:
+/***/ 245:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5__ = __webpack_require__(290);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -133,7 +137,7 @@ var ApiProvider = /** @class */ (function () {
         //console.log(JSON.stringify(dataa));
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/manage-data.php', dataa, {})
+            _this.http.post('https://zipship.io/api/manage-data.php', dataa, {})
                 .then(function (res) {
                 if (res.data != 'Invalid User' && res.data != 'Security Key is invalid') {
                     var data = JSON.parse(res.data);
@@ -172,7 +176,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/flight-data.php', dataa, {})
+            _this.http.post('https://zipship.io/api/flight-data.php', dataa, {})
                 .then(function (res) {
                 console.log(res);
                 //   resolve( true );
@@ -191,10 +195,11 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/flight-data.php', datas, {})
+            _this.http.post('https://zipship.io/api/flight-data.php', datas, {})
                 .then(function (res) {
                 if (res.data != 'Invalid Data' && res.data != 'Security Key is invalid') {
-                    _this.allFlights = JSON.parse(res.data);
+                    if (res.data != "")
+                        _this.allFlights = JSON.parse(res.data);
                     resolve(_this.allFlights);
                 }
                 else
@@ -219,7 +224,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/manage-data.php', data, {})
+            _this.http.post('https://zipship.io/api/manage-data.php', data, {})
                 .then(function (res) {
                 if (res.data != 'User already Exist' && res.data == '1')
                     resolve(true);
@@ -247,7 +252,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/user-posts.php', data, {})
+            _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
                 console.log(res);
                 // if ( res.data != 'User already Exist' && res.data == '1' )
@@ -268,7 +273,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/user-posts.php', data, {})
+            _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
                 console.log(res);
                 if (res.data != 'Data not Found' && res.data != 'Security Key is invalid') {
@@ -292,7 +297,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/biddingBc.php', data, {})
+            _this.http.post('https://zipship.io/api/biddingBc.php', data, {})
                 .then(function (res) {
                 console.log(res);
                 // if ( res.data != 'User already Exist' && res.data == '1' )
@@ -314,13 +319,13 @@ var ApiProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 255:
+/***/ 254:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(262);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -328,28 +333,28 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 263:
+/***/ 262:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(411);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_file_transfer__ = __webpack_require__(412);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_file__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_image_picker__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_file__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_image_picker__ = __webpack_require__(248);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -403,6 +408,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
@@ -433,15 +439,15 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 314:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(228);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -455,6 +461,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import *as firebase from 'firebase';
+var config = {
+    apiKey: "AIzaSyAjwOubcsmoO19VAyY3D-7SxJLVavG4wQU",
+    authDomain: "zipship-645ad.firebaseapp.com",
+    databaseURL: "https://zipship-645ad.firebaseio.com",
+    projectId: "zipship-645ad",
+    storageBucket: "zipship-645ad.appspot.com",
+    messagingSenderId: "853143982866"
+};
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
         this.rootPage = "LoginPage";
@@ -465,6 +480,7 @@ var MyApp = /** @class */ (function () {
             // statusBar.styleDefault();
             splashScreen.hide();
         });
+        // firebase.initializeApp(config);
     }
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/app/app.html"*/
@@ -478,5 +494,5 @@ var MyApp = /** @class */ (function () {
 
 /***/ })
 
-},[255]);
+},[254]);
 //# sourceMappingURL=main.js.map

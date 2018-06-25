@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 419:
+/***/ 420:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlightsPageModule", function() { return FlightsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HistoryPageModule", function() { return HistoryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flights__ = __webpack_require__(436);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__history__ = __webpack_require__(438);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FlightsPageModule = /** @class */ (function () {
-    function FlightsPageModule() {
+var HistoryPageModule = /** @class */ (function () {
+    function HistoryPageModule() {
     }
-    FlightsPageModule = __decorate([
+    HistoryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__history__["a" /* HistoryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__history__["a" /* HistoryPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */]
-            ]
         })
-    ], FlightsPageModule);
-    return FlightsPageModule;
+    ], HistoryPageModule);
+    return HistoryPageModule;
 }());
 
-//# sourceMappingURL=flights.module.js.map
+//# sourceMappingURL=history.module.js.map
 
 /***/ }),
 
-/***/ 436:
+/***/ 438:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlightsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistoryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,66 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-var FlightsPage = /** @class */ (function () {
-    function FlightsPage(modal, http, navCtrl, navParams, platform, api, alert) {
-        var _this = this;
-        this.modal = modal;
-        this.http = http;
+/**
+ * Generated class for the HistoryPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var HistoryPage = /** @class */ (function () {
+    function HistoryPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.platform = platform;
-        this.api = api;
-        this.alert = alert;
-        this.flightss = [];
-        var user = JSON.parse(localStorage.getItem('zip_user'));
-        this.api.getFlights(user.id).then(function (data) {
-            _this.flightss = data;
-        });
     }
-    FlightsPage.prototype.ionViewDidLoad = function () {
-        this.platform.ready().then(function () {
-        });
+    HistoryPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HistoryPage');
     };
-    FlightsPage.prototype.doRefresh = function (refresher) {
-        var _this = this;
-        var user = JSON.parse(localStorage.getItem('zip_user'));
-        this.api.getFlights(user.id).then(function (data) {
-            _this.flightss = data;
-            refresher.complete();
-            console.log('re run');
-        });
-    };
-    FlightsPage.prototype.addflight = function () {
-        // var  scr = 'USA';
-        // var scity = 'New York';
-        // var dcr = 'Pakistan';
-        // var dct = 'Lahore';
-        // var time = '15:34:23';
-        // var userid =  '1';
-        // this.api.addFlight(scr, scity, dcr, dct, time, userid)
-        this.modal.create('AddflightPage').present();
-        // this.api.getFlights(user.id).then( (data) => {
-        //   // this.flightss = data
-        //   console.log(data);
-        // })
-    };
-    FlightsPage.prototype.flights = function () {
-        // this.navCtrl.push('AddflightPage')
-        this.addFlight();
-    };
-    FlightsPage = __decorate([
+    HistoryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-flights',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/flights/flights.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>flights</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n <ion-content padding class="bg">\n \n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n\n\n<ion-card id=\'asd\' *ngIf="flightss.length == 0" class="Main" >\n  <ion-card-content text-center>\n    <ion-card-title>\n      Travelling Somewhere?\n    </ion-card-title>\n    <p>\n      Post a flight and start making money!\n    </p>\n    <br><br>\n    <button ion-button outline item-center (click)=\'addflight()\'>Add Flight</button>\n  </ion-card-content>\n</ion-card>\n<ion-fab right bottom *ngIf="flightss.length != 0" (click)=\'flights()\'>\n  <button id=\'tha\' ion-fab color="primary">\n    <ion-icon name="add"></ion-icon>\n  </button>\n</ion-fab>\n<div  *ngFor=\'let flight of flightss\'>\n    <ion-card text-center class="crd">\n      <ion-grid>\n        <ion-row style="height: 70px;">\n            <ion-col col-4 align-self-center>\n                <h1>{{flight.source_country}}</h1>\n            </ion-col>\n            \n            <ion-col col-4 align-self-center>\n              <h2>\n                <span>{{flight.date}}</span>\n              </h2>\n            </ion-col>\n\n            <ion-col col-4 align-self-center>\n                <h1>{{flight.destination_country}}</h1>\n            </ion-col>\n        </ion-row>\n        <ion-row>\n            <button ion-button outline style="width: 48%;">Remove</button>\n            <button ion-button style="width: 48%;">Edit</button>\n        </ion-row>\n      </ion-grid>\n      \n    </ion-card>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/flights/flights.html"*/,
+            selector: 'page-history',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/history/history.html"*/'<!--\n  Generated template for the HistoryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>history</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/history/history.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object])
-    ], FlightsPage);
-    return FlightsPage;
-    var _a, _b, _c, _d, _e, _f, _g;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+    ], HistoryPage);
+    return HistoryPage;
 }());
 
-//# sourceMappingURL=flights.js.map
+//# sourceMappingURL=history.js.map
 
 /***/ })
 

@@ -52,6 +52,5 @@ export class FlightsPage {
   }
   flights(){
     // this.navCtrl.push('AddflightPage')
-    this.addFlight()
   }
 }
