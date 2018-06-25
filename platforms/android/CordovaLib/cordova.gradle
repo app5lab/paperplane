@@ -95,7 +95,8 @@ int compareVersions(String a, String b) {
 String getAndroidSdkDir() {
     def rootDir = project.rootDir
     def androidSdkDir = null
-    String envVar = "C:\\Users\\tooth\\AppData\\Local\\Android\\Sdk\\"
+    String envVar = System.getenv("ANDROID_HOME")
+    //String envVar = "C:\\Users\\tooth\\AppData\\Local\\Android\\Sdk\\"
     def localProperties = new File(rootDir, 'local.properties')
     String systemProperty = System.getProperty("android.home")
     if (envVar != null) {

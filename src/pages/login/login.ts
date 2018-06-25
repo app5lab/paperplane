@@ -16,7 +16,7 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username: string = 'hassan@appslab.io';
+  username: string = 'Hassanali@cheema.com';
   password: string = '123456';
   constructor(public api: ApiProvider, public Keyboard: Keyboard,public platform: Platform,public alert:AlertController, public navCtrl: NavController, public navParams: NavParams, public load: LoadingController) {
   }
