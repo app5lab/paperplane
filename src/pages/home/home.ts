@@ -33,8 +33,11 @@ export class HomePage {
 
 
     this.event.publish('open');
-
-
+    this.api.allFlights.forEach(item=>{
+      this.api.getPostbyLoc(item.source_country,item.destination_country).then(data=>{
+        this.posts.push(data)
+      })
+    })
 
     this.posts.push(
       {
@@ -76,7 +79,7 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
-
+flight_id:any= ''
   flight(){
     
     var alert = this.alert.create({
@@ -92,8 +95,16 @@ export class HomePage {
       } );
     })
 
-    alert.addButton({text:'Confirm'})
+    alert.addButton({
+      text:'Confirm',
+      handler: data => {
+        this.flight_id = data;
+      }})
     alert.present()
+  }
+
+  makebid(){
+   // this.api.bid()
   }
   go(){
     this.navCtrl.push('AccountPage')
