@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// import * as firebase from 'Firebase';
 import { HTTP, HTTPResponse } from '@ionic-native/http';
 import * as md5 from 'md5'
 import { log } from 'util';
@@ -12,8 +13,10 @@ import { log } from 'util';
 @Injectable()
 export class ApiProvider {
 allFlights: any [] = []
+// fb = firebase.database();
   constructor(public http: HTTP) {
   }
+  
 
   login(email,pass):Promise<any>{
     let dataa =  ({
@@ -27,7 +30,7 @@ allFlights: any [] = []
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
-      this.http.post( 'https://zipship.io/manage-data.php', dataa ,{} )
+      this.http.post( 'https://zipship.io/api/manage-data.php', dataa ,{} )
         .then(
           res =>
           {
@@ -73,7 +76,7 @@ allFlights: any [] = []
     {
       this.http.setDataSerializer('json')
 
-      this.http.post( 'https://zipship.io/flight-data.php', dataa ,{})
+      this.http.post( 'https://zipship.io/api/flight-data.php', dataa ,{})
         .then(
           res =>
           {
@@ -98,13 +101,15 @@ allFlights: any [] = []
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
-      this.http.post( 'https://zipship.io/flight-data.php', datas ,{} )
+      this.http.post( 'https://zipship.io/api/flight-data.php', datas ,{} )
         .then(
           res =>
           {
             if(res.data != 'Invalid Data' && res.data != 'Security Key is invalid')
               {
-                this.allFlights = JSON.parse( res.data )
+                
+                if(res.data!='')
+                  this.allFlights = JSON.parse( res.data )
                 resolve(this.allFlights)
               }
             else
@@ -132,7 +137,7 @@ allFlights: any [] = []
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
-      this.http.post( 'https://zipship.io/manage-data.php', data ,{})
+      this.http.post( 'https://zipship.io/api/manage-data.php', data ,{})
         .then(
           res =>
           {
@@ -166,11 +171,11 @@ allFlights: any [] = []
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
-      this.http.post( 'https://zipship.io/user-posts.php', data,{} )
+      this.http.post( 'https://zipship.io/api/user-posts.php', data,{} )
         .then(
           res =>
           {
-            console.log(res);
+            console.log(res.data);
             
             // if ( res.data != 'User already Exist' && res.data == '1' )
             //   resolve( true );
@@ -195,7 +200,7 @@ allFlights: any [] = []
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
-      this.http.post( 'https://zipship.io/user-posts.php', data,{} )
+      this.http.post( 'https://zipship.io/api/user-posts.php', data,{} )
         .then(
           res =>
           {
@@ -227,7 +232,7 @@ allFlights: any [] = []
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
-      this.http.post( 'https://zipship.io/biddingBc.php', data ,{})
+      this.http.post( 'https://zipship.io/api/biddingBc.php', data ,{})
         .then(
           res =>
           {

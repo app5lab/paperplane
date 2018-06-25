@@ -39,6 +39,6 @@ export class AddPostPage {
   
   add(){ 
     // this.api.getPostbyLoc('USA', 'Pakistan')
-    //this.api.addPost('Macbook', '13inch 256ssd i7 8gb', '', '', '', '50', 'USA', 'Pakistan', '3', 'apple.com/macbook')
+    this.api.addPost('Macbook', '13inch 256ssd i7 8gb', this.files[0], '', '', '50', 'USA', 'Pakistan', '3', 'apple.com/macbook')
   }
 }

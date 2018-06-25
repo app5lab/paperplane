@@ -1,4 +1,4 @@
-webpackJsonp([13],{
+webpackJsonp([14],{
 
 /***/ 139:
 /***/ (function(module, exports) {
@@ -23,42 +23,46 @@ webpackEmptyAsyncContext.id = 139;
 var map = {
 	"../pages/account/account.module": [
 		413,
-		12
+		13
 	],
 	"../pages/add-post/add-post.module": [
+		415,
+		12
+	],
+	"../pages/addflight/addflight.module": [
 		414,
 		11
 	],
-	"../pages/addflight/addflight.module": [
-		415,
-		10
-	],
 	"../pages/card/card.module": [
 		416,
-		9
+		10
 	],
 	"../pages/chat/chat.module": [
 		417,
-		8
+		9
 	],
 	"../pages/conversation/conversation.module": [
 		418,
-		7
+		8
 	],
 	"../pages/flights/flights.module": [
+		421,
+		7
+	],
+	"../pages/history/history.module": [
 		419,
 		6
 	],
-	"../pages/history/history.module": [
+	"../pages/home/home.module": [
 		420,
 		5
 	],
-	"../pages/home/home.module": [
-		421,
-		4
-	],
 	"../pages/login/login.module": [
 		422,
+		4
+	],
+	"../pages/orders/orders.module": [
+		424,
 		3
 	],
 	"../pages/product-details/product-details.module": [
@@ -66,11 +70,11 @@ var map = {
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		424,
+		425,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		425,
+		426,
 		1
 	]
 };
@@ -109,6 +113,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+// import * as firebase from 'Firebase';
 
 
 /*
@@ -118,6 +123,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.
 */
 var ApiProvider = /** @class */ (function () {
+    // fb = firebase.database();
     function ApiProvider(http) {
         this.http = http;
         this.allFlights = [];
@@ -133,7 +139,7 @@ var ApiProvider = /** @class */ (function () {
         //console.log(JSON.stringify(dataa));
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/manage-data.php', dataa, {})
+            _this.http.post('https://zipship.io/api/manage-data.php', dataa, {})
                 .then(function (res) {
                 if (res.data != 'Invalid User' && res.data != 'Security Key is invalid') {
                     var data = JSON.parse(res.data);
@@ -172,7 +178,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/flight-data.php', dataa, {})
+            _this.http.post('https://zipship.io/api/flight-data.php', dataa, {})
                 .then(function (res) {
                 console.log(res);
                 //   resolve( true );
@@ -191,10 +197,11 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/flight-data.php', datas, {})
+            _this.http.post('https://zipship.io/api/flight-data.php', datas, {})
                 .then(function (res) {
                 if (res.data != 'Invalid Data' && res.data != 'Security Key is invalid') {
-                    _this.allFlights = JSON.parse(res.data);
+                    if (res.data != '')
+                        _this.allFlights = JSON.parse(res.data);
                     resolve(_this.allFlights);
                 }
                 else
@@ -219,7 +226,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/manage-data.php', data, {})
+            _this.http.post('https://zipship.io/api/manage-data.php', data, {})
                 .then(function (res) {
                 if (res.data != 'User already Exist' && res.data == '1')
                     resolve(true);
@@ -247,9 +254,9 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/user-posts.php', data, {})
+            _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
-                console.log(res);
+                console.log(res.data);
                 // if ( res.data != 'User already Exist' && res.data == '1' )
                 //   resolve( true );
                 // else
@@ -268,7 +275,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/user-posts.php', data, {})
+            _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
                 console.log(res);
                 if (res.data != 'Data not Found' && res.data != 'Security Key is invalid') {
@@ -292,7 +299,7 @@ var ApiProvider = /** @class */ (function () {
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
-            _this.http.post('https://zipship.io/biddingBc.php', data, {})
+            _this.http.post('https://zipship.io/api/biddingBc.php', data, {})
                 .then(function (res) {
                 console.log(res);
                 // if ( res.data != 'User already Exist' && res.data == '1' )
@@ -340,10 +347,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(315);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(246);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_http__ = __webpack_require__(183);
@@ -394,16 +401,17 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatPageModule', name: 'ChatPage', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
@@ -455,9 +463,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import *as firebase from 'firebase';
+var config = {
+    apiKey: "AIzaSyAjwOubcsmoO19VAyY3D-7SxJLVavG4wQU",
+    authDomain: "zipship-645ad.firebaseapp.com",
+    databaseURL: "https://zipship-645ad.firebaseio.com",
+    projectId: "zipship-645ad",
+    storageBucket: "zipship-645ad.appspot.com",
+    messagingSenderId: "853143982866"
+};
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = "HomePage";
+        this.rootPage = "LoginPage";
         platform.ready().then(function () {
             statusBar.backgroundColorByHexString('#571a94');
             // Okay, so the platform is ready and our plugins are available.
@@ -465,14 +482,14 @@ var MyApp = /** @class */ (function () {
             // statusBar.styleDefault();
             splashScreen.hide();
         });
+        // firebase.initializeApp(config);
     }
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map

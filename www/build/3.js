@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 422:
+/***/ 424:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrdersPageModule", function() { return OrdersPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__orders__ = __webpack_require__(448);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var OrdersPageModule = /** @class */ (function () {
+    function OrdersPageModule() {
     }
-    LoginPageModule = __decorate([
+    OrdersPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__orders__["a" /* OrdersPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__orders__["a" /* OrdersPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]
-            ]
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], OrdersPageModule);
+    return OrdersPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=orders.module.js.map
 
 /***/ }),
 
-/***/ 439:
+/***/ 448:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(246);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,70 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the OrdersPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(api, Keyboard, platform, alert, navCtrl, navParams, load) {
-        this.api = api;
-        this.Keyboard = Keyboard;
-        this.platform = platform;
-        this.alert = alert;
+var OrdersPage = /** @class */ (function () {
+    function OrdersPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.load = load;
-        this.username = 'hassan@appslab.io';
-        this.password = '123456';
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
+    OrdersPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad OrdersPage');
     };
-    LoginPage.prototype.ionViewDidEnter = function () {
-        // this.platform.ready().then( () =>
-        // {
-        //   this.Keyboard.disableScroll( true );
-        // } );
-    };
-    LoginPage.prototype.ionViewWillLeave = function () {
-        // this.platform.ready().then( () =>
-        // {
-        //   this.Keyboard.disableScroll( false );
-        // } );
-    };
-    LoginPage.prototype.login = function () {
-        var _this = this;
-        var l = this.load.create({});
-        l.setContent('Signing In...');
-        l.present();
-        this.api.login(this.username, this.password).then(function (r) {
-            if (r) {
-                _this.navCtrl.setRoot('TabsPage');
-                l.dismiss();
-            }
-            else {
-                _this.alert.create({ title: 'Invalid Username or Password', buttons: ['OK'] }).present();
-                l.dismiss();
-            }
-        });
-    };
-    LoginPage.prototype.signup = function () {
-        this.navCtrl.push('SignUpPage');
-    };
-    LoginPage = __decorate([
+    OrdersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\login\login.html"*/'<ion-content padding class="getstart">\n\n    <img src="assets/imgs/final.png" alt="" style="height: 350px;">\n\n      <ion-item class="in">\n\n        <ion-label fixed>\n\n          <ion-icon name="person"></ion-icon>\n\n          Username</ion-label>\n\n        <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n      </ion-item>\n\n    <br>\n\n    <ion-item class="in">\n\n      <ion-label fixed>\n\n        <ion-icon name="lock"></ion-icon>\n\n         Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n    </ion-item>\n\n<br>\n\n    \n\n    <button id=\'t\' ion-button full round (click)="login()">Sign In</button>\n\n    <br>\n\n    <br>\n\n    <br> \n\n    <div style="width: 100%;display: flex;justify-content: center;">\n\n      <button ion-button outline color=light round style="width: 60%;" (click)=\'signup()\'>\n\n        Sign Up?\n\n      </button>   \n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\login\login.html"*/,
+            selector: 'page-orders',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\orders\orders.html"*/'<!--\n\n  Generated template for the OrdersPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>orders</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n    <ion-grid style="min-height: 100%;">\n\n        <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor=\'let post of posts;\' style="height: 100%;">\n\n            <ion-card [ngClass]="{\'offer\': post.active == \'true\'}" class="meracard">\n\n              <ion-item>\n\n                <ion-avatar item-start>\n\n                  <img src="{{post.user.img}}">\n\n                </ion-avatar>\n\n                <h2>{{post.user.name}}</h2>\n\n                <p>Posted 17 min ago</p>\n\n              </ion-item>\n\n          \n\n              <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">\n\n                <img class="im" src="assets/imgs/s1.jpg">\n\n                <ion-card-title style="width: 60%;">\n\n                  <h3>\n\n                    <b> {{post.product.name}} </b>\n\n                  </h3>\n\n                  <ion-label style="margin-top: 0;margin-bottom: 0;"> Price\n\n                    <b>${{post.product.price}}</b>\n\n                  </ion-label>\n\n                  <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">\n\n                    From\n\n                    <b>{{post.product.from}}</b>\n\n                  </ion-label>\n\n                  <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">\n\n                    To\n\n                    <b>{{post.product.to}}</b>\n\n                  </ion-label>\n\n                </ion-card-title>\n\n              </ion-card-content>\n\n          \n\n              <ion-card class="card2" [ngClass]="{\'offer2\': post.active == \'true\'}">\n\n                <ion-card-content style="padding-top: 0;" class=\'cus\'>\n\n                  <div>\n\n                    <ion-label style="text-align: center;margin-bottom: 3px;">\n\n                      <u> Traveler\'s Reward </u>\n\n                    </ion-label>\n\n                    <h1>from\n\n                      <b>${{post.product.reward}}</b>\n\n                    </h1>\n\n                    <ion-label style="text-align:left;margin-bottom: 3px;">\n\n                        Amount\n\n                    </ion-label>\n\n                    <ion-label style="text-align:right;margin-bottom: 3px;">\n\n                        $500\n\n                    </ion-label>\n\n                    <ion-label style="text-align: left;margin-bottom: 3px;">\n\n                       Flight\n\n                    </ion-label>\n\n                    <ion-label style="text-align:right;margin-bottom: 3px;">\n\n                       BLU AIRLINE.\n\n                    </ion-label>\n\n                  </div>\n\n                </ion-card-content>\n\n              </ion-card>\n\n            </ion-card>\n\n        </ion-col>\n\n    </ion-grid>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\orders\orders.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+    ], OrdersPage);
+    return OrdersPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=orders.js.map
 
 /***/ })
 

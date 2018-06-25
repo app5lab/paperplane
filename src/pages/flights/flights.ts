@@ -36,13 +36,13 @@ export class FlightsPage {
     var user = JSON.parse(localStorage.getItem('zip_user'))      
     console.log(JSON.stringify( user))
     
-      // this.api.getFlights(user.id).then( (data) => {
-      //   // this.flightss = data
-      //   console.log(data);
-      // })
+       // this.api.getFlights(user.id).then( (data) => {
+       //   // this.flightss = data
+       //   console.log(data);
+       // }) 
   }
   flights(){
-    // this.navCtrl.push('AddflightPage')
+    this.navCtrl.push('AddflightPage')
     this.addFlight()
   }
 }

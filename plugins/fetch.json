@@ -128,5 +128,13 @@
     "variables": {
       "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
     }
+  },
+  "cordova-plugin-firebase": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
