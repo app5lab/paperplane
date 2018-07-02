@@ -10,7 +10,6 @@ export class ProductDetailsPage
   @ViewChild( Slides ) slides: Slides;
 
   public product: any;
-  private wooCommerce: any;
   public reviews: any[] = [];
   public details :any[] = [];
 

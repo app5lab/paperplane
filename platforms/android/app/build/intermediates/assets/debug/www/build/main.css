@@ -25696,7 +25696,7 @@ ion-navbar.toolbar {
 }
 
 .tabbar {
-  background-color: #671a94  !important;
+  background-color: #671a94   !important;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
@@ -25741,12 +25741,165 @@ page-account ion-label {
   color: #671a94;
 }
 
-page-chat ion-note {
+page-addflight ion-card {
+  border: 1px solid #4d077c;
+  border-radius: 0 40px !important;
+}
+
+page-addflight .searchbar-ios {
+  background: none;
+}
+
+page-all-chats ion-note {
   font-size: 14px;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
   margin-top: 14px;
+}
+
+page-chat ion-content .scroll-content {
+  background-color: #f5f5f5;
+}
+
+page-chat ion-footer {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+  background-color: #fff;
+  height: 255px;
+}
+
+page-chat .line-breaker {
+  white-space: pre-line;
+}
+
+page-chat .input-wrap {
+  padding: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+page-chat .input-wrap textarea {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 0;
+  border-bottom: 1px #387ef5;
+  border-style: solid;
+}
+
+page-chat .message-wrap {
+  padding: 0 10px;
+}
+
+page-chat .message-wrap .message {
+  position: relative;
+  padding: 7px 0;
+}
+
+page-chat .message-wrap .message .user-img {
+  position: absolute;
+  border-radius: 45px;
+  width: 45px;
+  height: 45px;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+}
+
+page-chat .message-wrap .message .msg-detail {
+  width: 100%;
+  display: inline-block;
+}
+
+page-chat .message-wrap .message .msg-detail p {
+  margin: 0;
+}
+
+page-chat .message-wrap .message .msg-detail .msg-info p {
+  font-size: .8em;
+  color: #888;
+}
+
+page-chat .message-wrap .message .msg-detail .msg-content {
+  position: relative;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  color: #fff;
+  width: auto;
+  max-width: 80%;
+}
+
+page-chat .message-wrap .message .msg-detail .msg-content span.triangle {
+  background-color: #fff;
+  border-radius: 2px;
+  height: 8px;
+  width: 8px;
+  top: 12px;
+  display: block;
+  border-style: solid;
+  border-color: #ddd;
+  border-width: 1px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+page-chat .message-wrap .message.left .msg-content {
+  background-color: #fff;
+  float: left;
+}
+
+page-chat .message-wrap .message.left .msg-detail {
+  padding-left: 60px;
+}
+
+page-chat .message-wrap .message.left .user-img {
+  left: 0;
+}
+
+page-chat .message-wrap .message.left .msg-content {
+  color: #343434;
+}
+
+page-chat .message-wrap .message.left .msg-content span.triangle {
+  border-top-width: 0;
+  border-right-width: 0;
+  left: -5px;
+}
+
+page-chat .message-wrap .message.right .msg-detail {
+  padding-right: 60px;
+}
+
+page-chat .message-wrap .message.right .msg-detail .msg-info {
+  text-align: right;
+}
+
+page-chat .message-wrap .message.right .user-img {
+  right: 0;
+}
+
+page-chat .message-wrap .message.right ion-spinner {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+}
+
+page-chat .message-wrap .message.right .msg-content {
+  background-color: #387ef5;
+  float: right;
+}
+
+page-chat .message-wrap .message.right .msg-content span.triangle {
+  background-color: #387ef5;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  right: -5px;
 }
 
 page-conversation ion-label {
@@ -25770,7 +25923,7 @@ page-conversation .chatPageFooter .toolbar {
 page-flights #asd {
   margin-top: 50% !important;
   border: #671a94 1.5px solid;
-  border-radius: 20px !important;
+  border-radius: 0 40px !important;
 }
 
 page-flights .crd {
@@ -25839,7 +25992,7 @@ page-flights h2 span {
   padding: 0 10px;
 }
 
-page-home .example {
+page-history .example {
   height: 150px;
   position: relative;
   -webkit-animation-name: example;
@@ -25860,6 +26013,129 @@ page-home .example {
   100% {
     left: -200px;
   }
+}
+
+@keyframes example {
+  0% {
+    left: 500px;
+  }
+  100% {
+    left: -200px;
+  }
+}
+
+page-history .gh {
+  width: 100% !important;
+}
+
+page-history .cus {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-history .newcard {
+  height: 50%;
+}
+
+page-history .rows {
+  height: 310px;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  margin-bottom: 10px;
+}
+
+page-history .im {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+page-history #tha {
+  height: 56px !important;
+}
+
+page-history button {
+  height: 40px !important;
+}
+
+page-history .roowww {
+  height: 440px !important;
+}
+
+page-history .meracard {
+  margin-top: 10px;
+  height: 300px !important;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+}
+
+page-history .offer {
+  height: 430px !important;
+}
+
+page-history .offer2 {
+  height: 250px !important;
+}
+
+page-history .card-md {
+  height: 56%;
+}
+
+page-history .card2 {
+  height: 115px;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  position: relative;
+}
+
+page-history .asd {
+  position: absolute;
+  float: bottom;
+  bottom: -84px;
+}
+
+page-history .test {
+  width: 90%;
+}
+
+page-history .sho {
+  bottom: 10px !important;
+}
+
+page-history #meracard {
+  position: relative;
+}
+
+page-history .card-a {
+  position: absolute;
+  top: 3%;
+  font-size: 3.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+page-home .example {
+  height: 150px;
+  position: relative;
+  -webkit-animation-name: example;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
 }
 
 @keyframes example {
@@ -25963,16 +26239,21 @@ page-home #meracard {
 }
 
 page-home .card-a {
-  position: absolute;
-  top: 3%;
+  padding-bottom: 10px !important;
+  background-image: url(../assets/imgs/map1.jpg);
+  background-size: 100%;
   font-size: 3.0em;
   width: 100%;
   font-weight: bold;
   color: #fff;
 }
 
+page-home #maincard {
+  border-radius: 0 40px;
+}
+
 page-login .getstart {
-  background-image: url("../../assets/imgs/2.jpg");
+  background-image: url("../../assets/imgs/login bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -25985,6 +26266,8 @@ page-login .getstart img {
 }
 
 page-login .in {
+  border: 1px solid #ffffff;
+  border-radius: 0 40px !important;
   border-top-left-radius: 29px;
   border-top-right-radius: 29px;
   border-bottom-left-radius: 29px;
@@ -25992,12 +26275,14 @@ page-login .in {
 }
 
 page-login ion-item.item {
-  background-color: rgba(124, 39, 180, 0.219);
+  background-color: rgba(45, 8, 70, 0.466);
+  border: white 1px solid;
+  color: #cfcfcf;
 }
 
 page-login ion-item.item .label {
   width: 10%;
-  color: rgba(237, 234, 240, 0.9);
+  color: rgba(237, 234, 240, 0.63);
 }
 
 page-login ion-item .item-inner {
@@ -26005,7 +26290,19 @@ page-login ion-item .item-inner {
 }
 
 page-login ion-spinner * {
-  fill: rebeccapurple;
+  fill: rgba(102, 51, 153, 0.11);
+}
+
+page-login #t {
+  background-color: rgba(255, 255, 255, 0.486);
+  color: rgba(28, 6, 49, 0.925);
+  border: 1px solid #4d077c;
+  border-radius: 0 40px !important;
+}
+
+page-login #tt {
+  border: 1px solid #ffffff;
+  border-radius: 0 40px !important;
 }
 
 page-login .test {

@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 419:
+/***/ 587:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlightsPageModule", function() { return FlightsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flights__ = __webpack_require__(437);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(622);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FlightsPageModule = /** @class */ (function () {
-    function FlightsPageModule() {
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
     }
-    FlightsPageModule = __decorate([
+    HomePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__flights__["a" /* FlightsPage */]
+                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]
             ]
         })
-    ], FlightsPageModule);
-    return FlightsPageModule;
+    ], HomePageModule);
+    return HomePageModule;
 }());
 
-//# sourceMappingURL=flights.module.js.map
+//# sourceMappingURL=home.module.js.map
 
 /***/ }),
 
-/***/ 437:
+/***/ 622:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlightsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(249);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_css_animator__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_css_animator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,63 +65,119 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var FlightsPage = /** @class */ (function () {
-    function FlightsPage(modal, http, navCtrl, navParams, platform, api, alert) {
+
+/**
+ * Generated class for the HomePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var HomePage = /** @class */ (function () {
+    function HomePage(api, event, Keyboard, alert, ref, statusBar, animationService, loading, navCtrl, navParams) {
         var _this = this;
-        this.modal = modal;
-        this.http = http;
+        this.api = api;
+        this.event = event;
+        this.Keyboard = Keyboard;
+        this.alert = alert;
+        this.ref = ref;
+        this.statusBar = statusBar;
+        this.loading = loading;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.platform = platform;
-        this.api = api;
-        this.alert = alert;
-        this.flightss = [];
-        var user = JSON.parse(localStorage.getItem('zip_user'));
-        this.api.getFlights(user.id).then(function (data) {
-            _this.flightss = data;
+        this.a = false;
+        this.active = 0;
+        this.active2 = false;
+        this.posts = [];
+        this.posts2 = [];
+        this.flight_id = '';
+        this.animator = animationService.builder();
+        this.event.subscribe('open', function () {
+            _this.keyboardCheck();
+        });
+        this.event.publish('open');
+        this.api.allFlights.forEach(function (item) {
+            _this.api.getPostbyLoc(item.source_country, item.destination_country).then(function (data) {
+                _this.posts.push(data);
+            });
+        });
+        this.posts.push({
+            active: 'false',
+            user: { name: 'Hassan Ali', img: 'assets/imgs/logo.jpg' },
+            product: { name: 'Nike Air', price: '200', from: 'USA', to: 'Pakistan', reward: '10', img: 'assets/imgs/s1.jpg' }
+        });
+        this.posts.push({
+            active: 'false',
+            user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
+            product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
         });
     }
-    FlightsPage.prototype.ionViewDidLoad = function () {
-        this.platform.ready().then(function () {
-        });
+    HomePage.prototype.animateElem = function (post, ele) {
+        //this.animator.stop( ele._elementRef.nativeElement );
+        if (post.active == 'true') {
+            ele._elementRef.nativeElement.innerText = 'Make an Offer';
+            post.active = 'false';
+            this.active = this.active - 1;
+        }
+        else {
+            ele._elementRef.nativeElement.innerText = 'Cancel';
+            post.active = 'true';
+            this.active = this.active + 1;
+        }
+        //this.animator.setType( 'flipInX' ).show( ele._elementRef.nativeElement )
     };
-    FlightsPage.prototype.doRefresh = function (refresher) {
+    HomePage.prototype.keyboardCheck = function () {
+        // this.event.publish('open')
+    };
+    HomePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HomePage');
+    };
+    HomePage.prototype.flight = function () {
         var _this = this;
-        var user = JSON.parse(localStorage.getItem('zip_user'));
-        this.api.getFlights(user.id).then(function (data) {
-            _this.flightss = data;
-            refresher.complete();
-            console.log('re run');
+        var alert = this.alert.create({
+            title: 'Choose your flight'
         });
+        this.api.allFlights.forEach(function (element) {
+            alert.addInput({
+                type: 'radio',
+                label: element.source_country + ' - ' + element.destination_country,
+                value: element.id,
+                checked: false
+            });
+        });
+        alert.addButton({
+            text: 'Confirm',
+            handler: function (data) {
+                _this.flight_id = data;
+            }
+        });
+        alert.present();
     };
-    FlightsPage.prototype.addflight = function () {
-        // var  scr = 'USA';
-        // var scity = 'New York';
-        // var dcr = 'Pakistan';
-        // var dct = 'Lahore';
-        // var time = '15:34:23';
-        // var userid =  '1';
-        // this.api.addFlight(scr, scity, dcr, dct, time, userid)
-        this.modal.create('AddflightPage').present();
-        // this.api.getFlights(user.id).then( (data) => {
-        //   // this.flightss = data
-        //   console.log(data);
-        // })
+    HomePage.prototype.makebid = function () {
+        // this.api.bid()
     };
-    FlightsPage.prototype.flights = function () {
-        // this.navCtrl.push('AddflightPage')
+    HomePage.prototype.go = function () {
+        this.navCtrl.push('AccountPage');
     };
-    FlightsPage = __decorate([
+    HomePage.prototype.openProduct = function () {
+        this.navCtrl.push('ProductDetailsPage');
+    };
+    HomePage.prototype.addPost = function () {
+        this.navCtrl.push('AddPostPage');
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('ok'),
+        __metadata("design:type", Object)
+    ], HomePage.prototype, "myElem", void 0);
+    HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-flights',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/flights/flights.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>flights</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n <ion-content padding class="bg">\n \n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n\n\n<ion-card id=\'asd\' *ngIf="flightss.length == 0" class="Main" >\n  <ion-card-content text-center>\n    <ion-card-title>\n      Travelling Somewhere?\n    </ion-card-title>\n    <p>\n      Post a flight and start making money!\n    </p>\n    <br><br>\n    <button ion-button outline item-center (click)=\'addflight()\'>Add Flight</button>\n  </ion-card-content>\n</ion-card>\n<ion-fab right bottom *ngIf="flightss.length != 0" (click)=\'flights()\'>\n  <button id=\'tha\' ion-fab color="primary">\n    <ion-icon name="add"></ion-icon>\n  </button>\n</ion-fab>\n<div  *ngFor=\'let flight of flightss\'>\n    <ion-card text-center class="crd">\n      <ion-grid>\n        <ion-row style="height: 70px;">\n            <ion-col col-4 align-self-center>\n                <h1>{{flight.source_country}}</h1>\n            </ion-col>\n            \n            <ion-col col-4 align-self-center>\n              <h1>{{flight.source_city}}</h1>\n          </ion-col>\n\n            <ion-col col-4 align-self-center>\n              <h2>\n                <span>{{flight.date}}</span>\n              </h2>\n            </ion-col>\n\n            <ion-col col-4 align-self-center>\n                <h1>{{flight.destination_country}}</h1>\n            </ion-col>\n            <ion-col col-4 align-self-center>\n              <h1>{{flight.destination_city}}</h1>\n          </ion-col>\n        </ion-row>\n        <ion-row>\n            <button ion-button outline style="width: 48%;">Remove</button>\n            <button ion-button style="width: 48%;">Edit</button>\n        </ion-row>\n      </ion-grid>\n      \n    </ion-card>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/flights/flights.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>ZipShip</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content>\n\n  <ion-fab right bottom>\n\n    <button id=\'tha\' (click)=\'addPost()\' ion-fab color="primary">\n\n      <ion-icon name="add"></ion-icon>\n\n    </button>\n\n  </ion-fab>\n\n  <ion-card id=\'maincard\' style="margin: 0;width: 100% !important;">\n\n    <!-- <img style="height: 100%;" src="assets/imgs/map1.jpg" /> -->\n\n    <div class="card-a" padding>\n\n      <h1 style="color:white;margin-bottom: 15px;font-size: 30px;">\n\n        Get items from anywhere in the world delivered to you by trusted travellers.\n\n      </h1>  \n\n      <ion-item style="border-radius: 20px;   border: 1px solid #4d077c;  border-radius: 0 40px !important;">\n\n        <ion-input   placeholder="Paste a link to create order"></ion-input>\n\n      </ion-item>\n\n    </div>\n\n  </ion-card>\n\n  <div *ngIf="posts.length == 0">\n\n    <ion-card>\n\n        <ion-card-content text-center>\n\n            <ion-card-title>\n\n              No Posts To Show!\n\n            </ion-card-title>\n\n            <p>\n\n              Add a flight and start making money!\n\n            </p>\n\n          </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n  <ion-grid style="min-height: 100%; " *ngIf="posts.length > 0    ">\n\n      <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor=\'let post of posts;\' style="height: 100%;">\n\n          <ion-card [ngClass]="{\'offer\': post.active == \'true\'}" class="meracard">\n\n            <ion-item>\n\n              <ion-avatar item-start>\n\n                <img src="{{post.user.img}}">\n\n              </ion-avatar>\n\n              <h2>{{post.user.name}}</h2>\n\n              <p>Posted 17 min ago</p>\n\n            </ion-item>\n\n        \n\n            <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">\n\n              <img class="im" src="assets/imgs/s1.jpg">\n\n              <ion-card-title style="width: 60%;">\n\n                <h3>\n\n                  <b> {{post.product.name}} </b>\n\n                </h3>\n\n                <ion-label style="margin-top: 0;margin-bottom: 0;"> Price\n\n                  <b>${{post.product.price}}</b>\n\n                </ion-label>\n\n                <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">\n\n                  From\n\n                  <b>{{post.product.from}}</b>\n\n                </ion-label>\n\n                <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">\n\n                  To\n\n                  <b>{{post.product.to}}</b>\n\n                </ion-label>\n\n              </ion-card-title>\n\n            </ion-card-content>\n\n        \n\n            <ion-card class="card2" [ngClass]="{\'offer2\': post.active == \'true\'}">\n\n              <ion-card-content style="padding-top: 0;" class=\'cus\'>\n\n                <div>\n\n                  <ion-label style="text-align: center;margin-bottom: 3px;">\n\n                    <u> Traveler\'s Reward </u>\n\n                  </ion-label>\n\n                  <h1>from\n\n                    <b>${{post.product.reward}}</b>\n\n                  </h1>\n\n                  <button #ok class="gh" (click)="animateElem(post,ok);" ion-button icon-left block outline color="primary">\n\n                    Make an Offer\n\n                  </button>\n\n                </div>\n\n                <div [ngClass]="{\'sho\': post.active == \'true\'}">\n\n                  <ion-item>\n\n                    <ion-label>Amount</ion-label>\n\n                    <ion-input type="number" value=""></ion-input>\n\n                  </ion-item>\n\n                  <ion-item (click)=\'flight()\'>\n\n                    <ion-label>Select Flight</ion-label>\n\n                    <ion-input disabled type="number" value=""></ion-input>\n\n                  </ion-item>\n\n                  <button ion-button icon-left block outline color="primary" (click)=\'makebid()\'>\n\n                    Send Offer\n\n                  </button>\n\n                </div>\n\n              </ion-card-content>\n\n            </ion-card>\n\n          </ion-card>\n\n      </ion-col>\n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], FlightsPage);
-    return FlightsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_2_css_animator__["AnimationService"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], HomePage);
+    return HomePage;
 }());
 
-//# sourceMappingURL=flights.js.map
+//# sourceMappingURL=home.js.map
 
 /***/ })
 

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { ChatBubbleComponent } from './chat-bubble/chat-bubble';
-import { ElasticTextareaComponent } from './elastic-textarea/elastic-textarea';
+import { WargaeComponent } from './wargae/wargae';
+import { IonicModule } from 'ionic-angular'
 @NgModule({
-	declarations: [ChatBubbleComponent,
-    ElasticTextareaComponent],
-	imports: [],
-	exports: [ChatBubbleComponent,
-    ElasticTextareaComponent]
+	declarations:[WargaeComponent],
+	imports: [IonicModule],
+	exports: [WargaeComponent]
 })
 export class ComponentsModule {}

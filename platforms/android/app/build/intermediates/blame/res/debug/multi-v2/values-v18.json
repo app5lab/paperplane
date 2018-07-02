@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml",
+            "outputFile": "C:\\Users\\tooth\\OneDrive\\Desktop\\zip\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
             "map": [
                 {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/d241ff7b821b42f6f88515d0df0acf16/res/values-v18/values-v18.xml",
+                    "source": "C:\\Users\\tooth\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\5c80f0a03d2d371181e85a0a72341b0a\\res\\values-v18\\values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

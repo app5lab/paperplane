@@ -17,7 +17,7 @@ import { IonicPage, NavController, NavParams, LoadingController, App } from 'ion
 
 
 export class AccountPage {
-  user: any = {firstname:'hassan',lastname:'ali',address:'asdasdasdas',phone:'03000417591',email:'megatubelite@gmail.com',password:'qwerty',rp:'qwerty'}
+  user: any = {firstname:'hassan',lastname:'ali',address:'363 ',phone:'03000417591',email:'hassan@appslab.io',password:'qwerty',rp:'qwerty'}
 settings:any = 'profile'
   constructor(public app: App ,public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     let loading = this.loadingCtrl.create( {

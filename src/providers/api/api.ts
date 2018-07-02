@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HTTP, HTTPResponse } from '@ionic-native/http';
-import * as md5 from 'md5'
+import { HTTP } from '@ionic-native/http';
+import * as md5 from 'md5';
+import * as firebase from 'firebase';
 import { log } from 'util';
 /*
   Generated class for the ApiProvider provider.
@@ -13,6 +13,29 @@ import { log } from 'util';
 export class ApiProvider {
 allFlights: any [] = []
   constructor(public http: HTTP) {
+  }
+
+  firebase(){
+   // return this.db.list('uploads')
+   return firebase.database()
+//     const storageRef = firebase.storage().ref();
+// const uploadTask = storageRef.child(`/uploads/`).put('assets/imgs/final.png');
+ 
+// uploadTask.on('value',
+//       (snapshot) => {
+//         // in progress
+//         const snap = snapshot as firebase.storage.UploadTaskSnapshot
+//       },
+//       (error) => {
+//         // fail
+//         console.log(error)
+//       },
+//       () => {
+//         // success
+//         console.log('[ass');
+        
+//       }
+//     );
   }
 
   login(email,pass):Promise<any>{
@@ -171,7 +194,7 @@ allFlights: any [] = []
         .then(
           res =>
           {
-            console.log(res);
+            console.log(JSON.stringify(res.data));
             
             // if ( res.data != 'User already Exist' && res.data == '1' )
             //   resolve( true );

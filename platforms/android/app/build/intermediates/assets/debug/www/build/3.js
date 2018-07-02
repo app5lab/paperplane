@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 423:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrdersPageModule", function() { return OrdersPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__orders__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(630);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var OrdersPageModule = /** @class */ (function () {
-    function OrdersPageModule() {
+var TabsPageModule = /** @class */ (function () {
+    function TabsPageModule() {
     }
-    OrdersPageModule = __decorate([
+    TabsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__orders__["a" /* OrdersPage */],
+                __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__orders__["a" /* OrdersPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]),
             ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]
+            ]
         })
-    ], OrdersPageModule);
-    return OrdersPageModule;
+    ], TabsPageModule);
+    return TabsPageModule;
 }());
 
-//# sourceMappingURL=orders.module.js.map
+//# sourceMappingURL=tabs.module.js.map
 
 /***/ }),
 
-/***/ 441:
+/***/ 630:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdersPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,29 +60,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the OrdersPage page.
+ * Generated class for the TabsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var OrdersPage = /** @class */ (function () {
-    function OrdersPage(navCtrl, navParams) {
+var TabsPage = /** @class */ (function () {
+    function TabsPage(event, navCtrl, navParams) {
+        this.event = event;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.tab1Root = 'HomePage';
+        this.tab2Root = 'FlightsPage';
+        this.tab3Root = 'AccountPage';
+        this.tab4Root = 'HistoryPage';
+        this.tab5Root = 'AllChatsPage';
+        this.a = true;
     }
-    OrdersPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad OrdersPage');
+    TabsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TabsPage');
     };
-    OrdersPage = __decorate([
+    TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-orders',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/orders/orders.html"*/'<!--\n  Generated template for the OrdersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>orders</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-grid style="min-height: 100%;">\n        <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor=\'let post of posts;\' style="height: 100%;">\n            <ion-card [ngClass]="{\'offer\': post.active == \'true\'}" class="meracard">\n              <ion-item>\n                <ion-avatar item-start>\n                  <img src="{{post.user.img}}">\n                </ion-avatar>\n                <h2>{{post.user.name}}</h2>\n                <p>Posted 17 min ago</p>\n              </ion-item>\n          \n              <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">\n                <img class="im" src="assets/imgs/s1.jpg">\n                <ion-card-title style="width: 60%;">\n                  <h3>\n                    <b> {{post.product.name}} </b>\n                  </h3>\n                  <ion-label style="margin-top: 0;margin-bottom: 0;"> Price\n                    <b>${{post.product.price}}</b>\n                  </ion-label>\n                  <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">\n                    From\n                    <b>{{post.product.from}}</b>\n                  </ion-label>\n                  <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">\n                    To\n                    <b>{{post.product.to}}</b>\n                  </ion-label>\n                </ion-card-title>\n              </ion-card-content>\n          \n              <ion-card class="card2" [ngClass]="{\'offer2\': post.active == \'true\'}">\n                <ion-card-content style="padding-top: 0;" class=\'cus\'>\n                  <div>\n                    <ion-label style="text-align: center;margin-bottom: 3px;">\n                      <u> Traveler\'s Reward </u>\n                    </ion-label>\n                    <h1>from\n                      <b>${{post.product.reward}}</b>\n                    </h1>\n                    <ion-label style="text-align:left;margin-bottom: 3px;">\n                        Amount\n                    </ion-label>\n                    <ion-label style="text-align:right;margin-bottom: 3px;">\n                        $500\n                    </ion-label>\n                    <ion-label style="text-align: left;margin-bottom: 3px;">\n                       Flight\n                    </ion-label>\n                    <ion-label style="text-align:right;margin-bottom: 3px;">\n                       BLU AIRLINE.\n                    </ion-label>\n                  </div>\n                </ion-card-content>\n              </ion-card>\n            </ion-card>\n        </ion-col>\n    </ion-grid>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/orders/orders.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="My Flights" tabIcon="paper-plane"></ion-tab>  \n\n  <ion-tab [root]="tab4Root" tabTitle="Posts" tabIcon="paper"></ion-tab>\n\n  <ion-tab [root]="tab5Root" tabTitle="Messages" tabIcon="chatbubbles"></ion-tab>  \n\n  <ion-tab [root]="tab3Root" tabTitle="Settings" tabIcon="settings"></ion-tab>  \n\n</ion-tabs>'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\tabs\tabs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
-    ], OrdersPage);
-    return OrdersPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], TabsPage);
+    return TabsPage;
 }());
 
-//# sourceMappingURL=orders.js.map
+//# sourceMappingURL=tabs.js.map
 
 /***/ })
 

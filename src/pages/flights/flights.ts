@@ -16,6 +16,7 @@ export class FlightsPage {
       this.api.getFlights(user.id).then( (data) => {
         this.flightss = data
       })
+
 }
 
   ionViewDidLoad ()

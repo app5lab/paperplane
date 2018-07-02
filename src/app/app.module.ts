@@ -20,22 +20,41 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 
+import { WargaeComponent } from '../components/wargae/wargae'
+import { ChatService } from '../providers/chat-service/chat-service';
+
+import { HttpClientModule } from '@angular/common/http'; 
+
+var config = {
+  apiKey: "AIzaSyAjwOubcsmoO19VAyY3D-7SxJLVavG4wQU",
+  authDomain: "zipship-645ad.firebaseapp.com",
+  databaseURL: "https://zipship-645ad.firebaseio.com",
+  projectId: "zipship-645ad",
+  storageBucket: "zipship-645ad.appspot.com",
+  messagingSenderId: "853143982866"
+};
+
 @NgModule({
   declarations: [
     MyApp,
     AnimatesDirective,
+    WargaeComponent,
   ],
   imports: [
     ResponsiveModule.forRoot(),
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot( MyApp, { 
-      scrollAssist: false, 
-      autoFocusAssist: false,
+      // scrollAssist: true, 
+      // autoFocusAssist: true,
+      // scrollPadding: true,
+      tabsHideOnSubPages:true,
+      preloadModules: true,
       iconMode: 'ios',
       pageTransition: 'ios-transition',
       mode: 'ios'
-    })
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +69,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     ApiProvider,
     HTTP,
     FileTransfer, File, ImagePicker,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }    
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    ChatService
   ]
 })
 export class AppModule {}

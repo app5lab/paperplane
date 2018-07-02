@@ -20,7 +20,7 @@ export class TabsPage {
   tab2Root = 'FlightsPage';
   tab3Root = 'AccountPage';
   tab4Root = 'HistoryPage';
-  tab5Root = 'ChatPage';
+  tab5Root = 'AllChatsPage';
   a = true;
 
   constructor(public event: Events,public navCtrl: NavController, public navParams: NavParams) {

@@ -9,6 +9,7 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 })
 export class AddPostPage {
   files:any [] = []
+  post:any = {title:'',des:'',image1:'',image2:'',image3:'',treward:'',from:'',to:'',note:'',url:'', qty:''}
   constructor( 
     public image:ImagePicker , 
     public api:ApiProvider ,
@@ -23,22 +24,29 @@ export class AddPostPage {
     const options: ImagePickerOptions = {
       quality: 50,
       maximumImagesCount: 3,
-      outputType: 1
+      outputType: 0
     }
+
       
-    this.image.getPictures( options ).then( ( results ) =>
-    {
-      var i = 0
-      results.forEach(Img => {
-        this.files[i++] = 'data:image/jpeg;base64,' + Img;
-      });
-      console.log(this.files[0]);
-      
-    }, ( err ) => { } );
+    this.image.hasReadPermission().then( () => {
+      this.image.getPictures( options ).then( ( results ) =>
+      {
+        
+        for (var i = 0; i < results.length; i++) {
+          this.files[i] = 'data:image/jpeg;base64,' + results[i];
+          if(i == 0)
+            this.post.image1 = this.files[i]
+          else if (i == 1)
+            this.post.image2 = this.files[i]
+          else if( i == 2)
+            this.post.image2 = this.files[i]
+          }
+      }, ( err ) => {console.log('err'+err);});
+    })
+    
   }
   
   add(){ 
-    // this.api.getPostbyLoc('USA', 'Pakistan')
-    this.api.addPost('Macbook', '13inch 256ssd i7 8gb', this.files[0], '', '', '50', 'USA', 'Pakistan', '3', 'apple.com/macbook')
+    this.api.addPost(this.post.title,this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.post.from, this.post.to,this.post.qty, this.post.url)
   }
 }

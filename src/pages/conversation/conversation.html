@@ -10,21 +10,24 @@
 <ion-content #content>
   <ion-list no-lines>
     <ion-item *ngFor="let msg of messages">
-      <chat-bubble [chatMessage]="msg"></chat-bubble>
+      <!-- <chat-bubble [chatMessage]="msg"></chat-bubble> -->
     </ion-item>
   </ion-list>
 </ion-content>
 
-<ion-footer no-border class="chatPageFooter" [keyboardAttach]="content" [btnClicked]="btnEmitter">
+<ion-footer no-border class="chatPageFooter" >
   <ion-toolbar>
     <ion-item no-lines>
       <ion-label style="margin:0px;"></ion-label>
       <div item-content style="width:100%;">
-        <elastic-textarea #txtChat placeholder="Send a message" lineHeight="20" maxExpand="5"></elastic-textarea>
+        <!-- <wargae #txtChat lineHeight="20" maxExpand="5"></wargae> -->
+        <ion-item>
+          <ion-textarea #ionTxtArea  #txtChat type="text"  placeholder="Enter a description" (ngModelChange)='onChange($event)'></ion-textarea>
+        </ion-item>
       </div>
     </ion-item>
     <ion-buttons right style="margin-left:10px">
-      <button ion-button icon-only style="margin-top: -15px;" [disabled]="txtChat.content.trim().length<1" (click)="sendMessage()">
+      <button ion-button icon-only style="margin-top: -15px;" (click)="sendMessage()">
         <ion-icon name="md-send"></ion-icon>
       </button>
     </ion-buttons>

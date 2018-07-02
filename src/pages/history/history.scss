@@ -1,3 +1,108 @@
 page-history {
 
+    .example {
+        height: 150px;
+    position: relative;
+    -webkit-animation-name: example;
+    animation-iteration-count: infinite;
+    /* Safari 4.0 - 8.0 */
+    animation-name: example;
+      //   animation-direction: reverse;
+animation-timing-function: linear;
+    animation-duration: 3s;
+  }
+
+  @keyframes example {
+    0% {
+      left: 500px;
+    }
+    100% {
+      left: -200px;
+    }
+  }
+
+.gh{
+    width: 100% !important;
+  }
+
+.cus{
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+  }
+
+.newcard{
+      height:50%;
+  }
+
+.rows{
+      height: 310px; 
+      transition: height 0.5s;
+      margin-bottom: 10px;
+  }
+
+.im{
+      width: 100px;
+      height: 100px;
+      // max-width: 35%;
+      // height: 35%;
+      margin-right: 10px;
+      border-radius: 5px;
+  }
+#tha{
+      height: 56px !important;
+  }
+  button{
+      height: 40px !important;
+  }
+.roowww{
+      height: 440px !important;
+  }
+.meracard{
+      margin-top: 10px;
+      height: 300px !important;
+      transition: height 0.5s;        
+  }
+.offer{
+      height: 430px !important;
+  }
+
+.offer2{
+      height: 250px !important;
+  }
+  
+  
+.card-md{
+      height: 56%;
+  }
+.card2{
+      height: 115px;
+      transition: height 0.5s;
+      position: relative;
+  }
+
+.asd{
+      position: absolute;
+      float: bottom;
+      bottom: -84px;
+  } 
+.test{
+      width: 90%;
+  }
+.sho{
+      bottom: 10px !important;
+  }
+
+#meracard {
+   position: relative;
+ }
+
+.card-a {
+  position: absolute;
+  top: 3%;
+  font-size: 3.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
 }

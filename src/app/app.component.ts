@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import *as firebase from 'firebase';
-
+import { Keyboard } from '@ionic-native/keyboard';
+import * as firebase from 'firebase';
 var config = {
   apiKey: "AIzaSyAjwOubcsmoO19VAyY3D-7SxJLVavG4wQU",
   authDomain: "zipship-645ad.firebaseapp.com",
@@ -19,14 +19,12 @@ var config = {
 export class MyApp {
   rootPage:any = "LoginPage";
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor( public Keyboard: Keyboard,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       statusBar.backgroundColorByHexString( '#571a94' );      
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      // statusBar.styleDefault();
+      statusBar.styleDefault();
       splashScreen.hide();
     });
-    // firebase.initializeApp(config);
+    firebase.initializeApp(config);
   }
 }

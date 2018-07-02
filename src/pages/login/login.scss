@@ -1,7 +1,7 @@
 page-login {
 
     .getstart {
-        background-image: url('../../assets/imgs/2.jpg');
+        background-image: url('../../assets/imgs/login bg.jpg');
         background-repeat: no-repeat;
         background-size:cover;
     }
@@ -19,6 +19,8 @@ page-login {
     // }
     
     .in{
+        border: 1px solid #ffffff;
+        border-radius: 0 40px !important;
         // width: 50%;
         // margin: 0 25%;
         // min-width: 300px !important;
@@ -26,12 +28,16 @@ page-login {
         border-top-right-radius: 29px;
         border-bottom-left-radius: 29px;
         border-bottom-right-radius: 29px;
+        
     }
     ion-item.item {
-        background-color: rgba(124, 39, 180, 0.219);
-    .label {
+        background-color: rgba(45, 8, 70, 0.466);
+        border: white 1px solid;
+        color: rgb(207, 207, 207);
+
+    .label { 
       width: 10%;
-      color: rgba(237, 234, 240, 0.9);
+      color: rgba(237, 234, 240, 0.63);
     }
     }
     ion-item .item-inner{
@@ -39,9 +45,19 @@ page-login {
     }
     
     ion-spinner * {
-        fill: rebeccapurple;
+        fill: rgba(102, 51, 153, 0.11);
     }
+#t{
+    background-color: rgba(255, 255, 255, 0.486);
+    color: rgba(28, 6, 49, 0.925);
 
+    border: 1px solid #4d077c;
+    border-radius: 0 40px !important;
+}
+#tt{
+    border: 1px solid #ffffff;
+    border-radius: 0 40px !important;
+}
     .test{
         fill: rebeccapurple;
     }

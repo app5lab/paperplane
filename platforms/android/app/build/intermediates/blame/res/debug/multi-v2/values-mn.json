@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Hassan/Desktop/Ionic/zip/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
+            "outputFile": "C:\\Users\\tooth\\OneDrive\\Desktop\\zip\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn\\values-mn.xml",
             "map": [
                 {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/1bae152bbdc05ceae87491fefeb7ae87/res/values-mn/values-mn.xml",
+                    "source": "C:\\Users\\tooth\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\3cda59316e9aa43020f3a1e09eb5b7f6\\res\\values-mn\\values-mn.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/12f03a9e7f57bdfab32ff6ee5462de56/res/values-mn/values.xml",
+                    "source": "C:\\Users\\tooth\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\a76552ecb47ac1a0ab15d15b30c2e4d8\\res\\values-mn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,24 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-16.0.1.aar/7f145f251ac8801fa28ede40fe918936/res/values-mn/values.xml",
-                    "from": {
-                        "startLines": "4,5,6",
-                        "startColumns": "0,0,0",
-                        "startOffsets": "208,308,431",
-                        "endColumns": "99,122,100",
-                        "endOffsets": "307,430,531"
-                    },
-                    "to": {
-                        "startLines": "22,23,24",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "3014,3118,3245",
-                        "endColumns": "103,126,104",
-                        "endOffsets": "3113,3240,3345"
-                    }
-                },
-                {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.0.0.aar/9db64cd96b574308d93a1d1527441219/res/values-mn/values.xml",
+                    "source": "C:\\Users\\tooth\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-17.1.0.aar\\8c24dbe0c7c771fc62a786653eb73294\\res\\values-mn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -72,7 +55,24 @@
                     }
                 },
                 {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/38c836a5cb96b6d9318313121634ab8e/res/values-mn/values.xml",
+                    "source": "C:\\Users\\tooth\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-tagmanager-16.0.1.aar\\964a6218145f6e2ad33cd07b5fc4c573\\res\\values-mn\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6",
+                        "startColumns": "0,0,0",
+                        "startOffsets": "208,308,431",
+                        "endColumns": "99,122,100",
+                        "endOffsets": "307,430,531"
+                    },
+                    "to": {
+                        "startLines": "22,23,24",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "3014,3118,3245",
+                        "endColumns": "103,126,104",
+                        "endOffsets": "3113,3240,3345"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\tooth\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-15.0.1.aar\\d9fba251d10ecad89d0a1a78383c290f\\res\\values-mn\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

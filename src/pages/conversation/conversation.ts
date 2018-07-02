@@ -1,12 +1,6 @@
 import { Component, ViewChild, EventEmitter, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ConversationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -15,19 +9,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConversationPage {
   @ViewChild( 'txtChat' ) txtChat: any;
-  @ViewChild( 'content' ) content: any;
+  // @ViewChild( 'content' ) content: any;
   messages: any[] = [];
   chatBox: string ="";
   btnEmitter: EventEmitter<string>;
 
-  constructor( public _zone: NgZone)
-    //public databaseService: DatabaseService,
-    //public socketService: SocketService )
+  constructor( public _zone: NgZone, public api:ApiProvider)
   {
     this.btnEmitter = new EventEmitter<string>();
     this.messages = [];
     this.chatBox = "";
     this.init();
+    var user = JSON.parse( localStorage.getItem( 'zip_user' ) )
+    this.api.firebase().ref('chat/users/' + user.id +'/' + '10').push({msg:'test'})
+    // this.api.firebase().ref('chat/users/' + user.id +'/' + '10').push({msg:'test'})
+   
   }
 
   // ionViewWillEnter ()
@@ -85,7 +81,7 @@ export class ConversationPage {
     {
       setTimeout( () =>
       {
-        this.content.scrollToBottom( 300 );
+        // this.content.scrollToBottom( 300 );
       } );
     } );
   }

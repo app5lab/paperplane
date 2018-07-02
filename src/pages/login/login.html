@@ -4,14 +4,14 @@
         <ion-label fixed>
           <ion-icon name="person"></ion-icon>
           Username</ion-label>
-        <ion-input type="text" [(ngModel)]="username"></ion-input>
+        <ion-input type="text" [(ngModel)]="username" (ionBlur)='test()'></ion-input>
       </ion-item>
     <br>
     <ion-item class="in">
-      <ion-label fixed>
+      <ion-label >
         <ion-icon name="lock"></ion-icon>
          Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" (ionBlur)='test()'></ion-input>
     </ion-item>
 <br>
     
@@ -20,7 +20,7 @@
     <br>
     <br> 
     <div style="width: 100%;display: flex;justify-content: center;">
-      <button ion-button outline color=light round style="width: 60%;" (click)='signup()'>
+      <button id='tt' ion-button outline color=light style="width: 60%;" (click)='signup()'>
         Sign Up?
       </button>   
     </div>

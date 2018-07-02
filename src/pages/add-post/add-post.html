@@ -11,12 +11,12 @@
     <ion-list>
         <ion-item>
           <ion-label floating>Title</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input [(ngModel)]="post.title" type="text"></ion-input>
         </ion-item>
       
         <ion-item>
-          <ion-label floating>Description</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label floating>Discription</ion-label>
+          <ion-input [(ngModel)]="post.des" type="text"></ion-input>
         </ion-item>
       
         <div>
@@ -32,27 +32,27 @@
 
           <ion-item>
               <ion-label floating>Traveler Reward</ion-label>
-              <ion-input type="number"></ion-input>
+              <ion-input [(ngModel)]="post.treward" type="number"></ion-input>
             </ion-item>
             
             <ion-item>
                 <ion-label floating>From</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input [(ngModel)]="post.from" type="text"></ion-input>
               </ion-item>
 
            <ion-item>
                 <ion-label floating>To</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input [(ngModel)]="post.to" type="text"></ion-input>
            </ion-item>
 
            <ion-item>
               <ion-label floating>Note</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input [(ngModel)]="post.note"type="text"></ion-input>
          </ion-item>
 
          <ion-item>
             <ion-label floating>Item_url</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="post.url"type="text"></ion-input>
        </ion-item>
 
        <ion-item>
@@ -62,7 +62,7 @@
 
      <ion-item>
         <ion-label floating>Quantity</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input type="number" [(ngModel)]="post.qty"></ion-input>
    </ion-item>
 
     </ion-list>

@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ChatPage } from './chat';
+import { Chat } from './chat';
+import { ChatService } from "../../providers/chat-service/chat-service";
+import { RelativeTime } from "../../pipes/relative-time";
 
 @NgModule({
   declarations: [
-    ChatPage,
+    Chat,
+    RelativeTime
   ],
   imports: [
-    IonicPageModule.forChild(ChatPage),
+    IonicPageModule.forChild(Chat),
   ],
-  exports:[
-    ChatPage
-  ]
+  exports: [
+    Chat
+  ],
+  providers: [
+    ChatService  ]
 })
-export class ChatPageModule {}
+export class ChatModule {
+}

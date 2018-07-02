@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 421:
+/***/ 589:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrdersPageModule", function() { return OrdersPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__orders__ = __webpack_require__(624);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,40 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+var OrdersPageModule = /** @class */ (function () {
+    function OrdersPageModule() {
     }
-    HomePageModule = __decorate([
+    OrdersPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__orders__["a" /* OrdersPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__orders__["a" /* OrdersPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]
-            ]
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], OrdersPageModule);
+    return OrdersPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=orders.module.js.map
 
 /***/ }),
 
-/***/ 439:
+/***/ 624:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrdersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_css_animator__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,121 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
 /**
- * Generated class for the HomePage page.
+ * Generated class for the OrdersPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var HomePage = /** @class */ (function () {
-    function HomePage(api, event, Keyboard, alert, ref, statusBar, animationService, loading, navCtrl, navParams) {
-        var _this = this;
-        this.api = api;
-        this.event = event;
-        this.Keyboard = Keyboard;
-        this.alert = alert;
-        this.ref = ref;
-        this.statusBar = statusBar;
-        this.loading = loading;
+var OrdersPage = /** @class */ (function () {
+    function OrdersPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.a = false;
-        this.active = 0;
-        this.active2 = false;
-        this.posts = [];
-        this.posts2 = [];
-        this.flight_id = '';
-        this.animator = animationService.builder();
-        this.event.subscribe('open', function () {
-            _this.keyboardCheck();
-        });
-        this.event.publish('open');
-        this.api.allFlights.forEach(function (item) {
-            _this.api.getPostbyLoc(item.source_country, item.destination_country).then(function (data) {
-                _this.posts.push(data);
-            });
-        });
-        this.posts.push({
-            active: 'false',
-            user: { name: 'Hassan Ali', img: 'assets/imgs/logo.jpg' },
-            product: { name: 'Nike Air', price: '200', from: 'USA', to: 'Pakistan', reward: '10', img: 'assets/imgs/s1.jpg' }
-        });
-        this.posts.push({
-            active: 'false',
-            user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
-            product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
-        });
     }
-    HomePage.prototype.animateElem = function (post, ele) {
-        //this.animator.stop( ele._elementRef.nativeElement );
-        if (post.active == 'true') {
-            ele._elementRef.nativeElement.innerText = 'Make an Offer';
-            post.active = 'false';
-            this.active = this.active - 1;
-        }
-        else {
-            ele._elementRef.nativeElement.innerText = 'Cancel';
-            post.active = 'true';
-            this.active = this.active + 1;
-        }
-        //this.animator.setType( 'flipInX' ).show( ele._elementRef.nativeElement )
+    OrdersPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad OrdersPage');
     };
-    HomePage.prototype.keyboardCheck = function () {
-        // this.event.publish('open')
-    };
-    HomePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HomePage');
-    };
-    HomePage.prototype.flight = function () {
-        var _this = this;
-        var alert = this.alert.create({
-            title: 'Choose your flight'
-        });
-        this.api.allFlights.forEach(function (element) {
-            alert.addInput({
-                type: 'radio',
-                label: element.source_country + ' - ' + element.destination_country,
-                value: element.id,
-                checked: false
-            });
-        });
-        alert.addButton({
-            text: 'Confirm',
-            handler: function (data) {
-                _this.flight_id = data;
-            }
-        });
-        alert.present();
-    };
-    HomePage.prototype.makebid = function () {
-        // this.api.bid()
-    };
-    HomePage.prototype.go = function () {
-        this.navCtrl.push('AccountPage');
-    };
-    HomePage.prototype.openProduct = function () {
-        this.navCtrl.push('ProductDetailsPage');
-    };
-    HomePage.prototype.addPost = function () {
-        this.navCtrl.push('AddPostPage');
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('ok'),
-        __metadata("design:type", Object)
-    ], HomePage.prototype, "myElem", void 0);
-    HomePage = __decorate([
+    OrdersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/zip/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>ZipShip</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content>\n  <ion-fab right bottom>\n    <button id=\'tha\' (click)=\'addPost()\' ion-fab color="primary">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <ion-card id=\'maincard\' style="margin: 0;width: 100% !important;">\n    <img src="assets/imgs/map1.jpg" />\n    <div class="card-a" padding>\n      <h1 style="color:white;margin-bottom: 15px;font-size: 30px;">\n        Get items from anywhere in the world delivered to you by trusted travellers.\n      </h1>  \n      <ion-item style="border-radius: 20px;">\n        <ion-input  placeholder="Paste a link to create order"></ion-input>\n      </ion-item>\n    </div>\n  </ion-card>\n\n  <ion-grid style="min-height: 100%;">\n      <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor=\'let post of posts;\' style="height: 100%;">\n          <ion-card [ngClass]="{\'offer\': post.active == \'true\'}" class="meracard">\n            <ion-item>\n              <ion-avatar item-start>\n                <img src="{{post.user.img}}">\n              </ion-avatar>\n              <h2>{{post.user.name}}</h2>\n              <p>Posted 17 min ago</p>\n            </ion-item>\n        \n            <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">\n              <img class="im" src="assets/imgs/s1.jpg">\n              <ion-card-title style="width: 60%;">\n                <h3>\n                  <b> {{post.product.name}} </b>\n                </h3>\n                <ion-label style="margin-top: 0;margin-bottom: 0;"> Price\n                  <b>${{post.product.price}}</b>\n                </ion-label>\n                <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">\n                  From\n                  <b>{{post.product.from}}</b>\n                </ion-label>\n                <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">\n                  To\n                  <b>{{post.product.to}}</b>\n                </ion-label>\n              </ion-card-title>\n            </ion-card-content>\n        \n            <ion-card class="card2" [ngClass]="{\'offer2\': post.active == \'true\'}">\n              <ion-card-content style="padding-top: 0;" class=\'cus\'>\n                <div>\n                  <ion-label style="text-align: center;margin-bottom: 3px;">\n                    <u> Traveler\'s Reward </u>\n                  </ion-label>\n                  <h1>from\n                    <b>${{post.product.reward}}</b>\n                  </h1>\n                  <button #ok class="gh" (click)="animateElem(post,ok);" ion-button icon-left block outline color="primary">\n                    Make an Offer\n                  </button>\n                </div>\n                <div [ngClass]="{\'sho\': post.active == \'true\'}">\n                  <ion-item>\n                    <ion-label>Amount</ion-label>\n                    <ion-input type="number" value=""></ion-input>\n                  </ion-item>\n                  <ion-item (click)=\'flight()\'>\n                    <ion-label>Select Flight</ion-label>\n                    <ion-input disabled type="number" value=""></ion-input>\n                  </ion-item>\n                  <button ion-button icon-left block outline color="primary" (click)=\'makebid()\'>\n                    Send Offer\n                  </button>\n                </div>\n              </ion-card-content>\n            </ion-card>\n          </ion-card>\n      </ion-col>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/zip/src/pages/home/home.html"*/,
+            selector: 'page-orders',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\orders\orders.html"*/'<!--\n\n  Generated template for the OrdersPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>orders</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n    <ion-grid style="min-height: 100%;">\n\n        <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor=\'let post of posts;\' style="height: 100%;">\n\n            <ion-card [ngClass]="{\'offer\': post.active == \'true\'}" class="meracard">\n\n              <ion-item>\n\n                <ion-avatar item-start>\n\n                  <img src="{{post.user.img}}">\n\n                </ion-avatar>\n\n                <h2>{{post.user.name}}</h2>\n\n                <p>Posted 17 min ago</p>\n\n              </ion-item>\n\n          \n\n              <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">\n\n                <img class="im" src="assets/imgs/s1.jpg">\n\n                <ion-card-title style="width: 60%;">\n\n                  <h3>\n\n                    <b> {{post.product.name}} </b>\n\n                  </h3>\n\n                  <ion-label style="margin-top: 0;margin-bottom: 0;"> Price\n\n                    <b>${{post.product.price}}</b>\n\n                  </ion-label>\n\n                  <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">\n\n                    From\n\n                    <b>{{post.product.from}}</b>\n\n                  </ion-label>\n\n                  <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">\n\n                    To\n\n                    <b>{{post.product.to}}</b>\n\n                  </ion-label>\n\n                </ion-card-title>\n\n              </ion-card-content>\n\n          \n\n              <ion-card class="card2" [ngClass]="{\'offer2\': post.active == \'true\'}">\n\n                <ion-card-content style="padding-top: 0;" class=\'cus\'>\n\n                  <div>\n\n                    <ion-label style="text-align: center;margin-bottom: 3px;">\n\n                      <u> Traveler\'s Reward </u>\n\n                    </ion-label>\n\n                    <h1>from\n\n                      <b>${{post.product.reward}}</b>\n\n                    </h1>\n\n                    <ion-label style="text-align:left;margin-bottom: 3px;">\n\n                        Amount\n\n                    </ion-label>\n\n                    <ion-label style="text-align:right;margin-bottom: 3px;">\n\n                        $500\n\n                    </ion-label>\n\n                    <ion-label style="text-align: left;margin-bottom: 3px;">\n\n                       Flight\n\n                    </ion-label>\n\n                    <ion-label style="text-align:right;margin-bottom: 3px;">\n\n                       BLU AIRLINE.\n\n                    </ion-label>\n\n                  </div>\n\n                </ion-card-content>\n\n              </ion-card>\n\n            </ion-card>\n\n        </ion-col>\n\n    </ion-grid>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\orders\orders.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_2_css_animator__["AnimationService"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], OrdersPage);
+    return OrdersPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=orders.js.map
 
 /***/ })
 
