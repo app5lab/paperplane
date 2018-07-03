@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 580:
+/***/ 579:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddflightPageModule", function() { return AddflightPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addflight__ = __webpack_require__(600);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addflight__ = __webpack_require__(599);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -45,7 +45,7 @@ module.exports = {"countries":{"Afghanistan":["Kabul","Achin","´Ali Khayl","Qan
 
 /***/ }),
 
-/***/ 600:
+/***/ 599:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53,7 +53,7 @@ module.exports = {"countries":{"Afghanistan":["Kabul","Achin","´Ali Khayl","Qan
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_country_city__ = __webpack_require__(601);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_country_city__ = __webpack_require__(600);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_country_city___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_country_city__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -154,7 +154,7 @@ var AddflightPage = /** @class */ (function () {
     };
     AddflightPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-addflight',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\addflight\addflight.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>addflight</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div></div>\n\n    <ion-list>\n\n      <ion-card>\n\n        <ion-card-content>\n\n            <ion-label>Source Country</ion-label>\n\n            <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)=\'showList()\' (ionInput)="filterItems($event)"></ion-searchbar>\n\n            <ion-list *ngIf=\'hide == false\'>\n\n              <ion-item *ngFor="let item of items" (click)=\'selectCountry(item)\'>\n\n                {{ item }}\n\n              </ion-item>\n\n            </ion-list>\n\n            \n\n            <div *ngIf="country != \'\'">\n\n              <ion-label>Source City</ion-label>\n\n              <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)=\'showList3()\' (ionInput)="filterItems2($event)"></ion-searchbar>\n\n              <ion-list *ngIf=\'hide3 == false\'>\n\n                <ion-item *ngFor="let item of items" (click)=\'selectCity(item)\'>\n\n                  {{ item }}\n\n                </ion-item>\n\n              </ion-list>\n\n            </div>\n\n\n\n        </ion-card-content>\n\n      </ion-card>\n\n      <ion-card>\n\n          <ion-card-content>\n\n              \n\n            <ion-label>Destination Country</ion-label>\n\n            <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)=\'showList2()\' (ionInput)="filterItems($event)"></ion-searchbar>\n\n            <ion-list *ngIf=\'hide2 == false\'>\n\n              <ion-item *ngFor="let item of items" (click)=\'selectCountry2(item)\'>\n\n                {{ item }}\n\n              </ion-item>\n\n            </ion-list>\n\n            \n\n            <div *ngIf="country2 != \'\'">\n\n                <ion-label>Destination City</ion-label>\n\n                <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)=\'showList4()\' (ionInput)="filterItems3($event)"></ion-searchbar>\n\n                <ion-list *ngIf=\'hide4 == false\'>\n\n                  <ion-item *ngFor="let item of items" (click)=\'selectCity2(item)\'>\n\n                    {{ item }}\n\n                  </ion-item>\n\n                </ion-list>\n\n              </div>\n\n            \n\n            </ion-card-content>\n\n      </ion-card>\n\n        \n\n        \n\n    <ion-card>\n\n      <div>\n\n          <ion-datetime placeholder=" Select Date"  displayFormat="MM/DD/YYYY" [(ngModel)]="date" ></ion-datetime>\n\n      </div>\n\n    </ion-card>\n\n  \n\n      <button style="    \n\n      border-radius: 0 40px !important;" ion-button full  item-center (click)=\'add()\'>Add</button>\n\n  \n\n    </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\addflight\addflight.html"*/,
+            selector: 'page-addflight',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\addflight\addflight.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>addflight</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div></div>\n\n    <ion-list>\n\n      <ion-card>\n\n        <ion-card-content>\n\n            <ion-label>Source Country</ion-label>\n\n            <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)=\'showList()\' (ionInput)="filterItems($event)"></ion-searchbar>\n\n            <ion-list *ngIf=\'hide == false\'>\n\n              <ion-item *ngFor="let item of items" (click)=\'selectCountry(item)\'>\n\n                {{ item }}\n\n              </ion-item>\n\n            </ion-list>\n\n            \n\n            <div *ngIf="country != \'\'">\n\n              <ion-label>Source City</ion-label>\n\n              <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)=\'showList3()\' (ionInput)="filterItems2($event)"></ion-searchbar>\n\n              <ion-list *ngIf=\'hide3 == false\'>\n\n                <ion-item *ngFor="let item of items" (click)=\'selectCity(item)\'>\n\n                  {{ item }}\n\n                </ion-item>\n\n              </ion-list>\n\n            </div>\n\n\n\n        </ion-card-content>\n\n      </ion-card>\n\n      <ion-card>\n\n          <ion-card-content>\n\n              \n\n            <ion-label>Destination Country</ion-label>\n\n            <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)=\'showList2()\' (ionInput)="filterItems($event)"></ion-searchbar>\n\n            <ion-list *ngIf=\'hide2 == false\'>\n\n              <ion-item *ngFor="let item of items" (click)=\'selectCountry2(item)\'>\n\n                {{ item }}\n\n              </ion-item>\n\n            </ion-list>\n\n            \n\n            <div *ngIf="country2 != \'\'">\n\n                <ion-label>Destination City</ion-label>\n\n                <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)=\'showList4()\' (ionInput)="filterItems3($event)"></ion-searchbar>\n\n                <ion-list *ngIf=\'hide4 == false\'>\n\n                  <ion-item *ngFor="let item of items" (click)=\'selectCity2(item)\'>\n\n                    {{ item }}\n\n                  </ion-item>\n\n                </ion-list>\n\n              </div>\n\n            \n\n            </ion-card-content>\n\n      </ion-card>\n\n        \n\n        \n\n    <ion-card>\n\n      <!-- <div>\n\n          <ion-datetime placeholder=" Select Date"  displayFormat="MM/DD/YYYY" [(ngModel)]="date" ></ion-datetime>\n\n      </div> -->\n\n      <ion-content padding>\n\n          <ion-datetime displayFormat="DD-MM-YYYY HH:mm" [(ngModel)]="today"></ion-datetime>\n\n          </ion-content>\n\n    \n\n    </ion-card>\n\n    \n\n      <button style="    \n\n      border-radius: 0 40px !important;" ion-button full  item-center (click)=\'add()\'>Add</button>\n\n  \n\n    </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\addflight\addflight.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
     ], AddflightPage);
@@ -165,7 +165,7 @@ var AddflightPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 601:
+/***/ 600:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = { 

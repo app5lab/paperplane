@@ -29,7 +29,7 @@ hide4:any = true
     this.hide = false;
   }
   
-  date= new Date().toISOString()
+  today = new Date().toISOString();
 
   showList2(){
     this.items = this.countries

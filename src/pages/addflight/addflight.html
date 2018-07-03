@@ -58,11 +58,15 @@
         
         
     <ion-card>
-      <div>
+      <!-- <div>
           <ion-datetime placeholder=" Select Date"  displayFormat="MM/DD/YYYY" [(ngModel)]="date" ></ion-datetime>
-      </div>
+      </div> -->
+      <ion-content padding>
+          <ion-datetime displayFormat="DD-MM-YYYY HH:mm" [(ngModel)]="today"></ion-datetime>
+          </ion-content>
+    
     </ion-card>
-  
+    
       <button style="    
       border-radius: 0 40px !important;" ion-button full  item-center (click)='add()'>Add</button>
   
