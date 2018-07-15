@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 583:
+/***/ 584:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,9 +8,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatModule", function() { return ChatModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chat_service_chat_service__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_relative_time__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_relative_time__ = __webpack_require__(606);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,7 +52,7 @@ var ChatModule = /** @class */ (function () {
 /***/ 593:
 /***/ (function(module, exports, __webpack_require__) {
 
-var isDate = __webpack_require__(609)
+var isDate = __webpack_require__(610)
 
 var MILLISECONDS_IN_HOUR = 3600000
 var MILLISECONDS_IN_MINUTE = 60000
@@ -376,7 +376,7 @@ module.exports = parse
 
 /***/ }),
 
-/***/ 604:
+/***/ 605:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -384,6 +384,7 @@ module.exports = parse
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chat_service_chat_service__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -397,33 +398,111 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var Chat = /** @class */ (function () {
-    function Chat(navParams, chatService, events) {
+    function Chat(navParams, api, chatService, events) {
         var _this = this;
+        this.api = api;
         this.chatService = chatService;
         this.events = events;
         this.msgList = [];
         this.editorMsg = '';
         this.showEmojiPicker = false;
-        // Get the navParams toUserId parameter
-        this.toUser = {
-            id: navParams.get('toUserId'),
-            name: navParams.get('toUserName')
+        this.sender_id = '';
+        this.nickname = 'hassan';
+        this.m = [];
+        this.snapshotToArray = function (snapshot) {
+            var returnArr = [];
+            snapshot.forEach(function (childSnapshot) {
+                var item = childSnapshot.val();
+                item.key = childSnapshot.key;
+                returnArr.push(item);
+            });
+            return returnArr;
         };
-        // Get mock user information
-        this.chatService.getUserInfo()
-            .then(function (res) {
-            _this.user = res;
+        this.data = { type: '', nickname: '', message: '' };
+        this.data.type = 'message';
+        this.data.nickname = this.nickname;
+        var user = JSON.parse(localStorage.getItem('zip_user'));
+        this.user = {
+            id: user.id,
+            name: user.fname + ' ' + user.lname,
+            avatar: user.img
+        };
+        this.toUser = navParams.get('to_user');
+        // this.toUser = {
+        //   id: '4',
+        //   name: 'test',
+        //   avatar:''
+        // };
+        this.sender_id = user.id;
+        var that = this;
+        api.firebase().ref('chats/').child(user.id + '_' + this.toUser.id).once('value', function (d) {
+            if (d.exists()) {
+                _this.chat = api.firebase().ref('chats/' + user.id + '_' + _this.toUser.id);
+                api.firebase().ref('rooms/' + user.id).child(_this.toUser.id).once('value', function (ok) {
+                    if (!ok.exists()) {
+                        api.firebase().ref('rooms/' + user.id + '/' + _this.toUser.id).set({
+                            msg: '',
+                            date: '',
+                            name: _this.user.name,
+                            img: _this.user.avatar
+                        });
+                        api.firebase().ref('rooms/' + _this.toUser.id + '/' + user.id).set({
+                            msg: '',
+                            date: '',
+                            name: _this.user.name,
+                            img: _this.user.avatar
+                        });
+                    }
+                });
+                _this.chat.once('value', function (data) {
+                    if (data != null)
+                        _this.m = that.snapshotToArray(data);
+                    _this.msgList = _this.m;
+                });
+            }
+            else {
+                console.log('asd');
+                _this.chat = api.firebase().ref('chats/' + _this.toUser.id + '_' + user.id);
+                api.firebase().ref('rooms/' + user.id).child(_this.toUser.id).once('value', function (ok) {
+                    if (!ok.exists()) {
+                        api.firebase().ref('rooms/' + user.id + '/' + _this.toUser.id).set({
+                            msg: '',
+                            date: '',
+                            name: _this.user.name,
+                            img: _this.user.avatar
+                        });
+                        api.firebase().ref('rooms/' + _this.toUser.id + '/' + user.id).set({
+                            msg: '',
+                            date: '',
+                            name: _this.user.name,
+                            img: _this.user.avatar
+                        });
+                    }
+                });
+                _this.chat.once('value', function (data) {
+                    if (data != null)
+                        _this.m = that.snapshotToArray(data);
+                    _this.msgList = _this.m;
+                });
+            }
         });
+        // Get the navParams toUserId parameter
+        // Get mock user information 
+        // this.chatService.getUserInfo()
+        // .then((res) => {
+        //   this.user = res
+        // });
     }
     Chat.prototype.ionViewWillLeave = function () {
         // unsubscribe
         this.events.unsubscribe('chat:received');
     };
     Chat.prototype.ionViewDidEnter = function () {
-        var _this = this;
         //get message list
-        this.getMsg();
+        // this.getMsg();
+        var _this = this;
         // Subscribe to received  new message events
         this.events.subscribe('chat:received', function (msg) {
             _this.pushNewMsg(msg);
@@ -455,7 +534,7 @@ var Chat = /** @class */ (function () {
         return this.chatService
             .getMsgList()
             .subscribe(function (res) {
-            _this.msgList = res;
+            _this.msgList = _this.m;
             _this.scrollToBottom();
         });
     };
@@ -469,7 +548,7 @@ var Chat = /** @class */ (function () {
         // Mock message
         var id = Date.now().toString();
         var newMsg = {
-            messageId: Date.now().toString(),
+            messageId: id,
             userId: this.user.id,
             userName: this.user.name,
             userAvatar: this.user.avatar,
@@ -496,10 +575,18 @@ var Chat = /** @class */ (function () {
      * @param msg
      */
     Chat.prototype.pushNewMsg = function (msg) {
+        var _this = this;
         var userId = this.user.id, toUserId = this.toUser.id;
         // Verify user relationships
         if (msg.userId === userId && msg.toUserId === toUserId) {
-            this.msgList.push(msg);
+            console.log('pushing to db');
+            msg.status = 'success';
+            this.chat.push(msg).then(function () {
+                _this.api.firebase().ref('rooms/' + _this.user.id + '/' + _this.toUser.id).set({ msg: msg.message });
+                _this.api.firebase().ref('rooms/' + _this.toUser.id + '/' + _this.user.id).set({ msg: msg.message });
+                _this.msgList.push(msg);
+                _this.data.message = '';
+            });
         }
         else if (msg.toUserId === userId && msg.userId === toUserId) {
             this.msgList.push(msg);
@@ -536,9 +623,9 @@ var Chat = /** @class */ (function () {
     ], Chat.prototype, "messageInput", void 0);
     Chat = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chat',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\chat\chat.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{toUser.name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="message-wrap">\n\n    <div *ngFor="let msg of msgList"\n         class="message"\n         [class.left]=" msg.userId === toUser.id "\n         [class.right]=" msg.userId === user.id ">\n      <img class="user-img" [src]="msg.userAvatar" alt="" src="">\n      <ion-spinner name="dots" *ngIf="msg.status === \'pending\'"></ion-spinner>\n      <div class="msg-detail">\n        <div class="msg-info">\n          <p>\n            {{msg.userName}}&nbsp;&nbsp;&nbsp;{{msg.time | relativeTime}}</p>\n        </div>\n        <div class="msg-content">\n          <span class="triangle"></span>\n          <p class="line-breaker ">{{msg.message}}</p>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n</ion-content>\n\n<ion-footer no-border [style.height]="showEmojiPicker ? \'255px\' : \'55px\'">\n  <div class="input-wrap">\n    <button ion-button clear icon-only item-right (click)="switchEmojiPicker()">\n      <ion-icon name="md-happy"></ion-icon>\n    </button>\n    <textarea #chat_input\n              placeholder="Text Input"\n              [(ngModel)]="editorMsg"\n              (keyup.enter)="sendMsg()"\n              (focusin)="onFocus()">\n    </textarea>\n    <button ion-button clear icon-only item-right (click)="sendMsg()">\n      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n    </button>\n  </div>\n</ion-footer>\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\chat\chat.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/chat/chat.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{toUser.name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="message-wrap">\n\n    <div *ngFor="let msg of msgList"\n         class="message"\n         [class.left]=" msg.userId === toUser.id "\n         [class.right]=" msg.userId === user.id ">\n      <img class="user-img" [src]="msg.userAvatar" alt="" src="">\n      <ion-spinner name="dots" *ngIf="msg.status === \'pending\'"></ion-spinner>\n      <div class="msg-detail">\n        <div class="msg-info">\n          <p>\n            {{msg.userName}}&nbsp;&nbsp;&nbsp;{{msg.time | relativeTime}}</p>\n        </div>\n        <div class="msg-content">\n          <span class="triangle"></span>\n          <p class="line-breaker ">{{msg.message}}</p>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n</ion-content>\n\n<ion-footer no-border [style.height]="showEmojiPicker ? \'255px\' : \'55px\'">\n  <div class="input-wrap">\n    <!-- <button ion-button clear icon-only item-right (click)="switchEmojiPicker()">\n      <ion-icon name="md-happy"></ion-icon>\n    </button> -->\n    <textarea #chat_input\n              placeholder="Text Input"\n              [(ngModel)]="editorMsg"\n              (keyup.enter)="sendMsg()"\n              (focusin)="onFocus()">\n    </textarea>\n    <button ion-button clear icon-only item-right (click)="sendMsg()">\n      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n    </button>\n  </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/chat/chat.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
             __WEBPACK_IMPORTED_MODULE_2__providers_chat_service_chat_service__["a" /* ChatService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]])
     ], Chat);
@@ -549,13 +636,13 @@ var Chat = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 605:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RelativeTime; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__ = __webpack_require__(607);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -590,10 +677,10 @@ var RelativeTime = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 606:
+/***/ 607:
 /***/ (function(module, exports, __webpack_require__) {
 
-var distanceInWords = __webpack_require__(607)
+var distanceInWords = __webpack_require__(608)
 
 /**
  * @category Common Helpers
@@ -682,14 +769,14 @@ module.exports = distanceInWordsToNow
 
 /***/ }),
 
-/***/ 607:
+/***/ 608:
 /***/ (function(module, exports, __webpack_require__) {
 
-var compareDesc = __webpack_require__(608)
+var compareDesc = __webpack_require__(609)
 var parse = __webpack_require__(593)
-var differenceInSeconds = __webpack_require__(610)
-var differenceInMonths = __webpack_require__(612)
-var enLocale = __webpack_require__(615)
+var differenceInSeconds = __webpack_require__(611)
+var differenceInMonths = __webpack_require__(613)
+var enLocale = __webpack_require__(616)
 
 var MINUTES_IN_DAY = 1440
 var MINUTES_IN_ALMOST_TWO_DAYS = 2520
@@ -892,7 +979,7 @@ module.exports = distanceInWords
 
 /***/ }),
 
-/***/ 608:
+/***/ 609:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -950,7 +1037,7 @@ module.exports = compareDesc
 
 /***/ }),
 
-/***/ 609:
+/***/ 610:
 /***/ (function(module, exports) {
 
 /**
@@ -977,10 +1064,10 @@ module.exports = isDate
 
 /***/ }),
 
-/***/ 610:
+/***/ 611:
 /***/ (function(module, exports, __webpack_require__) {
 
-var differenceInMilliseconds = __webpack_require__(611)
+var differenceInMilliseconds = __webpack_require__(612)
 
 /**
  * @category Second Helpers
@@ -1012,7 +1099,7 @@ module.exports = differenceInSeconds
 
 /***/ }),
 
-/***/ 611:
+/***/ 612:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1048,12 +1135,12 @@ module.exports = differenceInMilliseconds
 
 /***/ }),
 
-/***/ 612:
+/***/ 613:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
-var differenceInCalendarMonths = __webpack_require__(613)
-var compareAsc = __webpack_require__(614)
+var differenceInCalendarMonths = __webpack_require__(614)
+var compareAsc = __webpack_require__(615)
 
 /**
  * @category Month Helpers
@@ -1093,7 +1180,7 @@ module.exports = differenceInMonths
 
 /***/ }),
 
-/***/ 613:
+/***/ 614:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1132,7 +1219,7 @@ module.exports = differenceInCalendarMonths
 
 /***/ }),
 
-/***/ 614:
+/***/ 615:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1190,11 +1277,11 @@ module.exports = compareAsc
 
 /***/ }),
 
-/***/ 615:
+/***/ 616:
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildDistanceInWordsLocale = __webpack_require__(616)
-var buildFormatLocale = __webpack_require__(617)
+var buildDistanceInWordsLocale = __webpack_require__(617)
+var buildFormatLocale = __webpack_require__(618)
 
 /**
  * @category Locales
@@ -1208,7 +1295,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 616:
+/***/ 617:
 /***/ (function(module, exports) {
 
 function buildDistanceInWordsLocale () {
@@ -1314,10 +1401,10 @@ module.exports = buildDistanceInWordsLocale
 
 /***/ }),
 
-/***/ 617:
+/***/ 618:
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildFormattingTokensRegExp = __webpack_require__(618)
+var buildFormattingTokensRegExp = __webpack_require__(619)
 
 function buildFormatLocale () {
   // Note: in English, the names of days of the week and months are capitalized.
@@ -1409,7 +1496,7 @@ module.exports = buildFormatLocale
 
 /***/ }),
 
-/***/ 618:
+/***/ 619:
 /***/ (function(module, exports) {
 
 var commonFormatterKeys = [

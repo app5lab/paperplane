@@ -14,7 +14,7 @@ export class ChatMessage {
   message: string;
   status: string;
 }
-
+ 
 export class UserInfo {
   id: string;
   name?: string;

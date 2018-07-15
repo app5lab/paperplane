@@ -28,14 +28,14 @@ export class HistoryPage {
   active: any = 0;
   active2: any = false;
   posts: any [] = [];
-  posts2: any[] = [];  
+  posts2: any[] = [];
   @ViewChild( 'ok' ) myElem;
   private animator: AnimationBuilder;
- 
+
   constructor(public api: ApiProvider, private event: Events, public Keyboard: Keyboard, public alert: AlertController, private ref:ChangeDetectorRef,private statusBar: StatusBar, animationService: AnimationService,public loading: LoadingController,public navCtrl: NavController, public navParams: NavParams) {
     this.animator = animationService.builder();
 
-  
+
 
 
     this.event.publish('open');
@@ -54,37 +54,37 @@ export class HistoryPage {
 
     this.posts.push(
       {
-        active: 'false',        
+        active: 'false',
         user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
         product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
       })
   }
   select: any;
   animateElem (post,ele)
-  { 
+  {
     //this.animator.stop( ele._elementRef.nativeElement );
     if ( post.active == 'true' ){
       ele._elementRef.nativeElement.innerText = 'Make an Offer';
-        post.active = 'false';        
-      this.active = this.active - 1;          
+        post.active = 'false';
+      this.active = this.active - 1;
     }
     else{
       ele._elementRef.nativeElement.innerText = 'Cancel';
-      post.active = 'true';             
+      post.active = 'true';
       this.active = this.active + 1;
     }
 
-    
-      //this.animator.setType( 'flipInX' ).show( ele._elementRef.nativeElement )
-  } 
 
- 
+      //this.animator.setType( 'flipInX' ).show( ele._elementRef.nativeElement )
+  }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
 flight_id:any= ''
   flight(){
-    
+
     var alert = this.alert.create({
       title:'Choose your flight'
     })

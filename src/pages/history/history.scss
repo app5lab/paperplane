@@ -1,5 +1,32 @@
 page-history {
 
+ion-segment{
+  width: 100%;
+}
+  .toolbar-background {
+    background-color: #ffffff;
+  }
+
+  .segment-ios-light .segment-button.segment-activated {
+      color: #ffffff;
+      background-color: #653b73;
+      font-weight: bold;
+  }
+
+  .segment-ios-light .segment-button {
+    border-color: gray;
+    color: black;
+}
+
+
+h2{
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+
     .example {
         height: 150px;
     position: relative;
@@ -36,7 +63,7 @@ animation-timing-function: linear;
   }
 
 .rows{
-      height: 310px; 
+      height: 310px;
       transition: height 0.5s;
       margin-bottom: 10px;
   }
@@ -61,7 +88,7 @@ animation-timing-function: linear;
 .meracard{
       margin-top: 10px;
       height: 300px !important;
-      transition: height 0.5s;        
+      transition: height 0.5s;
   }
 .offer{
       height: 430px !important;
@@ -70,8 +97,8 @@ animation-timing-function: linear;
 .offer2{
       height: 250px !important;
   }
-  
-  
+
+
 .card-md{
       height: 56%;
   }
@@ -85,7 +112,7 @@ animation-timing-function: linear;
       position: absolute;
       float: bottom;
       bottom: -84px;
-  } 
+  }
 .test{
       width: 90%;
   }

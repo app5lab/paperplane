@@ -8,30 +8,16 @@
 
 <ion-content padding>
   
-<ion-card style="   border: 1px solid #4d077c;
-border-radius: 0 40px !important;">
-  <ion-list >
-    <ion-item (click)='openChat()'>
-      <ion-avatar item-start>
-        <img src="assets/imgs/qasim.jpeg">
-      </ion-avatar>
-      <h2>Hamza</h2>
-      <p>Bla bla bl looks good. Let's discuss it more bla bla bla</p>
-      <ion-note item-end>3:43 pm</ion-note>
-    </ion-item>
-  </ion-list>
-</ion-card>
-<ion-card style="   border: 1px solid #4d077c;
-border-radius: 0 40px !important;">
-  <ion-list >
-    <ion-item (click)='openChat()'>
-      <ion-avatar item-start>
-        <img src="assets/imgs/qasim.jpeg">
-      </ion-avatar>
-      <h2>Hamza</h2>
-      <p>Bla bla bl looks good. Let's discuss it more bla bla bla</p>
-      <ion-note item-end>3:43 pm</ion-note>
-    </ion-item>
-  </ion-list>
-</ion-card>
+  <ion-card style="border: 1px solid #4d077c; border-radius: 0 40px !important;" *ngFor="let chat of chats">
+    <ion-list >
+      <ion-item (click)='openChat()'>
+        <ion-avatar item-start>
+          <img src="assets/imgs/qasim.jpeg">
+        </ion-avatar>
+        <h2>Hamza</h2>
+        <p>{{chat.msg}}</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>

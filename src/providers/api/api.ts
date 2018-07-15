@@ -3,12 +3,6 @@ import { HTTP } from '@ionic-native/http';
 import * as md5 from 'md5';
 import * as firebase from 'firebase';
 import { log } from 'util';
-/*
-  Generated class for the ApiProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ApiProvider {
 allFlights: any [] = []
@@ -20,7 +14,7 @@ allFlights: any [] = []
    return firebase.database()
 //     const storageRef = firebase.storage().ref();
 // const uploadTask = storageRef.child(`/uploads/`).put('assets/imgs/final.png');
- 
+
 // uploadTask.on('value',
 //       (snapshot) => {
 //         // in progress
@@ -33,7 +27,7 @@ allFlights: any [] = []
 //       () => {
 //         // success
 //         console.log('[ass');
-        
+
 //       }
 //     );
   }
@@ -64,13 +58,14 @@ allFlights: any [] = []
                 verified:data.verified,
                 created:data.created,
                 phone:data.phone,
-                address:data.address
+                address:data.address,
+                img:data.dp
               }
               let t = JSON.stringify(temp)
-              
+
               localStorage.setItem('zip_user', t)
-              localStorage.setItem('zip_login', 'true')         
-              
+              localStorage.setItem('zip_login', 'true')
+
               resolve(true);
             }
             else
@@ -84,9 +79,9 @@ allFlights: any [] = []
   {
     var dataa = {
       source_country: src_cr,
-      source_city: src_ct,      
+      source_city: src_ct,
       destination_country: des_cr,
-      destination_city: des_ct,      
+      destination_city: des_ct,
       time:time,
       userid:id,
       key: 'addflight',
@@ -101,7 +96,7 @@ allFlights: any [] = []
           res =>
           {
             console.log(res);
-            
+
             //   resolve( true );
             // else
             //   resolve( false )
@@ -117,7 +112,7 @@ allFlights: any [] = []
       key: 'userId',
       sec: '((|m5DlhrplfKx1'
     }
-    
+
     let promise = new Promise( ( resolve ) =>
     {
       this.http.setDataSerializer('json')
@@ -127,12 +122,12 @@ allFlights: any [] = []
           {
             if(res.data != 'Invalid Data' && res.data != 'Security Key is invalid')
               {
-                if( res.data != "") 
+                if( res.data != "")
                   this.allFlights = JSON.parse( res.data )
                 resolve(this.allFlights)
               }
             else
-              resolve( 'false' ) 
+              resolve( 'false' )
           }
         );
     } );
@@ -142,7 +137,7 @@ allFlights: any [] = []
   {
     var p = md5( password );
     console.log(p);
-    
+
     var data = {
       email: email,
       password: p,
@@ -170,7 +165,7 @@ allFlights: any [] = []
     return promise;
   }
 
-  addPost ( title, des, im1, im2, im3, tr, from, to, touser, buy ): Promise<any>
+  addPost ( title, des, im1, im2, im3, tr, fromCry, toCry, fromC, toC, qty, touser, buy ): Promise<any>
   {
     var data={
       title:title,
@@ -179,9 +174,12 @@ allFlights: any [] = []
       image2: im2,
       image3: im3,
       treward:tr,
-      from:from,
-      to:to,
+      fromCountry:fromCry,
+      fromCity:fromC,
+      toCountry:toCry,
+      toCity:toC,
       touser:touser,
+      qty:qty,
       buy:buy,
       key: 'addPost',
       sec: '((|m5DlhrplfKx1'
@@ -195,7 +193,7 @@ allFlights: any [] = []
           res =>
           {
             console.log(JSON.stringify(res.data));
-            
+
             // if ( res.data != 'User already Exist' && res.data == '1' )
             //   resolve( true );
             // else
@@ -230,7 +228,7 @@ allFlights: any [] = []
                 resolve(JSON.parse( res.data ))
               }
             else
-              resolve( 'false' ) 
+              resolve( 'false' )
           }
         );
     } );

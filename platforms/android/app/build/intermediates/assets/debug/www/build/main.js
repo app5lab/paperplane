@@ -26,8 +26,8 @@ var map = {
 		14
 	],
 	"../pages/add-post/add-post.module": [
-		582,
-		13
+		580,
+		3
 	],
 	"../pages/addflight/addflight.module": [
 		579,
@@ -35,51 +35,51 @@ var map = {
 	],
 	"../pages/all-chats/all-chats.module": [
 		581,
-		12
+		13
 	],
 	"../pages/card/card.module": [
-		580,
-		11
+		582,
+		12
 	],
 	"../pages/chat/chat.module": [
-		583,
+		584,
 		0
 	],
 	"../pages/conversation/conversation.module": [
-		588,
-		10
+		583,
+		11
 	],
 	"../pages/flights/flights.module": [
-		584,
-		9
+		585,
+		10
 	],
 	"../pages/history/history.module": [
-		589,
-		8
+		586,
+		9
 	],
 	"../pages/home/home.module": [
-		585,
-		7
+		587,
+		8
 	],
 	"../pages/login/login.module": [
-		587,
-		6
+		588,
+		7
 	],
 	"../pages/orders/orders.module": [
-		586,
-		5
+		589,
+		6
 	],
 	"../pages/product-details/product-details.module": [
-		591,
+		590,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
-		590,
-		4
+		591,
+		5
 	],
 	"../pages/tabs/tabs.module": [
 		592,
-		3
+		4
 	]
 };
 function webpackAsyncContext(req) {
@@ -122,12 +122,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/*
-  Generated class for the ApiProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 var ApiProvider = /** @class */ (function () {
     function ApiProvider(http) {
         this.http = http;
@@ -176,7 +170,8 @@ var ApiProvider = /** @class */ (function () {
                         verified: data.verified,
                         created: data.created,
                         phone: data.phone,
-                        address: data.address
+                        address: data.address,
+                        img: data.dp
                     };
                     var t = JSON.stringify(temp);
                     localStorage.setItem('zip_user', t);
@@ -261,7 +256,7 @@ var ApiProvider = /** @class */ (function () {
         });
         return promise;
     };
-    ApiProvider.prototype.addPost = function (title, des, im1, im2, im3, tr, from, to, touser, buy) {
+    ApiProvider.prototype.addPost = function (title, des, im1, im2, im3, tr, fromCry, toCry, fromC, toC, qty, touser, buy) {
         var _this = this;
         var data = {
             title: title,
@@ -270,9 +265,12 @@ var ApiProvider = /** @class */ (function () {
             image2: im2,
             image3: im3,
             treward: tr,
-            from: from,
-            to: to,
+            fromCountry: fromCry,
+            fromCity: fromC,
+            toCountry: toCry,
+            toCity: toC,
             touser: touser,
+            qty: qty,
             buy: buy,
             key: 'addPost',
             sec: '((|m5DlhrplfKx1'
@@ -458,11 +456,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(477);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(478);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(574);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(328);
@@ -534,18 +532,18 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/all-chats/all-chats.module#AllChatsPageModule', name: 'AllChatsPage', segment: 'all-chats', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/all-chats/all-chats.module#AllChatsPageModule', name: 'AllChatsPage', segment: 'all-chats', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatModule', name: 'Chat', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -582,9 +580,9 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -613,16 +611,16 @@ var config = {
 var MyApp = /** @class */ (function () {
     function MyApp(Keyboard, platform, statusBar, splashScreen) {
         this.Keyboard = Keyboard;
-        this.rootPage = "LoginPage";
+        this.rootPage = "TabsPage";
         platform.ready().then(function () {
-            statusBar.backgroundColorByHexString('#571a94');
+            statusBar.backgroundColorByHexString('#fff');
             statusBar.styleDefault();
             splashScreen.hide();
         });
         __WEBPACK_IMPORTED_MODULE_5_firebase__["initializeApp"](config);
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -690,7 +688,7 @@ var WargaeComponent = /** @class */ (function () {
     ], WargaeComponent.prototype, "ionTxtArea", void 0);
     WargaeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'wargae',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\components\wargae\wargae.html"*/'<ion-item>\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n</ion-item>'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\components\wargae\wargae.html"*/
+            selector: 'wargae',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/'<ion-item>\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n</ion-item>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], WargaeComponent);

@@ -27,23 +27,54 @@
           <button ion-button full round (click)="upload()">
             Choose Images
           </button>
-          <img src="{{file}}" *ngFor="let file of files">
+          <img src="{{file}}" *ngFor="let file of files" style="width: 33%;">
         </div>
 
           <ion-item>
               <ion-label floating>Traveler Reward</ion-label>
               <ion-input [(ngModel)]="post.treward" type="number"></ion-input>
-            </ion-item>
+          </ion-item>
             
-            <ion-item>
-                <ion-label floating>From</ion-label>
-                <ion-input [(ngModel)]="post.from" type="text"></ion-input>
+          <ion-label>Source Country</ion-label>
+          <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)='showList()' (ionInput)="filterItems($event)"></ion-searchbar>
+          <ion-list *ngIf='hide == false'>
+            <ion-item *ngFor="let item of items" (click)='selectCountry(item)'>
+              {{ item }}
+            </ion-item>
+          </ion-list>
+          
+          <div *ngIf="country != ''">
+            <ion-label>Source City</ion-label>
+            <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)='showList3()' (ionInput)="filterItems2($event)"></ion-searchbar>
+            <ion-list *ngIf='hide3 == false'>
+              <ion-item *ngFor="let item of items" (click)='selectCity(item)'>
+                {{ item }}
               </ion-item>
+            </ion-list>
+          </div>
 
-           <ion-item>
-                <ion-label floating>To</ion-label>
-                <ion-input [(ngModel)]="post.to" type="text"></ion-input>
-           </ion-item>
+          <ion-label>Destination Country</ion-label>
+          <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)='showList2()' (ionInput)="filterItems($event)"></ion-searchbar>
+          <ion-list *ngIf='hide2 == false'>
+            <ion-item *ngFor="let item of items" (click)='selectCountry2(item)'>
+              {{ item }}
+            </ion-item>
+          </ion-list>
+          
+          <div *ngIf="country2 != ''">
+              <ion-label>Destination City</ion-label>
+              <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)='showList4()' (ionInput)="filterItems3($event)"></ion-searchbar>
+              <ion-list *ngIf='hide4 == false'>
+                <ion-item *ngFor="let item of items" (click)='selectCity2(item)'>
+                  {{ item }}
+                </ion-item>
+              </ion-list>
+            </div>
+
+
+
+
+
 
            <ion-item>
               <ion-label floating>Note</ion-label>

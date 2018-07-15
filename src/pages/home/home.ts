@@ -39,19 +39,19 @@ export class HomePage {
       })
     })
 
-    this.posts.push(
-      {
-        active: 'false',
-        user: { name: 'Hassan Ali', img:'assets/imgs/logo.jpg'},
-        product: { name: 'Nike Air', price: '200', from: 'USA', to: 'Pakistan', reward: '10', img:'assets/imgs/s1.jpg'}
-      })
+    // this.posts.push(
+    //   {
+    //     active: 'false',
+    //     user: { name: 'Hassan Ali', img:'assets/imgs/logo.jpg'},
+    //     product: { name: 'Nike Air', price: '200', from: 'USA', to: 'Pakistan', reward: '10', img:'assets/imgs/s1.jpg'}
+    //   })
 
-    this.posts.push(
-      {
-        active: 'false',        
-        user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
-        product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
-      })
+    // this.posts.push(
+    //   {
+    //     active: 'false',        
+    //     user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
+    //     product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
+    //   })
   }
   select: any;
   animateElem (post,ele)

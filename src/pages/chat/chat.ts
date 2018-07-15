@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import { Events, Content } from 'ionic-angular';
 import { ChatService, ChatMessage, UserInfo } from "../../providers/chat-service/chat-service";
+import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -17,21 +18,116 @@ export class Chat {
   toUser: UserInfo;
   editorMsg = '';
   showEmojiPicker = false;
+  sender_id = ''
+  chat: any;
+  nickname:string= 'hassan'
+  m:any []=[]
+  constructor(navParams: NavParams, public api:ApiProvider,
+    private chatService: ChatService,
+    private events: Events,) {
+    
+    this.data.type = 'message';
+    this.data.nickname = this.nickname;
+    var user = JSON.parse( localStorage.getItem( 'zip_user' ) )    
+    
+    
+    this.user = {
+      id:user.id,
+      name:user.fname + ' ' + user.lname,
+      avatar:user.img
+    }
+    this.toUser = navParams.get('to_user')
+    // this.toUser = {
+    //   id: '4',
+    //   name: 'test',
+    //   avatar:''
+    // };
 
-  constructor(navParams: NavParams,
-              private chatService: ChatService,
-              private events: Events,) {
+
+    this.sender_id = user.id
+    let that = this
+    api.firebase().ref('chats/').child( user.id +'_'+ this.toUser.id).once('value', d =>{
+      if(d.exists())
+        {
+          this.chat = api.firebase().ref('chats/' + user.id +'_'+  this.toUser.id)
+          api.firebase().ref('rooms/' + user.id).child(this.toUser.id).once('value', ok => {
+            if(!ok.exists())
+            {
+              api.firebase().ref('rooms/' + user.id +'/'+ this.toUser.id).set(
+                {
+                  msg:'',
+                  date:'',
+                  name:this.user.name,
+                  img:this.user.avatar
+                })
+              api.firebase().ref('rooms/' + this.toUser.id +'/'+ user.id).set(
+                {
+                  msg:'',
+                  date:'',
+                  name:this.user.name,
+                  img:this.user.avatar
+                }
+              )
+            }
+
+          })
+          this.chat.once('value', data => {
+            if(data != null)
+              this.m = that.snapshotToArray(data)
+            this.msgList = this.m
+            })
+        }
+      else{
+          console.log('asd');
+          this.chat = api.firebase().ref('chats/' + this.toUser.id +'_'+  user.id)
+          api.firebase().ref('rooms/' + user.id).child(this.toUser.id).once('value', ok => {
+            if(!ok.exists())
+            {
+              api.firebase().ref('rooms/' + user.id +'/'+ this.toUser.id).set(
+                {
+                  msg:'',
+                  date:'',
+                  name:this.user.name,
+                  img:this.user.avatar
+                }
+              )
+              api.firebase().ref('rooms/' + this.toUser.id +'/'+ user.id).set(
+                {
+                msg:'',
+                date:'',
+                name:this.user.name,
+                img:this.user.avatar
+              })
+            }
+          })
+          this.chat.once('value', data => {
+            if(data != null)
+              this.m = that.snapshotToArray(data)
+            this.msgList = this.m
+            })
+        }
+    })
+    
     // Get the navParams toUserId parameter
-    this.toUser = {
-      id: navParams.get('toUserId'),
-      name: navParams.get('toUserName')
-    };
-    // Get mock user information
-    this.chatService.getUserInfo()
-    .then((res) => {
-      this.user = res
-    });
+    
+    // Get mock user information 
+    // this.chatService.getUserInfo()
+    // .then((res) => {
+    //   this.user = res
+    // });
   }
+
+  snapshotToArray = snapshot => {
+    let returnArr = [];
+
+    snapshot.forEach(childSnapshot => {
+        let item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        returnArr.push(item);
+    });
+
+    return returnArr;
+};
 
   ionViewWillLeave() {
     // unsubscribe
@@ -40,7 +136,7 @@ export class Chat {
 
   ionViewDidEnter() {
     //get message list
-    this.getMsg();
+    // this.getMsg();
 
     // Subscribe to received  new message events
     this.events.subscribe('chat:received', msg => {
@@ -74,7 +170,7 @@ export class Chat {
     return this.chatService
     .getMsgList()
     .subscribe(res => {
-      this.msgList = res;
+      this.msgList = this.m;
       this.scrollToBottom();
     });
   }
@@ -88,7 +184,7 @@ export class Chat {
     // Mock message
     const id = Date.now().toString();
     let newMsg: ChatMessage = {
-      messageId: Date.now().toString(),
+      messageId: id,
       userId: this.user.id,
       userName: this.user.name,
       userAvatar: this.user.avatar,
@@ -112,7 +208,9 @@ export class Chat {
         this.msgList[index].status = 'success';
       }
     })
+    
   }
+  data = { type:'', nickname:'', message:'' };
 
   /**
    * @name pushNewMsg
@@ -123,7 +221,14 @@ export class Chat {
       toUserId = this.toUser.id;
     // Verify user relationships
     if (msg.userId === userId && msg.toUserId === toUserId) {
+      console.log('pushing to db');
+    msg.status='success'
+    this.chat.push(msg).then( () => {
+      this.api.firebase().ref('rooms/' + this.user.id +'/'+ this.toUser.id).set({msg:msg.message})
+      this.api.firebase().ref('rooms/' + this.toUser.id +'/'+ this.user.id).set({msg:msg.message})
       this.msgList.push(msg);
+      this.data.message = '';
+      })
     } else if (msg.toUserId === userId && msg.userId === toUserId) {
       this.msgList.push(msg);
     }

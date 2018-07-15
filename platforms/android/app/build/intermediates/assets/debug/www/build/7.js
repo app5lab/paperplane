@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 585:
+/***/ 588:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(620);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(623);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,40 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
     }
-    HomePageModule = __decorate([
+    LoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]
             ]
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], LoginPageModule);
+    return LoginPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ }),
 
-/***/ 620:
+/***/ 623:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_css_animator__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,119 +63,80 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Generated class for the HomePage page.
+ * Generated class for the LoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var HomePage = /** @class */ (function () {
-    function HomePage(api, event, Keyboard, alert, ref, statusBar, animationService, loading, navCtrl, navParams) {
-        var _this = this;
+var LoginPage = /** @class */ (function () {
+    function LoginPage(api, Keyboard, platform, alert, navCtrl, navParams, load) {
         this.api = api;
-        this.event = event;
         this.Keyboard = Keyboard;
+        this.platform = platform;
         this.alert = alert;
-        this.ref = ref;
-        this.statusBar = statusBar;
-        this.loading = loading;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.a = false;
-        this.active = 0;
-        this.active2 = false;
-        this.posts = [];
-        this.posts2 = [];
-        this.flight_id = '';
-        this.animator = animationService.builder();
-        this.event.subscribe('open', function () {
-            _this.keyboardCheck();
-        });
-        this.event.publish('open');
-        this.api.allFlights.forEach(function (item) {
-            _this.api.getPostbyLoc(item.source_country, item.destination_country).then(function (data) {
-                _this.posts.push(data);
-            });
-        });
-        this.posts.push({
-            active: 'false',
-            user: { name: 'Hassan Ali', img: 'assets/imgs/logo.jpg' },
-            product: { name: 'Nike Air', price: '200', from: 'USA', to: 'Pakistan', reward: '10', img: 'assets/imgs/s1.jpg' }
-        });
-        this.posts.push({
-            active: 'false',
-            user: { name: 'Uzair Ali', img: 'assets/imgs/logo.jpg' },
-            product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
-        });
+        this.load = load;
+        this.username = 'Hassanali@cheema.com';
+        this.password = '123456';
     }
-    HomePage.prototype.animateElem = function (post, ele) {
-        //this.animator.stop( ele._elementRef.nativeElement );
-        if (post.active == 'true') {
-            ele._elementRef.nativeElement.innerText = 'Make an Offer';
-            post.active = 'false';
-            this.active = this.active - 1;
-        }
-        else {
-            ele._elementRef.nativeElement.innerText = 'Cancel';
-            post.active = 'true';
-            this.active = this.active + 1;
-        }
-        //this.animator.setType( 'flipInX' ).show( ele._elementRef.nativeElement )
+    LoginPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad LoginPage');
+        this.Keyboard.onKeyboardHide().subscribe(function (d) {
+            console.log('testttt');
+            document.getElementsByClassName('scroll-content')[0].setAttribute('style', 'padding-bottom: 0 !important');
+        });
     };
-    HomePage.prototype.keyboardCheck = function () {
-        // this.event.publish('open')
+    LoginPage.prototype.test = function () {
+        console.log('YE CHEEEEEEEEEEEEZZZZZZZZZZZZ');
+        document.getElementsByClassName('scroll-content')[0].setAttribute('style', 'padding-bottom: 0 !important');
     };
-    HomePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HomePage');
+    LoginPage.prototype.ionViewDidEnter = function () {
+        this.platform.ready().then(function () {
+        });
     };
-    HomePage.prototype.flight = function () {
+    LoginPage.prototype.onKeyboardHide = function () {
+        console.log('asd');
+    };
+    LoginPage.prototype.onKeyboardShow = function () {
+        console.log('asdas');
+    };
+    LoginPage.prototype.ionViewWillLeave = function () {
+        // this.platform.ready().then( () =>
+        // {
+        //   this.Keyboard.disableScroll( false );
+        // } );
+    };
+    LoginPage.prototype.login = function () {
         var _this = this;
-        var alert = this.alert.create({
-            title: 'Choose your flight'
-        });
-        this.api.allFlights.forEach(function (element) {
-            alert.addInput({
-                type: 'radio',
-                label: element.source_country + ' - ' + element.destination_country,
-                value: element.id,
-                checked: false
-            });
-        });
-        alert.addButton({
-            text: 'Confirm',
-            handler: function (data) {
-                _this.flight_id = data;
+        var l = this.load.create({});
+        l.setContent('Signing In...');
+        l.present();
+        this.api.login(this.username, this.password).then(function (r) {
+            if (r) {
+                _this.navCtrl.setRoot('TabsPage');
+                l.dismiss();
+            }
+            else {
+                _this.alert.create({ title: 'Invalid Username or Password', buttons: ['OK'] }).present();
+                l.dismiss();
             }
         });
-        alert.present();
     };
-    HomePage.prototype.makebid = function () {
-        // this.api.bid()
+    LoginPage.prototype.signup = function () {
+        this.navCtrl.push('SignUpPage');
     };
-    HomePage.prototype.go = function () {
-        this.navCtrl.push('AccountPage');
-    };
-    HomePage.prototype.openProduct = function () {
-        this.navCtrl.push('ProductDetailsPage');
-    };
-    HomePage.prototype.addPost = function () {
-        this.navCtrl.push('AddPostPage');
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('ok'),
-        __metadata("design:type", Object)
-    ], HomePage.prototype, "myElem", void 0);
-    HomePage = __decorate([
+    LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>ZipShip</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content>\n\n  <ion-fab right bottom>\n\n    <button id=\'tha\' (click)=\'addPost()\' ion-fab color="primary">\n\n      <ion-icon name="add"></ion-icon>\n\n    </button>\n\n  </ion-fab>\n\n  <ion-card id=\'maincard\' style="margin: 0;width: 100% !important;">\n\n    <!-- <img style="height: 100%;" src="assets/imgs/map1.jpg" /> -->\n\n    <div class="card-a" padding>\n\n      <h1 style="color:white;margin-bottom: 15px;font-size: 30px;">\n\n        Get items from anywhere in the world delivered to you by trusted travellers.\n\n      </h1>  \n\n      <ion-item style="border-radius: 20px;   border: 1px solid #4d077c;  border-radius: 0 40px !important;">\n\n        <ion-input   placeholder="Paste a link to create order"></ion-input>\n\n      </ion-item>\n\n    </div>\n\n  </ion-card>\n\n  <div *ngIf="posts.length == 0">\n\n    <ion-card>\n\n        <ion-card-content text-center>\n\n            <ion-card-title>\n\n              No Posts To Show!\n\n            </ion-card-title>\n\n            <p>\n\n              Add a flight and start making money!\n\n            </p>\n\n          </ion-card-content>\n\n    </ion-card>\n\n  </div>\n\n  <ion-grid style="min-height: 100%; " *ngIf="posts.length > 0    ">\n\n      <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor=\'let post of posts;\' style="height: 100%;">\n\n          <ion-card [ngClass]="{\'offer\': post.active == \'true\'}" class="meracard">\n\n            <ion-item>\n\n              <ion-avatar item-start>\n\n                <img src="{{post.user.img}}">\n\n              </ion-avatar>\n\n              <h2>{{post.user.name}}</h2>\n\n              <p>Posted 17 min ago</p>\n\n            </ion-item>\n\n        \n\n            <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">\n\n              <img class="im" src="assets/imgs/s1.jpg">\n\n              <ion-card-title style="width: 60%;">\n\n                <h3>\n\n                  <b> {{post.product.name}} </b>\n\n                </h3>\n\n                <ion-label style="margin-top: 0;margin-bottom: 0;"> Price\n\n                  <b>${{post.product.price}}</b>\n\n                </ion-label>\n\n                <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">\n\n                  From\n\n                  <b>{{post.product.from}}</b>\n\n                </ion-label>\n\n                <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">\n\n                  To\n\n                  <b>{{post.product.to}}</b>\n\n                </ion-label>\n\n              </ion-card-title>\n\n            </ion-card-content>\n\n        \n\n            <ion-card class="card2" [ngClass]="{\'offer2\': post.active == \'true\'}">\n\n              <ion-card-content style="padding-top: 0;" class=\'cus\'>\n\n                <div>\n\n                  <ion-label style="text-align: center;margin-bottom: 3px;">\n\n                    <u> Traveler\'s Reward </u>\n\n                  </ion-label>\n\n                  <h1>from\n\n                    <b>${{post.product.reward}}</b>\n\n                  </h1>\n\n                  <button #ok class="gh" (click)="animateElem(post,ok);" ion-button icon-left block outline color="primary">\n\n                    Make an Offer\n\n                  </button>\n\n                </div>\n\n                <div [ngClass]="{\'sho\': post.active == \'true\'}">\n\n                  <ion-item>\n\n                    <ion-label>Amount</ion-label>\n\n                    <ion-input type="number" value=""></ion-input>\n\n                  </ion-item>\n\n                  <ion-item (click)=\'flight()\'>\n\n                    <ion-label>Select Flight</ion-label>\n\n                    <ion-input disabled type="number" value=""></ion-input>\n\n                  </ion-item>\n\n                  <button ion-button icon-left block outline color="primary" (click)=\'makebid()\'>\n\n                    Send Offer\n\n                  </button>\n\n                </div>\n\n              </ion-card-content>\n\n            </ion-card>\n\n          </ion-card>\n\n      </ion-col>\n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\home\home.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/login/login.html"*/'<ion-content padding class="getstart">\n    <img src="assets/imgs/final.png" alt="" style="height: 350px;">\n      <ion-item class="in">\n        <ion-label fixed>\n          <ion-icon name="person"></ion-icon>\n          Username</ion-label>\n        <ion-input type="text" [(ngModel)]="username" (ionBlur)=\'test()\'></ion-input>\n      </ion-item>\n    <br>\n    <ion-item class="in">\n      <ion-label >\n        <ion-icon name="lock"></ion-icon>\n         Password</ion-label>\n      <ion-input type="password" [(ngModel)]="password" (ionBlur)=\'test()\'></ion-input>\n    </ion-item>\n<br>\n    \n    <button id=\'t\' ion-button full round (click)="login()">Sign In</button>\n    <br>\n    <br>\n    <br> \n    <div style="width: 100%;display: flex;justify-content: center;">\n      <button id=\'tt\' ion-button outline color=light style="width: 60%;" (click)=\'signup()\'>\n        Sign Up?\n      </button>   \n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_2_css_animator__["AnimationService"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 

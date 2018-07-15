@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the AllChatsPage page.
@@ -14,8 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'all-chats.html',
 })
 export class AllChatsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+chats:any [] = []
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider) {
+    var user = JSON.parse( localStorage.getItem( 'zip_user' ) )
+    api.firebase().ref('rooms/' + user.id).once('value', data => {
+      this.chats = data.val()
+      
+    })
   }
 
   ionViewDidLoad() {

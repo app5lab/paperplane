@@ -11,7 +11,7 @@ export class ConversationPage {
   @ViewChild( 'txtChat' ) txtChat: any;
   // @ViewChild( 'content' ) content: any;
   messages: any[] = [];
-  chatBox: string ="";
+  chatBox: string =""; 
   btnEmitter: EventEmitter<string>;
 
   constructor( public _zone: NgZone, public api:ApiProvider)

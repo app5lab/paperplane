@@ -34,6 +34,9 @@
     "cordova-plugin-filepicker": {
       "PACKAGE_NAME": "com.zipship.dev"
     },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.zipship.dev"
+    },
     "cordova-plugin-ionic-keyboard": {
       "PACKAGE_NAME": "com.zipship.dev"
     },
@@ -50,9 +53,6 @@
       "PACKAGE_NAME": "com.zipship.dev"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.zipship.dev"
-    },
-    "cordova-plugin-firebase": {
       "PACKAGE_NAME": "com.zipship.dev"
     }
   },

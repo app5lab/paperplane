@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 581:
+/***/ 582:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllChatsPageModule", function() { return AllChatsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardPageModule", function() { return CardPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__all_chats__ = __webpack_require__(602);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__card__ = __webpack_require__(603);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AllChatsPageModule = /** @class */ (function () {
-    function AllChatsPageModule() {
+var CardPageModule = /** @class */ (function () {
+    function CardPageModule() {
     }
-    AllChatsPageModule = __decorate([
+    CardPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__all_chats__["a" /* AllChatsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__card__["a" /* CardPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__all_chats__["a" /* AllChatsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__card__["a" /* CardPage */]),
             ],
         })
-    ], AllChatsPageModule);
-    return AllChatsPageModule;
+    ], CardPageModule);
+    return CardPageModule;
 }());
 
-//# sourceMappingURL=all-chats.module.js.map
+//# sourceMappingURL=card.module.js.map
 
 /***/ }),
 
-/***/ 602:
+/***/ 603:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AllChatsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -57,32 +57,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the AllChatsPage page.
+ * Generated class for the CardPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var AllChatsPage = /** @class */ (function () {
-    function AllChatsPage(navCtrl, navParams) {
+var CardPage = /** @class */ (function () {
+    function CardPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    AllChatsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AllChatsPage');
+    CardPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad CardPage');
     };
-    AllChatsPage.prototype.openChat = function () {
-        this.navCtrl.push('Chat');
-    };
-    AllChatsPage = __decorate([
+    CardPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-all-chats',template:/*ion-inline-start:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\all-chats\all-chats.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>chat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  \n<ion-card style="   border: 1px solid #4d077c;\nborder-radius: 0 40px !important;">\n  <ion-list >\n    <ion-item (click)=\'openChat()\'>\n      <ion-avatar item-start>\n        <img src="assets/imgs/qasim.jpeg">\n      </ion-avatar>\n      <h2>Hamza</h2>\n      <p>Bla bla bl looks good. Let\'s discuss it more bla bla bla</p>\n      <ion-note item-end>3:43 pm</ion-note>\n    </ion-item>\n  </ion-list>\n</ion-card>\n<ion-card style="   border: 1px solid #4d077c;\nborder-radius: 0 40px !important;">\n  <ion-list >\n    <ion-item (click)=\'openChat()\'>\n      <ion-avatar item-start>\n        <img src="assets/imgs/qasim.jpeg">\n      </ion-avatar>\n      <h2>Hamza</h2>\n      <p>Bla bla bl looks good. Let\'s discuss it more bla bla bla</p>\n      <ion-note item-end>3:43 pm</ion-note>\n    </ion-item>\n  </ion-list>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Users\tooth\OneDrive\Desktop\zip\src\pages\all-chats\all-chats.html"*/,
+            selector: 'page-card',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/card/card.html"*/'<!--\n  Generated template for the CardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>card</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/card/card.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], AllChatsPage);
-    return AllChatsPage;
+    ], CardPage);
+    return CardPage;
 }());
 
-//# sourceMappingURL=all-chats.js.map
+//# sourceMappingURL=card.js.map
 
 /***/ })
 

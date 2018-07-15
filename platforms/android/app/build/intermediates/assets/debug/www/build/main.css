@@ -25992,6 +25992,30 @@ page-flights h2 span {
   padding: 0 10px;
 }
 
+page-history ion-segment {
+  width: 100%;
+}
+
+page-history .toolbar-background {
+  background-color: #ffffff;
+}
+
+page-history .segment-ios-light .segment-button.segment-activated {
+  color: #ffffff;
+  background-color: #653b73;
+  font-weight: bold;
+}
+
+page-history .segment-ios-light .segment-button {
+  border-color: gray;
+  color: black;
+}
+
+page-history h2 {
+  text-align: center;
+  vertical-align: middle;
+}
+
 page-history .example {
   height: 150px;
   position: relative;

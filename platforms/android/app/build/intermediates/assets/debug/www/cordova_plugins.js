@@ -297,6 +297,14 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-firebase.FirebasePlugin",
+    "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+    "pluginId": "cordova-plugin-firebase",
+    "clobbers": [
+      "FirebasePlugin"
+    ]
+  },
+  {
     "id": "cordova-plugin-ionic-keyboard.keyboard",
     "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
     "pluginId": "cordova-plugin-ionic-keyboard",
@@ -327,14 +335,6 @@ module.exports = [
     "clobbers": [
       "plugins.imagePicker"
     ]
-  },
-  {
-    "id": "cordova-plugin-firebase.FirebasePlugin",
-    "file": "plugins/cordova-plugin-firebase/www/firebase.js",
-    "pluginId": "cordova-plugin-firebase",
-    "clobbers": [
-      "FirebasePlugin"
-    ]
   }
 ];
 module.exports.metadata = 
@@ -349,13 +349,13 @@ module.exports.metadata =
   "cordova-plugin-filechooser": "1.0.1",
   "cordova-plugin-filepath": "1.0.2",
   "cordova-plugin-filepicker": "1.1.5",
+  "cordova-plugin-firebase": "1.0.5",
   "cordova-plugin-ionic-keyboard": "2.0.5",
   "cordova-plugin-ionic-webview": "1.2.0",
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-telerik-imagepicker": "2.2.1",
-  "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-firebase": "1.0.5"
+  "cordova-plugin-whitelist": "1.3.3"
 };
 // BOTTOM OF METADATA
 });

@@ -17,11 +17,11 @@ var config = {
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = "LoginPage";
+  rootPage:any = "TabsPage";
 
   constructor( public Keyboard: Keyboard,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
-      statusBar.backgroundColorByHexString( '#571a94' );      
+      statusBar.backgroundColorByHexString( '#fff' );
       statusBar.styleDefault();
       splashScreen.hide();
     });
