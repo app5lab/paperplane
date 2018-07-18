@@ -9,67 +9,66 @@
 
 <ion-content padding>
   <div></div>
-    <ion-list>
-      <ion-card>
-        <ion-card-content>
-            <ion-label>Source Country</ion-label>
-            <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)='showList()' (ionInput)="filterItems($event)"></ion-searchbar>
-            <ion-list *ngIf='hide == false'>
-              <ion-item *ngFor="let item of items" (click)='selectCountry(item)'>
-                {{ item }}
-              </ion-item>
-            </ion-list>
-            
-            <div *ngIf="country != ''">
-              <ion-label>Source City</ion-label>
-              <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)='showList3()' (ionInput)="filterItems2($event)"></ion-searchbar>
-              <ion-list *ngIf='hide3 == false'>
-                <ion-item *ngFor="let item of items" (click)='selectCity(item)'>
-                  {{ item }}
-                </ion-item>
-              </ion-list>
-            </div>
+  <ion-list>
+    <ion-card>
+      <ion-card-content>
+        <ion-label>Source Country</ion-label>
+        <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)='showList()' (ionInput)="filterItems($event)"></ion-searchbar>
+        <ion-list *ngIf='hide == false'>
+          <ion-item *ngFor="let item of items" (click)='selectCountry(item)'>
+            {{ item }}
+          </ion-item>
+        </ion-list>
 
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-          <ion-card-content>
-              
-            <ion-label>Destination Country</ion-label>
-            <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)='showList2()' (ionInput)="filterItems($event)"></ion-searchbar>
-            <ion-list *ngIf='hide2 == false'>
-              <ion-item *ngFor="let item of items" (click)='selectCountry2(item)'>
-                {{ item }}
-              </ion-item>
-            </ion-list>
-            
-            <div *ngIf="country2 != ''">
-                <ion-label>Destination City</ion-label>
-                <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)='showList4()' (ionInput)="filterItems3($event)"></ion-searchbar>
-                <ion-list *ngIf='hide4 == false'>
-                  <ion-item *ngFor="let item of items" (click)='selectCity2(item)'>
-                    {{ item }}
-                  </ion-item>
-                </ion-list>
-              </div>
-            
-            </ion-card-content>
-      </ion-card>
-        
-        
+        <div *ngIf="country != ''">
+          <ion-label>Source City</ion-label>
+          <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)='showList3()' (ionInput)="filterItems2($event)"></ion-searchbar>
+          <ion-list *ngIf='hide3 == false'>
+            <ion-item *ngFor="let item of items" (click)='selectCity(item)'>
+              {{ item }}
+            </ion-item>
+          </ion-list>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+
+        <ion-label>Destination Country</ion-label>
+        <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)='showList2()' (ionInput)="filterItems($event)"></ion-searchbar>
+        <ion-list *ngIf='hide2 == false'>
+          <ion-item *ngFor="let item of items" (click)='selectCountry2(item)'>
+            {{ item }}
+          </ion-item>
+        </ion-list>
+
+        <div *ngIf="country2 != ''">
+          <ion-label>Destination City</ion-label>
+          <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)='showList4()' (ionInput)="filterItems3($event)"></ion-searchbar>
+          <ion-list *ngIf='hide4 == false'>
+            <ion-item *ngFor="let item of items" (click)='selectCity2(item)'>
+              {{ item }}
+            </ion-item>
+          </ion-list>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+
     <ion-card>
       <!-- <div>
           <ion-datetime placeholder=" Select Date"  displayFormat="MM/DD/YYYY" [(ngModel)]="date" ></ion-datetime>
       </div> -->
-      <ion-content padding>
-          <ion-datetime displayFormat="DD-MM-YYYY HH:mm" [(ngModel)]="today"></ion-datetime>
-          </ion-content>
-    
+      <ion-card-content>
+        <ion-datetime displayFormat="DD-MM-YYYY" min="2018-07-01" max="2020-10-31" [(ngModel)]="today"></ion-datetime>
+      </ion-card-content>
+
     </ion-card>
-    
-      <button style="    
-      border-radius: 0 40px !important;" ion-button full  item-center (click)='add()'>Add</button>
-  
-    </ion-list>
+
+    <button style="border-radius: 0 40px !important;" ion-button full item-center (click)='add()'>Add</button>
+
+  </ion-list>
 
 </ion-content>

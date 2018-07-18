@@ -7,41 +7,43 @@
 </ion-header>
 
 
- <ion-content padding class="bg">
- 
+<ion-content padding class="bg">
+
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
 
-<ion-card id='asd' *ngIf="flightss.length == 0" class="Main" >
-  <ion-card-content text-center>
-    <ion-card-title>
-      Travelling Somewhere?
-    </ion-card-title>
-    <p>
-      Post a flight and start making money!
-    </p>
-    <br><br>
-    <button style=" border: 1px solid #4d077c; border-radius: 0 40px !important;" ion-button outline item-center (click)='addflight()'>Add Flight</button>
-  </ion-card-content>
-</ion-card>
-<ion-fab right bottom *ngIf="flightss.length != 0" (click)='flights()'>
-  <button id='tha' ion-fab color="primary">
-    <ion-icon name="add"></ion-icon>
-  </button>
-</ion-fab>
-<div  *ngFor='let flight of flightss'>
-    <ion-card text-center class="crd">
-      <ion-grid>
-        <ion-row style="height: 70px;">
+  <ion-card id='asd' *ngIf="flightss.length == 0" class="Main">
+    <ion-card-content text-center>
+      <ion-card-title>
+        Travelling Somewhere?
+      </ion-card-title>
+      <p>
+        Post a flight and start making money!
+      </p>
+      <br>
+      <br>
+      <button style=" border: 1px solid #4d077c; border-radius: 0 40px !important;" ion-button outline item-center (click)='addflight()'>Add Flight</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-fab right bottom *ngIf="flightss.length != 0" (click)='flights()'>
+    <button id='tha' ion-fab color="primary">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <div *ngIf="flightss.length != 0">
+    <!-- <div *ngFor='let flight of flightss'>
+      <ion-card text-center class="crd">
+        <ion-grid>
+          <ion-row style="height: 70px;">
             <ion-col col-4 align-self-center>
-                <h1>{{flight.source_country}}</h1>
+              <h1>{{flight.source_country}}</h1>
             </ion-col>
-            
+
             <ion-col col-4 align-self-center>
               <h1>{{flight.source_city}}</h1>
-          </ion-col>
+            </ion-col>
 
             <ion-col col-4 align-self-center>
               <h2>
@@ -50,19 +52,19 @@
             </ion-col>
 
             <ion-col col-4 align-self-center>
-                <h1>{{flight.destination_country}}</h1>
+              <h1>{{flight.destination_country}}</h1>
             </ion-col>
             <ion-col col-4 align-self-center>
               <h1>{{flight.destination_city}}</h1>
-          </ion-col>
-        </ion-row>
-        <ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
             <button ion-button outline style="width: 48%;">Remove</button>
             <button ion-button style="width: 48%;">Edit</button>
-        </ion-row>
-      </ion-grid>
-      
-    </ion-card>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div> -->
   </div>
 
 </ion-content>

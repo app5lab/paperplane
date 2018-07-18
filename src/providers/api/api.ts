@@ -120,6 +120,8 @@ allFlights: any [] = []
         .then(
           res =>
           {
+            console.log(JSON.stringify(res.data));
+            
             if(res.data != 'Invalid Data' && res.data != 'Security Key is invalid')
               {
                 if( res.data != "")
@@ -127,9 +129,9 @@ allFlights: any [] = []
                 resolve(this.allFlights)
               }
             else
-              resolve( 'false' )
+              resolve( [] )
           }
-        );
+        ); 
     } );
     return promise;
   }

@@ -18,7 +18,7 @@ export class AddPostPage {
   items:any[] = []
   country:any = ''
   country2:any = ''
-  hide:any = true
+  hide:any = true 
   hide2:any = true
   hide3:any = true
   hide4:any = true

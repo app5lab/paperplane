@@ -45,6 +45,7 @@ export class HistoryPage {
       })
     })
 
+    
     this.posts.push(
       {
         active: 'false',

@@ -26,11 +26,11 @@ var map = {
 		14
 	],
 	"../pages/add-post/add-post.module": [
-		580,
+		579,
 		3
 	],
 	"../pages/addflight/addflight.module": [
-		579,
+		580,
 		2
 	],
 	"../pages/all-chats/all-chats.module": [
@@ -42,11 +42,11 @@ var map = {
 		12
 	],
 	"../pages/chat/chat.module": [
-		584,
+		583,
 		0
 	],
 	"../pages/conversation/conversation.module": [
-		583,
+		584,
 		11
 	],
 	"../pages/flights/flights.module": [
@@ -219,13 +219,14 @@ var ApiProvider = /** @class */ (function () {
             _this.http.setDataSerializer('json');
             _this.http.post('https://zipship.io/api/flight-data.php', datas, {})
                 .then(function (res) {
+                console.log(JSON.stringify(res.data));
                 if (res.data != 'Invalid Data' && res.data != 'Security Key is invalid') {
                     if (res.data != "")
                         _this.allFlights = JSON.parse(res.data);
                     resolve(_this.allFlights);
                 }
                 else
-                    resolve('false');
+                    resolve([]);
             });
         });
         return promise;
@@ -335,9 +336,10 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]) === "function" && _a || Object])
     ], ApiProvider);
     return ApiProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
@@ -531,12 +533,12 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/all-chats/all-chats.module#AllChatsPageModule', name: 'AllChatsPage', segment: 'all-chats', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat/chat.module#ChatModule', name: 'Chat', segment: 'chat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
