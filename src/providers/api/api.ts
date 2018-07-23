@@ -6,6 +6,17 @@ import { log } from 'util';
 @Injectable()
 export class ApiProvider {
 allFlights: any [] = []
+user:any = {
+  email:'',
+  id:'',
+  fname:'',
+  lname:'',
+  verified:'',
+  created:'',
+  phone:'',
+  address:'',
+  img:''
+}
   constructor(public http: HTTP) {
   }
 
@@ -50,18 +61,18 @@ allFlights: any [] = []
           {
             if ( res.data != 'Invalid User' && res.data != 'Security Key is invalid' ){
               var data = JSON.parse (res.data)
-              var temp = {
+              this.user  = {
                 email:data.email,
                 id:data.id,
                 fname:data.firstname,
                 lname:data.lastname,
                 verified:data.verified,
-                created:data.created,
+                created:data.created, 
                 phone:data.phone,
                 address:data.address,
                 img:data.dp
               }
-              let t = JSON.stringify(temp)
+              let t = JSON.stringify(this.user)
 
               localStorage.setItem('zip_user', t)
               localStorage.setItem('zip_login', 'true')
@@ -82,7 +93,7 @@ allFlights: any [] = []
       source_city: src_ct,
       destination_country: des_cr,
       destination_city: des_ct,
-      time:time,
+      date:time,
       userid:id,
       key: 'addflight',
       sec: '((|m5DlhrplfKx1'
@@ -95,7 +106,7 @@ allFlights: any [] = []
         .then(
           res =>
           {
-            console.log(res);
+            console.log(JSON.stringify(res.data));
 
             //   resolve( true );
             // else
@@ -196,10 +207,10 @@ allFlights: any [] = []
           {
             console.log(JSON.stringify(res.data));
 
-            // if ( res.data != 'User already Exist' && res.data == '1' )
-            //   resolve( true );
-            // else
-            //   resolve( false )
+            if (res.data == '1' )
+              resolve( true );
+            else
+              resolve( false )
           }
         );
     } );
@@ -207,23 +218,23 @@ allFlights: any [] = []
 
   }
 
-  getPostbyLoc (from,to): Promise<any>
+  getPostbyLoc (): Promise<any>
   {
     var data = {
-      from_loc: from,
-      to_loc: to,
-      key: 'getPostbyLoc',
+      // from_loc: from,
+      // to_loc: to,
+      key: 'getLatestPost',
       sec: '((|m5DlhrplfKx1'
     }
 
     let promise = new Promise( ( resolve ) =>
-    {
+    { 
       this.http.setDataSerializer('json')
       this.http.post( 'https://zipship.io/api/user-posts.php', data,{} )
         .then(
           res =>
           {
-            console.log( res );
+            console.log( JSON.stringify(res.data));
 
             if(res.data != 'Data not Found' && res.data != 'Security Key is invalid')
               {

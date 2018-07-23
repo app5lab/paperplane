@@ -100,7 +100,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AddPostPage = /** @class */ (function () {
-    function AddPostPage(image, api, navCtrl, navParams) {
+    function AddPostPage(loading, image, api, navCtrl, navParams) {
+        this.loading = loading;
         this.image = image;
         this.api = api;
         this.navCtrl = navCtrl;
@@ -120,10 +121,13 @@ var AddPostPage = /** @class */ (function () {
         this.files = [];
         this.post = { title: '', des: '', image1: '', image2: '', image3: '', treward: '', fromCry: '', toCry: '', fromC: '', toC: '', note: '', url: '', qty: '', userid: '' };
         this.today = new Date().toISOString();
+        var l = loading.create();
+        l.present();
         this.countries = __WEBPACK_IMPORTED_MODULE_4_country_city__["getCountries"]();
         this.items = this.countries;
         var user = JSON.parse(localStorage.getItem('zip_user'));
         this.post.userid = user.id;
+        l.dismiss();
     }
     AddPostPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AddPostPage');
@@ -155,7 +159,12 @@ var AddPostPage = /** @class */ (function () {
         });
     };
     AddPostPage.prototype.add = function () {
-        this.api.addPost(this.post.title, this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.country, this.country2, this.city, this.city2, this.post.qty, this.post.userid, this.post.url);
+        var l = this.loading.create({ content: 'Please Wait...' });
+        l.present();
+        this.api.addPost(this.post.title, this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.country, this.country2, this.city, this.city2, this.post.qty, this.post.userid, this.post.url)
+            .then(function () {
+            l.dismiss();
+        });
     };
     AddPostPage.prototype.showList = function () {
         this.hide = false;
@@ -218,7 +227,8 @@ var AddPostPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-add-post',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/add-post/add-post.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>add-post</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n        <ion-item>\n          <ion-label floating>Title</ion-label>\n          <ion-input [(ngModel)]="post.title" type="text"></ion-input>\n        </ion-item>\n      \n        <ion-item>\n          <ion-label floating>Discription</ion-label>\n          <ion-input [(ngModel)]="post.des" type="text"></ion-input>\n        </ion-item>\n      \n        <div>\n          <ion-item>\n            <ion-label floating>Images</ion-label>\n            <ion-input type="text"></ion-input>\n          </ion-item>\n          <button ion-button full round (click)="upload()">\n            Choose Images\n          </button>\n          <img src="{{file}}" *ngFor="let file of files" style="width: 33%;">\n        </div>\n\n          <ion-item>\n              <ion-label floating>Traveler Reward</ion-label>\n              <ion-input [(ngModel)]="post.treward" type="number"></ion-input>\n          </ion-item>\n            \n          <ion-label>Source Country</ion-label>\n          <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)=\'showList()\' (ionInput)="filterItems($event)"></ion-searchbar>\n          <ion-list *ngIf=\'hide == false\'>\n            <ion-item *ngFor="let item of items" (click)=\'selectCountry(item)\'>\n              {{ item }}\n            </ion-item>\n          </ion-list>\n          \n          <div *ngIf="country != \'\'">\n            <ion-label>Source City</ion-label>\n            <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)=\'showList3()\' (ionInput)="filterItems2($event)"></ion-searchbar>\n            <ion-list *ngIf=\'hide3 == false\'>\n              <ion-item *ngFor="let item of items" (click)=\'selectCity(item)\'>\n                {{ item }}\n              </ion-item>\n            </ion-list>\n          </div>\n\n          <ion-label>Destination Country</ion-label>\n          <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)=\'showList2()\' (ionInput)="filterItems($event)"></ion-searchbar>\n          <ion-list *ngIf=\'hide2 == false\'>\n            <ion-item *ngFor="let item of items" (click)=\'selectCountry2(item)\'>\n              {{ item }}\n            </ion-item>\n          </ion-list>\n          \n          <div *ngIf="country2 != \'\'">\n              <ion-label>Destination City</ion-label>\n              <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)=\'showList4()\' (ionInput)="filterItems3($event)"></ion-searchbar>\n              <ion-list *ngIf=\'hide4 == false\'>\n                <ion-item *ngFor="let item of items" (click)=\'selectCity2(item)\'>\n                  {{ item }}\n                </ion-item>\n              </ion-list>\n            </div>\n\n\n\n\n\n\n           <ion-item>\n              <ion-label floating>Note</ion-label>\n              <ion-input [(ngModel)]="post.note"type="text"></ion-input>\n         </ion-item>\n\n         <ion-item>\n            <ion-label floating>Item_url</ion-label>\n            <ion-input [(ngModel)]="post.url"type="text"></ion-input>\n       </ion-item>\n\n       <ion-item>\n          <ion-label floating></ion-label>\n          <ion-input type="date"></ion-input>\n     </ion-item>\n\n     <ion-item>\n        <ion-label floating>Quantity</ion-label>\n        <ion-input type="number" [(ngModel)]="post.qty"></ion-input>\n   </ion-item>\n\n    </ion-list>\n  <button ion-button full round (click)=\'add()\'> Add </button>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/add-post/add-post.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])

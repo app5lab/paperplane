@@ -78,7 +78,7 @@ var LoginPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.load = load;
-        this.username = 'Hassanali@cheema.com';
+        this.username = 'hassanali@gmail.com';
         this.password = '123456';
     }
     LoginPage.prototype.ionViewDidLoad = function () {

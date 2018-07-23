@@ -73,7 +73,9 @@ var AllChatsPage = /** @class */ (function () {
         this.chats = [];
         var user = JSON.parse(localStorage.getItem('zip_user'));
         api.firebase().ref('rooms/' + user.id).once('value', function (data) {
-            _this.chats = data.val();
+            // console.log(data.val());
+            if (data.val() != null)
+                _this.chats = data.val();
         });
     }
     AllChatsPage.prototype.ionViewDidLoad = function () {
@@ -84,7 +86,7 @@ var AllChatsPage = /** @class */ (function () {
     };
     AllChatsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-all-chats',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/all-chats/all-chats.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>chat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  \n  <ion-card style="border: 1px solid #4d077c; border-radius: 0 40px !important;" *ngFor="let chat of chats">\n    <ion-list >\n      <ion-item (click)=\'openChat()\'>\n        <ion-avatar item-start>\n          <img src="assets/imgs/qasim.jpeg">\n        </ion-avatar>\n        <h2>Hamza</h2>\n        <p>{{chat.msg}}</p>\n        <ion-note item-end>3:43 pm</ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/all-chats/all-chats.html"*/,
+            selector: 'page-all-chats',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/all-chats/all-chats.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>chat</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-card id=\'asd\' *ngIf="chats.length == 0" class="Main">\n    <ion-card-content text-center>\n      <p>\n        No chats to display!\n      </p>\n      <br>\n      <br>\n      <button style=" border: 1px solid #4d077c; border-radius: 0 40px !important;" ion-button outline item-center (click)=\'addflight()\'>Add Flight</button>\n    </ion-card-content>\n  </ion-card>\n  <ion-card style="border: 1px solid #4d077c; border-radius: 0 40px !important;" *ngFor="let chat of chats">\n    <ion-list >\n      <ion-item (click)=\'openChat()\'>\n        <ion-avatar item-start>\n          <img src="assets/imgs/qasim.jpeg">\n        </ion-avatar>\n        <h2>Hamza</h2>\n        <p>{{chat.msg}}</p>\n        <ion-note item-end>3:43 pm</ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/all-chats/all-chats.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]])
     ], AllChatsPage);

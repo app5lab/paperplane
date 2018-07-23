@@ -24,21 +24,23 @@ export class HomePage {
   @ViewChild( 'ok' ) myElem;
   private animator: AnimationBuilder;
   constructor(public api: ApiProvider, private event: Events, public Keyboard: Keyboard, public alert: AlertController, private ref:ChangeDetectorRef,private statusBar: StatusBar, animationService: AnimationService,public loading: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
-    this.animator = animationService.builder();
+    // this.animator = animationService.builder();
 
-    this.event.subscribe( 'open', () =>
-    {
-      this.keyboardCheck();
-    } )
+    // this.event.subscribe( 'open', () =>
+    // {
+    //   this.keyboardCheck();
+    // } )
 
 
-    this.event.publish('open');
-    this.api.allFlights.forEach(item=>{
-      this.api.getPostbyLoc(item.source_country,item.destination_country).then(data=>{
-        this.posts.push(data)
-      })
+    // this.event.publish('open');
+    // this.api.allFlights.forEach(item=>{
+    //   this.api.getPostbyLoc(item.source_country,item.destination_country).then(data=>{
+    //     this.posts.push(data)
+    //   })
+    // }) 
+    this.api.getPostbyLoc().then(data=>{
+      // this.posts.push(data) 
     })
-
     // this.posts.push(
     //   {
     //     active: 'false',

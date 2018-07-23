@@ -25758,6 +25758,12 @@ page-all-chats ion-note {
   margin-top: 14px;
 }
 
+page-all-chats #asd {
+  margin-top: 50% !important;
+  border: #671a94 1.5px solid;
+  border-radius: 0 40px !important;
+}
+
 page-chat ion-content .scroll-content {
   background-color: #f5f5f5;
 }
@@ -26273,7 +26279,7 @@ page-home .card-a {
 }
 
 page-home #maincard {
-  border-radius: 0 40px;
+  border-radius: 0 0 40px 40px;
 }
 
 page-login .getstart {

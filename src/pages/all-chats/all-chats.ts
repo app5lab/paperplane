@@ -19,7 +19,9 @@ chats:any [] = []
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider) {
     var user = JSON.parse( localStorage.getItem( 'zip_user' ) )
     api.firebase().ref('rooms/' + user.id).once('value', data => {
-      this.chats = data.val()
+      // console.log(data.val());
+      if(data.val()!=null)
+        this.chats = data.val()
       
     })
   }
