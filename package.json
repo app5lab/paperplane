@@ -64,6 +64,7 @@
     "firebase": "^4.8.0",
     "ionic-angular": "3.9.2",
     "ionic-image-loader": "^5.0.0",
+    "ionic2-super-tabs": "^4.3.0",
     "ionicons": "3.0.0",
     "md5": "^2.2.1",
     "ngx-responsive": "^5.0.6",

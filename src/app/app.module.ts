@@ -45,7 +45,7 @@ var config = {
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot( MyApp, { 
+      IonicModule.forRoot( MyApp, { 
       // scrollAssist: true, 
       // autoFocusAssist: true,
       // scrollPadding: true,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Img } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController , NavParams, Img } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import * as cc from 'country-city'
@@ -31,6 +31,7 @@ export class AddPostPage {
   constructor( 
     public image:ImagePicker , 
     public api:ApiProvider ,
+    public loading:LoadingController,
     public navCtrl: NavController, 
     public navParams: NavParams) {
       this.countries = cc.getCountries()
@@ -73,8 +74,19 @@ export class AddPostPage {
     
   }
   
+ 
+
   add(){ 
+    var l = this.loading.create({
+      content: 'Please wait...'
+    });
+    l.present();
+   
+  
     this.api.addPost(this.post.title,this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.country, this.country2,this.city,this.city2,this.post.qty,this.post.userid, this.post.url)
+    
+    l.dismiss();
+  
   }
 
   showList(){

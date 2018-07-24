@@ -25741,6 +25741,28 @@ page-account ion-label {
   color: #671a94;
 }
 
+page-account #card-l {
+  border: 1px solid #4d077c;
+  border-radius: 0 40px !important;
+  padding: 5%;
+  margin-bottom: 3%;
+}
+
+page-add-post #card-x {
+  border: 1px solid #4d077c;
+  border-radius: 0 40px !important;
+  padding: 5%;
+  margin-bottom: 3%;
+}
+
+page-add-post #card-y {
+  border: 1px solid #4d077c;
+  border-radius: 0 40px !important;
+  padding: 5%;
+  margin-bottom: 3%;
+  margin-top: 4%;
+}
+
 page-addflight ion-card {
   border: 1px solid #4d077c;
   border-radius: 0 40px !important;
@@ -25997,18 +26019,18 @@ page-history ion-segment {
 }
 
 page-history .toolbar-background {
-  background-color: #ffffff;
+  background-color: #3a1053;
 }
 
 page-history .segment-ios-light .segment-button.segment-activated {
-  color: #ffffff;
-  background-color: #653b73;
+  color: #653b73;
+  background-color: #ffffff;
   font-weight: bold;
 }
 
 page-history .segment-ios-light .segment-button {
-  border-color: gray;
-  color: black;
+  border-color: #fff;
+  color: white;
 }
 
 page-history h2 {
@@ -26148,6 +26170,31 @@ page-history .card-a {
   color: #fff;
 }
 
+page-history .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 2px;
+  position: relative;
+  top: -2px;
+  background-color: white !important;
+}
+
+page-history .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: gray !important;
+  background-color: #3a1053 !important;
+}
+
+page-history .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: white !important;
+}
+
+page-history .SwipedTabs-tabs {
+  border-bottom: solid 1px #e6e6e6  !important;
+}
+
 page-home .example {
   height: 150px;
   position: relative;
@@ -26262,6 +26309,11 @@ page-home #meracard {
   position: relative;
 }
 
+page-home #cardd {
+  border: 1px solid #4d077c;
+  border-radius: 0 40px !important;
+}
+
 page-home .card-a {
   padding-bottom: 10px !important;
   background-image: url(../assets/imgs/map1.jpg);
@@ -26273,7 +26325,7 @@ page-home .card-a {
 }
 
 page-home #maincard {
-  border-radius: 0 40px;
+  border-radius: 0px 0px  40px  40px;
 }
 
 page-login .getstart {
