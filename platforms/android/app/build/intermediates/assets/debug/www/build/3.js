@@ -100,7 +100,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AddPostPage = /** @class */ (function () {
+<<<<<<< HEAD
     function AddPostPage(image, api, loading, navCtrl, navParams) {
+=======
+    function AddPostPage(loading, image, api, navCtrl, navParams) {
+        this.loading = loading;
+>>>>>>> 03569675effff80469934ad2a6a1e831dd631c73
         this.image = image;
         this.api = api;
         this.loading = loading;
@@ -121,10 +126,13 @@ var AddPostPage = /** @class */ (function () {
         this.files = [];
         this.post = { title: '', des: '', image1: '', image2: '', image3: '', treward: '', fromCry: '', toCry: '', fromC: '', toC: '', note: '', url: '', qty: '', userid: '' };
         this.today = new Date().toISOString();
+        var l = loading.create();
+        l.present();
         this.countries = __WEBPACK_IMPORTED_MODULE_4_country_city__["getCountries"]();
         this.items = this.countries;
         var user = JSON.parse(localStorage.getItem('zip_user'));
         this.post.userid = user.id;
+        l.dismiss();
     }
     AddPostPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AddPostPage');
@@ -156,12 +164,21 @@ var AddPostPage = /** @class */ (function () {
         });
     };
     AddPostPage.prototype.add = function () {
+<<<<<<< HEAD
         var l = this.loading.create({
             content: 'Please wait...'
         });
         l.present();
         this.api.addPost(this.post.title, this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.country, this.country2, this.city, this.city2, this.post.qty, this.post.userid, this.post.url);
         l.dismiss();
+=======
+        var l = this.loading.create({ content: 'Please Wait...' });
+        l.present();
+        this.api.addPost(this.post.title, this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.country, this.country2, this.city, this.city2, this.post.qty, this.post.userid, this.post.url)
+            .then(function () {
+            l.dismiss();
+        });
+>>>>>>> 03569675effff80469934ad2a6a1e831dd631c73
     };
     AddPostPage.prototype.showList = function () {
         this.hide = false;
@@ -224,7 +241,8 @@ var AddPostPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-add-post',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\add-post\add-post.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>ADD POST</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <ion-item id="card-x">\n\n          <ion-label floating>Title</ion-label>\n\n          <ion-input [(ngModel)]="post.title" type="text"></ion-input>\n\n        </ion-item>\n\n      \n\n        <ion-item id="card-x" >\n\n          <ion-label floating>Discription</ion-label>\n\n          <ion-input [(ngModel)]="post.des" type="text"></ion-input>\n\n        </ion-item>\n\n      \n\n        <div>\n\n          <ion-item id="card-x">\n\n            <ion-label floating>Images</ion-label>\n\n            <ion-input type="text"></ion-input>\n\n          </ion-item>\n\n          <button ion-button style="width: 100%;         border: 1px solid white;\n\n          border-radius: 0 40px !important;  margin-bottom: 3%;" (click)="upload()">\n\n            Choose Images\n\n          </button>\n\n          <img src="{{file}}" *ngFor="let file of files" style="width: 33%;">\n\n        </div>\n\n\n\n          <ion-item id="card-x" >\n\n              <ion-label floating>Traveler Reward</ion-label>\n\n              <ion-input [(ngModel)]="post.treward" type="number"></ion-input>\n\n          </ion-item>\n\n            \n\n          <ion-label >Source Country</ion-label>\n\n          <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)=\'showList()\' (ionInput)="filterItems($event)"></ion-searchbar>\n\n          <ion-list *ngIf=\'hide == false\'>\n\n            <ion-item *ngFor="let item of items" (click)=\'selectCountry(item)\'>\n\n              {{ item }}\n\n            </ion-item>\n\n          </ion-list>\n\n          \n\n          <div *ngIf="country != \'\'">\n\n            <ion-label>Source City</ion-label>\n\n            <ion-searchbar placeholder="Search City" [(ngModel)]="city" (click)=\'showList3()\' (ionInput)="filterItems2($event)"></ion-searchbar>\n\n            <ion-list *ngIf=\'hide3 == false\'>\n\n              <ion-item *ngFor="let item of items" (click)=\'selectCity(item)\'>\n\n                {{ item }}\n\n              </ion-item>\n\n            </ion-list>\n\n          </div>\n\n\n\n          <ion-label>Destination Country</ion-label>\n\n          <ion-searchbar placeholder="Search Country" [(ngModel)]="country2" (click)=\'showList2()\' (ionInput)="filterItems($event)"></ion-searchbar>\n\n          <ion-list *ngIf=\'hide2 == false\'>\n\n            <ion-item *ngFor="let item of items" (click)=\'selectCountry2(item)\'>\n\n              {{ item }}\n\n            </ion-item>\n\n          </ion-list>\n\n          \n\n          <div *ngIf="country2 != \'\'">\n\n              <ion-label>Destination City</ion-label>\n\n              <ion-searchbar placeholder="Search City" [(ngModel)]="city2" (click)=\'showList4()\' (ionInput)="filterItems3($event)"></ion-searchbar>\n\n              <ion-list *ngIf=\'hide4 == false\'>\n\n                <ion-item *ngFor="let item of items" (click)=\'selectCity2(item)\'>\n\n                  {{ item }}\n\n                </ion-item>\n\n              </ion-list>\n\n            </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n           <ion-item id="card-y">\n\n              <ion-label floating>Note</ion-label>\n\n              <ion-input [(ngModel)]="post.note"type="text"></ion-input>\n\n         </ion-item>\n\n\n\n         <ion-item id="card-x">\n\n            <ion-label floating>Item_url</ion-label>\n\n            <ion-input [(ngModel)]="post.url"type="text"></ion-input>\n\n       </ion-item>\n\n\n\n <!--      <ion-item >\n\n       <ion-label floating> </ion-label>\n\n          <ion-input type="date"></ion-input>\n\n     </ion-item>-->\n\n\n\n     <ion-item id="card-x">\n\n        <ion-label floating >Quantity</ion-label>\n\n        <ion-input type="number" [(ngModel)]="post.qty"></ion-input>\n\n   </ion-item>\n\n\n\n    </ion-list>\n\n  <button ion-button style="width: 100%;         border: 1px solid white;\n\n  border-radius: 0 40px !important;" (click)=\'add()\'> Add </button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\add-post\add-post.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],

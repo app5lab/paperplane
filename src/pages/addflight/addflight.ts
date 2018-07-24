@@ -71,7 +71,10 @@ hide4:any = true
     console.log('ionViewDidLoad AddflightPage');
   }
   add(){ 
-    // this.api.addFlight(this.country,this.city,this.country2,this.city2)
+    var d = this.today.substr(0,10);
+    console.log(d,this.api.user.id);
+    
+    this.api.addFlight(this.country,this.city,this.country2,this.city2,d,this.api.user.id)
   }
   filterItems(ev: any) {
     let val = ev.target.value;

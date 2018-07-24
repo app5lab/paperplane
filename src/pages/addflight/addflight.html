@@ -8,7 +8,6 @@
 
 
 <ion-content padding>
-  <div></div>
   <ion-list>
     <ion-card>
       <ion-card-content>
@@ -32,6 +31,7 @@
 
       </ion-card-content>
     </ion-card>
+
     <ion-card>
       <ion-card-content>
 
@@ -56,17 +56,12 @@
       </ion-card-content>
     </ion-card>
 
-
     <ion-card>
-      <!-- <div>
-          <ion-datetime placeholder=" Select Date"  displayFormat="MM/DD/YYYY" [(ngModel)]="date" ></ion-datetime>
-      </div> -->
-      <ion-card-content>
-        <ion-datetime displayFormat="DD-MM-YYYY" min="2018-07-01" max="2020-10-31" [(ngModel)]="today"></ion-datetime>
-      </ion-card-content>
-
+      <ion-item>
+          <ion-datetime displayFormat="DD-MM-YYYY" min="2018-07-01" max="2020-10-31" [(ngModel)]="today"></ion-datetime>
+      </ion-item>
     </ion-card>
-
+    {{today}}
     <button style="border-radius: 0 40px !important;" ion-button full item-center (click)='add()'>Add</button>
 
   </ion-list>

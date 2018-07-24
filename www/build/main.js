@@ -126,6 +126,17 @@ var ApiProvider = /** @class */ (function () {
     function ApiProvider(http) {
         this.http = http;
         this.allFlights = [];
+        this.user = {
+            email: '',
+            id: '',
+            fname: '',
+            lname: '',
+            verified: '',
+            created: '',
+            phone: '',
+            address: '',
+            img: ''
+        };
     }
     ApiProvider.prototype.firebase = function () {
         // return this.db.list('uploads')
@@ -162,7 +173,7 @@ var ApiProvider = /** @class */ (function () {
                 .then(function (res) {
                 if (res.data != 'Invalid User' && res.data != 'Security Key is invalid') {
                     var data = JSON.parse(res.data);
-                    var temp = {
+                    _this.user = {
                         email: data.email,
                         id: data.id,
                         fname: data.firstname,
@@ -173,7 +184,7 @@ var ApiProvider = /** @class */ (function () {
                         address: data.address,
                         img: data.dp
                     };
-                    var t = JSON.stringify(temp);
+                    var t = JSON.stringify(_this.user);
                     localStorage.setItem('zip_user', t);
                     localStorage.setItem('zip_login', 'true');
                     resolve(true);
@@ -191,7 +202,7 @@ var ApiProvider = /** @class */ (function () {
             source_city: src_ct,
             destination_country: des_cr,
             destination_city: des_ct,
-            time: time,
+            date: time,
             userid: id,
             key: 'addflight',
             sec: '((|m5DlhrplfKx1'
@@ -200,7 +211,7 @@ var ApiProvider = /** @class */ (function () {
             _this.http.setDataSerializer('json');
             _this.http.post('https://zipship.io/api/flight-data.php', dataa, {})
                 .then(function (res) {
-                console.log(res);
+                console.log(JSON.stringify(res.data));
                 //   resolve( true );
                 // else
                 //   resolve( false )
@@ -281,27 +292,27 @@ var ApiProvider = /** @class */ (function () {
             _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
                 console.log(JSON.stringify(res.data));
-                // if ( res.data != 'User already Exist' && res.data == '1' )
-                //   resolve( true );
-                // else
-                //   resolve( false )
+                if (res.data == '1')
+                    resolve(true);
+                else
+                    resolve(false);
             });
         });
         return promise;
     };
-    ApiProvider.prototype.getPostbyLoc = function (from, to) {
+    ApiProvider.prototype.getPostbyLoc = function () {
         var _this = this;
         var data = {
-            from_loc: from,
-            to_loc: to,
-            key: 'getPostbyLoc',
+            // from_loc: from,
+            // to_loc: to,
+            key: 'getLatestPost',
             sec: '((|m5DlhrplfKx1'
         };
         var promise = new Promise(function (resolve) {
             _this.http.setDataSerializer('json');
             _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
-                console.log(res);
+                console.log(JSON.stringify(res.data));
                 if (res.data != 'Data not Found' && res.data != 'Security Key is invalid') {
                     resolve(JSON.parse(res.data));
                 }

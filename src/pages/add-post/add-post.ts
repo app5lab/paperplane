@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { IonicPage, NavController, LoadingController , NavParams, Img } from 'ionic-angular';
+=======
+import { IonicPage, NavController, NavParams, Img, LoadingController } from 'ionic-angular';
+>>>>>>> 03569675effff80469934ad2a6a1e831dd631c73
 import { ApiProvider } from '../../providers/api/api';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import * as cc from 'country-city'
@@ -28,16 +32,20 @@ export class AddPostPage {
 
   files:any [] = []
   post:any = {title:'',des:'',image1:'',image2:'',image3:'',treward:'',fromCry:'',toCry:'',fromC:'',toC:'',note:'',url:'', qty:'',userid:''}
-  constructor( 
+  constructor( public loading:LoadingController,
     public image:ImagePicker , 
     public api:ApiProvider ,
     public loading:LoadingController,
     public navCtrl: NavController, 
     public navParams: NavParams) {
+      var l = loading.create()
+      l.present()
       this.countries = cc.getCountries()
       this.items = this.countries
       var user = JSON.parse( localStorage.getItem( 'zip_user' ) )    
       this.post.userid = user.id
+      l.dismiss()
+      
   }
 
   ionViewDidLoad() {
@@ -77,6 +85,7 @@ export class AddPostPage {
  
 
   add(){ 
+<<<<<<< HEAD
     var l = this.loading.create({
       content: 'Please wait...'
     });
@@ -87,6 +96,14 @@ export class AddPostPage {
     
     l.dismiss();
   
+=======
+    var l = this.loading.create({content:'Please Wait...'})
+    l.present()
+    this.api.addPost(this.post.title,this.post.des, this.post.image1, this.post.image2, this.post.image3, this.post.treward, this.country, this.country2,this.city,this.city2,this.post.qty,this.post.userid, this.post.url)
+    .then(() => {
+      l.dismiss()
+    })
+>>>>>>> 03569675effff80469934ad2a6a1e831dd631c73
   }
 
   showList(){
