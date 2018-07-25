@@ -2,10 +2,10 @@
   <ion-toolbar>
     <ion-segment [(ngModel)]="settings" color="light">
       <ion-segment-button value="profile" checked>
-        Profile
+      <b>  PROFILE  </b>
       </ion-segment-button>
       <ion-segment-button value="info">
-        Info
+       <b> INFORMATION </b>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -15,7 +15,7 @@
 <ion-content padding>
   <div [ngSwitch]="settings">
     <ion-list *ngSwitchCase="'profile'">
-      <ion-card>
+      <ion-card  id="card-l" >
         <div style="width: 100%;display: flex;justify-content: center; ">
           <ion-avatar>
             <img src="assets/imgs/logo.jpg">
@@ -48,7 +48,7 @@
           
           <ion-item>
           
-              <ion-badge  style="height:30%;" item-end>  <ion-icon name="create"></ion-icon>Edit</ion-badge>
+              <ion-badge  style="height:50%;" item-end>  <ion-icon name="create"></ion-icon>Edit</ion-badge>
              
           </ion-item>
         </ion-list>

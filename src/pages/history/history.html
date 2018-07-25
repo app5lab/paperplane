@@ -6,22 +6,22 @@
 -->
 <ion-header>
     <ion-header>
-        <ion-toolbar>
+     <!--  dont touch it. slides will be finished <ion-toolbar>
           <ion-segment [(ngModel)]="settings" color="light">
             <ion-segment-button value="myposts" checked>
-              My Posts
+              MY POSTS
             </ion-segment-button>
             <ion-segment-button value="mybids">
-              My Bids
+              MY BIDS
             </ion-segment-button>
             <ion-segment-button value="bids" >
-                Bids Made
+                BIDS MADE
               </ion-segment-button>
               <!-- <ion-segment-button value="flight" >
                   Flights
-                </ion-segment-button> -->
+            //    </ion-segment-button> 
           </ion-segment>
-        </ion-toolbar>
+        </ion-toolbar>-->
       </ion-header>
 
 </ion-header>
@@ -29,10 +29,26 @@
 
 
 <ion-content>
+  <ion-segment  class="SwipedTabs-tabs"  >
+		<ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
+		[ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }' >
+			{{tab}}
+		</ion-segment-button>
+  </ion-segment>
+  
 
+  <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.%': (100/this.tabs.length)}"></div>
 
-  <div [ngSwitch]="settings">
-    <ion-list *ngSwitchCase="'myposts'" style="margin-top: 10%">
+	<ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
+							(ionSlideWillChange)="updateIndicatorPosition()"
+							(ionSlideDidChange)="updateIndicatorPosition()"
+							(pan)="updateIndicatorPosition()"
+							[pager]="false"
+				>
+	
+  
+    	<ion-slide>
+   
       <ion-grid style="min-height: 100%;">
           <ion-col col-12 col-md-6 col-lg-4 col-xl-4 *ngFor='let post of posts;' style="height: 100%;">
               <ion-card >
@@ -96,10 +112,13 @@
           </ion-col>
       </ion-grid>
 
-    </ion-list>
+   
 
-      <ion-list *ngSwitchCase="'mybids'" style="margin-top: 15%">
-        <ion-card style="border-radius:0 40px">
+  </ion-slide>
+
+
+  <ion-slide>
+              <ion-card style="border-radius:0 40px">
             <ion-grid>
             <ion-row>
               <ion-col>
@@ -128,15 +147,17 @@
             </ion-row>
 
             </ion-grid>
-            <button ion-button full style="border-radius:0 40px">Accept offer</button>
+           <!-- <button ion-button full style="border-radius:0 40px">Accept offer</button> -->
           </ion-card>
-        </ion-list>
+      
 
+      </ion-slide>
 
+      <ion-slide>
 
-        <ion-list *ngSwitchCase="'bids'" style="margin-top: 15%" >
+       
 
-            <ion-card>
+            <ion-card style="border-radius:0 40px"> 
                 <ion-grid>
                 <ion-row>
                   <ion-col>
@@ -169,7 +190,7 @@
               </ion-card>
 
 
-              <ion-card>
+              <ion-card style="border-radius:0 40px">
                   <ion-grid>
                   <ion-row>
                     <ion-col>
@@ -201,10 +222,17 @@
                   <button ion-button full>Accept offer</button>
                 </ion-card>
 
-          </ion-list>
+         
+
+        </ion-slide>
+
+<ion-slide>
 
 
-          <ion-list *ngSwitchCase="'flight'">
-            </ion-list>
-  </div>
+</ion-slide>
+
+   
+      </ion-slides> <!--         <ion-list *ngSwitchCase="'flight'">
+            </ion-list> -->
+
 </ion-content>

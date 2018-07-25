@@ -1,9 +1,10 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, AlertController, LoadingController, Slides} from 'ionic-angular';
 import { AnimationBuilder, AnimationService } from 'css-animator';
 import { ApiProvider } from '../../providers/api/api';
 import { Keyboard } from '@ionic-native/keyboard';
 import { StatusBar } from '@ionic-native/status-bar';
+
 
 /**
  * Generated class for the HistoryPage page.
@@ -21,6 +22,12 @@ export class HistoryPage {
   keyboardCheck(): any {
     throw new Error("Method not implemented.");
   }
+
+  @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides ;
+  SwipedTabsIndicator :any= null;
+  tabs:any=[];
+
+
   settings:any = 'myposts'
   settings1:any = 'flight'
   settings2:any = 'bids'
@@ -33,7 +40,9 @@ export class HistoryPage {
   private animator: AnimationBuilder;
 
   constructor(public api: ApiProvider, private event: Events, public Keyboard: Keyboard, public alert: AlertController, private ref:ChangeDetectorRef,private statusBar: StatusBar, animationService: AnimationService,public loading: LoadingController,public navCtrl: NavController, public navParams: NavParams) {
+    this.tabs=["My Posts","My Bids","Bids Made", "Something"];
     this.animator = animationService.builder();
+
 
 
 
@@ -122,5 +131,30 @@ flight_id:any= ''
     this.navCtrl.push('AddPostPage')
   }
 
+
+
+
+  ionViewDidEnter() {
+    this.SwipedTabsIndicator = document.getElementById("indicator");
+  }
+
+  selectTab(index) {    
+    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(100*index)+'%,0,0)';
+    this.SwipedTabsSlider.slideTo(index, 500);
+  }
+
+  updateIndicatorPosition() {
+      // this condition is to avoid passing to incorrect index
+  	if( this.SwipedTabsSlider.length()> this.SwipedTabsSlider.getActiveIndex())
+  	{
+  		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.SwipedTabsSlider.getActiveIndex() * 100)+'%,0,0)';
+  	}
+    
+    }
+
+  animateIndicator($event) {
+  	if(this.SwipedTabsIndicator)
+   	    this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress* (this.SwipedTabsSlider.length()-1))*100) + '%,0,0)';
+  }
 
 }

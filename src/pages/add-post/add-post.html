@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>add-post</ion-title>
+    <ion-title>ADD POST</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,33 +9,34 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item>
+        <ion-item id="card-x">
           <ion-label floating>Title</ion-label>
           <ion-input [(ngModel)]="post.title" type="text"></ion-input>
         </ion-item>
       
-        <ion-item>
+        <ion-item id="card-x" >
           <ion-label floating>Discription</ion-label>
           <ion-input [(ngModel)]="post.des" type="text"></ion-input>
         </ion-item>
       
         <div>
-          <ion-item>
+          <ion-item id="card-x">
             <ion-label floating>Images</ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
-          <button ion-button full round (click)="upload()">
+          <button ion-button style="width: 100%;         border: 1px solid white;
+          border-radius: 0 40px !important;  margin-bottom: 3%;" (click)="upload()">
             Choose Images
           </button>
           <img src="{{file}}" *ngFor="let file of files" style="width: 33%;">
         </div>
 
-          <ion-item>
+          <ion-item id="card-x" >
               <ion-label floating>Traveler Reward</ion-label>
               <ion-input [(ngModel)]="post.treward" type="number"></ion-input>
           </ion-item>
             
-          <ion-label>Source Country</ion-label>
+          <ion-label >Source Country</ion-label>
           <ion-searchbar placeholder="Search Country" [(ngModel)]="country" (click)='showList()' (ionInput)="filterItems($event)"></ion-searchbar>
           <ion-list *ngIf='hide == false'>
             <ion-item *ngFor="let item of items" (click)='selectCountry(item)'>
@@ -76,26 +77,27 @@
 
 
 
-           <ion-item>
+           <ion-item id="card-y">
               <ion-label floating>Note</ion-label>
               <ion-input [(ngModel)]="post.note"type="text"></ion-input>
          </ion-item>
 
-         <ion-item>
+         <ion-item id="card-x">
             <ion-label floating>Item_url</ion-label>
             <ion-input [(ngModel)]="post.url"type="text"></ion-input>
        </ion-item>
 
-       <ion-item>
-          <ion-label floating></ion-label>
+ <!--      <ion-item >
+       <ion-label floating> </ion-label>
           <ion-input type="date"></ion-input>
-     </ion-item>
+     </ion-item>-->
 
-     <ion-item>
-        <ion-label floating>Quantity</ion-label>
+     <ion-item id="card-x">
+        <ion-label floating >Quantity</ion-label>
         <ion-input type="number" [(ngModel)]="post.qty"></ion-input>
    </ion-item>
 
     </ion-list>
-  <button ion-button full round (click)='add()'> Add </button>
+  <button ion-button style="width: 100%;         border: 1px solid white;
+  border-radius: 0 40px !important;" (click)='add()'> Add </button>
 </ion-content>

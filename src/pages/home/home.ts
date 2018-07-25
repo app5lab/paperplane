@@ -55,7 +55,7 @@ export class HomePage {
     //     product: { name: 'Nike Air', price: '200', from: 'USA', to: 'UAE', reward: '10', img: 'assets/imgs/s1.jpg' }
     //   })
   }
-  select: any;
+  select: any; 
   animateElem (post,ele)
   { 
     //this.animator.stop( ele._elementRef.nativeElement );

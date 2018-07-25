@@ -4,6 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
 import * as firebase from 'firebase';
+
+
 var config = {
   apiKey: "AIzaSyAjwOubcsmoO19VAyY3D-7SxJLVavG4wQU",
   authDomain: "zipship-645ad.firebaseapp.com",

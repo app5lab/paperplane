@@ -347,10 +347,9 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]])
     ], ApiProvider);
     return ApiProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
@@ -633,7 +632,7 @@ var MyApp = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_5_firebase__["initializeApp"](config);
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -701,7 +700,7 @@ var WargaeComponent = /** @class */ (function () {
     ], WargaeComponent.prototype, "ionTxtArea", void 0);
     WargaeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'wargae',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/'<ion-item>\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n</ion-item>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/
+            selector: 'wargae',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\components\wargae\wargae.html"*/'<ion-item>\n\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n\n</ion-item>'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\components\wargae\wargae.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], WargaeComponent);

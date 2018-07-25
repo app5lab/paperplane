@@ -4,18 +4,21 @@ ion-segment{
   width: 100%;
 }
   .toolbar-background {
-    background-color: #ffffff;
+  //  background-color: #ffffff;
+  background-color:  #3a1053;
   }
 
   .segment-ios-light .segment-button.segment-activated {
-      color: #ffffff;
-      background-color: #653b73;
+      color: #653b73;
+      background-color: #ffffff;// #653b73;
       font-weight: bold;
   }
 
   .segment-ios-light .segment-button {
-    border-color: gray;
-    color: black;
+    border-color: #fff;
+    //border-color: gray;
+      color:white;
+//    color: black;
 }
 
 
@@ -132,4 +135,32 @@ animation-timing-function: linear;
   font-weight: bold;
   color: #fff;
 }
+.SwipedTabs-indicatorSegment
+    {
+        -webkit-transition: 0.3s all;
+        -moz-transition:  0.3s all;
+        -o-transition:  0.3s all;
+        transition:  0.3s all;
+        transform-origin: top 0 left 0;
+        height: 2px;
+	    position: relative;
+	    top: -2px;
+	    background-color: white !important;
+    }
+    .SwipedTabs-tabs ion-segment-button
+    {
+    	border:none !important;
+      color:gray!important;
+     
+    	background-color:#3a1053 !important;
+    }
+     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
+    {
+        color: white !important;
+    }
+    .SwipedTabs-tabs
+    {
+    	border-bottom: solid 1px #e6e6e6  !important;
+    }
+
 }

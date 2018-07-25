@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Hassan/Desktop/Ionic/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
+            "outputFile": "C:\\Users\\Tajallah Shafaqat\\Documents\\zipship\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "/Users/Hassan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/d241ff7b821b42f6f88515d0df0acf16/res/values-large-v4/values-large-v4.xml",
+                    "source": "C:\\Users\\Tajallah Shafaqat\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\1fe1c6ad47f7edb2134fc88fcec7f2b0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
