@@ -33,13 +33,17 @@ export class HomePage {
 
 
     // this.event.publish('open');
-    // this.api.allFlights.forEach(item=>{
+    // this.api.allFlights.forEach(item=>{ 
     //   this.api.getPostbyLoc(item.source_country,item.destination_country).then(data=>{
     //     this.posts.push(data)
     //   })
-    // }) 
+    // })   
     this.api.getPostbyLoc().then(data=>{
-      // this.posts.push(data) 
+      data.forEach(element => {
+        this.posts.push(element)
+      });
+      console.log(this.posts.length);
+      
     })
     // this.posts.push(
     //   {

@@ -1,6 +1,6 @@
 webpackJsonp([11],{
 
-/***/ 584:
+/***/ 583:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConversationPageModule", function() { return ConversationPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__conversation__ = __webpack_require__(619);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__conversation__ = __webpack_require__(604);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var ConversationPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 619:
+/***/ 604:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -127,7 +127,7 @@ var ConversationPage = /** @class */ (function () {
     ], ConversationPage.prototype, "txtChat", void 0);
     ConversationPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-conversation',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\conversation\conversation.html"*/'<!--suppress ALL -->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Ionic Blank\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header> \n\n\n\n<ion-content #content>\n\n  <ion-list no-lines>\n\n    <ion-item *ngFor="let msg of messages">\n\n      <!-- <chat-bubble [chatMessage]="msg"></chat-bubble> -->\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n<ion-footer no-border class="chatPageFooter" >\n\n  <ion-toolbar>\n\n    <ion-item no-lines>\n\n      <ion-label style="margin:0px;"></ion-label>\n\n      <div item-content style="width:100%;">\n\n        <!-- <wargae #txtChat lineHeight="20" maxExpand="5"></wargae> -->\n\n        <ion-item>\n\n          <ion-textarea #ionTxtArea  #txtChat type="text"  placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n\n        </ion-item>\n\n      </div>\n\n    </ion-item>\n\n    <ion-buttons right style="margin-left:10px">\n\n      <button ion-button icon-only style="margin-top: -15px;" (click)="sendMessage()">\n\n        <ion-icon name="md-send"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\conversation\conversation.html"*/,
+            selector: 'page-conversation',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/conversation/conversation.html"*/'<!--suppress ALL -->\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header> \n\n<ion-content #content>\n  <ion-list no-lines>\n    <ion-item *ngFor="let msg of messages">\n      <!-- <chat-bubble [chatMessage]="msg"></chat-bubble> -->\n    </ion-item>\n  </ion-list>\n</ion-content>\n\n<ion-footer no-border class="chatPageFooter" >\n  <ion-toolbar>\n    <ion-item no-lines>\n      <ion-label style="margin:0px;"></ion-label>\n      <div item-content style="width:100%;">\n        <!-- <wargae #txtChat lineHeight="20" maxExpand="5"></wargae> -->\n        <ion-item>\n          <ion-textarea #ionTxtArea  #txtChat type="text"  placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n        </ion-item>\n      </div>\n    </ion-item>\n    <ion-buttons right style="margin-left:10px">\n      <button ion-button icon-only style="margin-top: -15px;" (click)="sendMessage()">\n        <ion-icon name="md-send"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/conversation/conversation.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_1__providers_api_api__["a" /* ApiProvider */]])
     ], ConversationPage);
