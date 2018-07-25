@@ -234,11 +234,11 @@ user:any = {
         .then(
           res =>
           {
-            console.log( JSON.stringify(res.data));
+            // console.log(JSON.parse(res.data));
 
             if(res.data != 'Data not Found' && res.data != 'Security Key is invalid')
               {
-                resolve(JSON.parse( res.data ))
+                resolve(JSON.parse(res.data))
               }
             else
               resolve( 'false' )

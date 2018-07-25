@@ -19,7 +19,7 @@ var config = {
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = "TabsPage";
+  rootPage:any = "LoginPage";
 
   constructor( public Keyboard: Keyboard,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

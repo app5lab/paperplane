@@ -34,19 +34,19 @@ var map = {
 		2
 	],
 	"../pages/all-chats/all-chats.module": [
-		581,
+		582,
 		13
 	],
 	"../pages/card/card.module": [
-		582,
+		581,
 		12
 	],
 	"../pages/chat/chat.module": [
-		583,
+		584,
 		0
 	],
 	"../pages/conversation/conversation.module": [
-		584,
+		583,
 		11
 	],
 	"../pages/flights/flights.module": [
@@ -58,19 +58,19 @@ var map = {
 		9
 	],
 	"../pages/home/home.module": [
-		587,
+		588,
 		8
 	],
 	"../pages/login/login.module": [
-		588,
+		587,
 		7
 	],
 	"../pages/orders/orders.module": [
-		589,
+		590,
 		6
 	],
 	"../pages/product-details/product-details.module": [
-		590,
+		589,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
@@ -312,7 +312,7 @@ var ApiProvider = /** @class */ (function () {
             _this.http.setDataSerializer('json');
             _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
-                console.log(JSON.stringify(res.data));
+                // console.log(JSON.parse(res.data));
                 if (res.data != 'Data not Found' && res.data != 'Security Key is invalid') {
                     resolve(JSON.parse(res.data));
                 }
@@ -347,9 +347,10 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]) === "function" && _a || Object])
     ], ApiProvider);
     return ApiProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
@@ -545,16 +546,16 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage', segment: 'account', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-post/add-post.module#AddPostPageModule', name: 'AddPostPage', segment: 'add-post', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/addflight/addflight.module#AddflightPageModule', name: 'AddflightPage', segment: 'addflight', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/all-chats/all-chats.module#AllChatsPageModule', name: 'AllChatsPage', segment: 'all-chats', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/card/card.module#CardPageModule', name: 'CardPage', segment: 'card', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/chat/chat.module#ChatModule', name: 'Chat', segment: 'chat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/all-chats/all-chats.module#AllChatsPageModule', name: 'AllChatsPage', segment: 'all-chats', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chat/chat.module#ChatModule', name: 'Chat', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
@@ -623,7 +624,7 @@ var config = {
 var MyApp = /** @class */ (function () {
     function MyApp(Keyboard, platform, statusBar, splashScreen) {
         this.Keyboard = Keyboard;
-        this.rootPage = "TabsPage";
+        this.rootPage = "LoginPage";
         platform.ready().then(function () {
             statusBar.backgroundColorByHexString('#fff');
             statusBar.styleDefault();
@@ -632,11 +633,12 @@ var MyApp = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_5_firebase__["initializeApp"](config);
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -700,7 +702,7 @@ var WargaeComponent = /** @class */ (function () {
     ], WargaeComponent.prototype, "ionTxtArea", void 0);
     WargaeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'wargae',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\components\wargae\wargae.html"*/'<ion-item>\n\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n\n</ion-item>'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\components\wargae\wargae.html"*/
+            selector: 'wargae',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/'<ion-item>\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n</ion-item>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], WargaeComponent);

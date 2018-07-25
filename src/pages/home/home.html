@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar  >
-    <ion-title>ZIPSHIP</ion-title>
+  <ion-navbar>
+    <ion-title>ZipShip</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,23 +15,16 @@
   <ion-card id='maincard' style="margin: 0;width: 100% !important;">
     <!-- <img style="height: 100%;" src="assets/imgs/map1.jpg" /> -->
     <div class="card-a" padding>
-<<<<<<< HEAD
-      <h3 style="color:white;margin-bottom: 15px;font-size: 25px;">
-        Get items from anywhere in the world delivered to you by trusted travellers.
-      </h3>  
-      <ion-item style="border-radius: 20px;   border: 1px solid #4d077c;  border-radius: 0px 0px 40px 40px !important;">
-=======
       <h1 style="color:white;margin-bottom: 15px;font-size: 30px;">
         Get items from anywhere in the world delivered to you by trusted travellers. 
       </h1>  
       <ion-item style="border-radius: 20px;   border: 1px solid #4d077c;  border-radius: 0 0 40px 40px !important;">
->>>>>>> 03569675effff80469934ad2a6a1e831dd631c73
         <ion-input   placeholder="Paste a link to create order"></ion-input>
       </ion-item>
     </div>
   </ion-card>
   <div *ngIf="posts.length == 0">
-    <ion-card id="cardd" >
+    <ion-card>
         <ion-card-content text-center>
             <ion-card-title>
               No Posts To Show!
@@ -47,28 +40,28 @@
           <ion-card [ngClass]="{'offer': post.active == 'true'}" class="meracard">
             <ion-item>
               <ion-avatar item-start>
-                <img src="{{post.user.img}}">
+                <img src="{{post.dp}}">
               </ion-avatar>
-              <h2>{{post.user.name}}</h2>
-              <p>Posted 17 min ago</p>
+              <h2>{{post.firstname}} {{post.lastname}}</h2>
+              <p>Posted {{post.created_at}}</p>
             </ion-item>
         
             <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">
-              <img class="im" src="assets/imgs/s1.jpg">
+              <img class="im" src="{{post.image_1}}">
               <ion-card-title style="width: 60%;">
                 <h3>
-                  <b> {{post.product.name}} </b>
+                  <b> {{post.title}} </b>
                 </h3>
                 <ion-label style="margin-top: 0;margin-bottom: 0;"> Price
-                  <b>${{post.product.price}}</b>
+                  <b>${{post.item_price}}</b>
                 </ion-label>
                 <ion-label style="margin-top: 5px;margin-bottom: 0;font-size: 12px;">
                   From
-                  <b>{{post.product.from}}</b>
+                  <b>{{post.from_country}},{{post.from_city}}</b>
                 </ion-label>
                 <ion-label style="margin-top: 3px;margin-bottom: 0;font-size: 12px;">
                   To
-                  <b>{{post.product.to}}</b>
+                  <b>{{post.to_country}},{{post.to_city}}</b>
                 </ion-label>
               </ion-card-title>
             </ion-card-content>
@@ -80,7 +73,7 @@
                     <u> Traveler's Reward </u>
                   </ion-label>
                   <h1>from
-                    <b>${{post.product.reward}}</b>
+                    <b>${{post.traveler_reward}}</b>
                   </h1>
                   <button #ok class="gh" (click)="animateElem(post,ok);" ion-button icon-left block outline color="primary">
                     Make an Offer
