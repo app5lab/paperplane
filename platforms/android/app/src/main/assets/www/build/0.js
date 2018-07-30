@@ -8,9 +8,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatModule", function() { return ChatModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(605);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chat_service_chat_service__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_relative_time__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_relative_time__ = __webpack_require__(606);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,10 +49,10 @@ var ChatModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 594:
 /***/ (function(module, exports, __webpack_require__) {
 
-var isDate = __webpack_require__(609)
+var isDate = __webpack_require__(610)
 
 var MILLISECONDS_IN_HOUR = 3600000
 var MILLISECONDS_IN_MINUTE = 60000
@@ -376,7 +376,7 @@ module.exports = parse
 
 /***/ }),
 
-/***/ 604:
+/***/ 605:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -636,13 +636,13 @@ var Chat = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 605:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RelativeTime; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__ = __webpack_require__(607);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -677,10 +677,10 @@ var RelativeTime = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 606:
+/***/ 607:
 /***/ (function(module, exports, __webpack_require__) {
 
-var distanceInWords = __webpack_require__(607)
+var distanceInWords = __webpack_require__(608)
 
 /**
  * @category Common Helpers
@@ -769,14 +769,14 @@ module.exports = distanceInWordsToNow
 
 /***/ }),
 
-/***/ 607:
+/***/ 608:
 /***/ (function(module, exports, __webpack_require__) {
 
-var compareDesc = __webpack_require__(608)
-var parse = __webpack_require__(593)
-var differenceInSeconds = __webpack_require__(610)
-var differenceInMonths = __webpack_require__(612)
-var enLocale = __webpack_require__(615)
+var compareDesc = __webpack_require__(609)
+var parse = __webpack_require__(594)
+var differenceInSeconds = __webpack_require__(611)
+var differenceInMonths = __webpack_require__(613)
+var enLocale = __webpack_require__(616)
 
 var MINUTES_IN_DAY = 1440
 var MINUTES_IN_ALMOST_TWO_DAYS = 2520
@@ -979,10 +979,10 @@ module.exports = distanceInWords
 
 /***/ }),
 
-/***/ 608:
+/***/ 609:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Common Helpers
@@ -1037,7 +1037,7 @@ module.exports = compareDesc
 
 /***/ }),
 
-/***/ 609:
+/***/ 610:
 /***/ (function(module, exports) {
 
 /**
@@ -1064,10 +1064,10 @@ module.exports = isDate
 
 /***/ }),
 
-/***/ 610:
+/***/ 611:
 /***/ (function(module, exports, __webpack_require__) {
 
-var differenceInMilliseconds = __webpack_require__(611)
+var differenceInMilliseconds = __webpack_require__(612)
 
 /**
  * @category Second Helpers
@@ -1099,10 +1099,10 @@ module.exports = differenceInSeconds
 
 /***/ }),
 
-/***/ 611:
+/***/ 612:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Millisecond Helpers
@@ -1135,12 +1135,12 @@ module.exports = differenceInMilliseconds
 
 /***/ }),
 
-/***/ 612:
+/***/ 613:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
-var differenceInCalendarMonths = __webpack_require__(613)
-var compareAsc = __webpack_require__(614)
+var parse = __webpack_require__(594)
+var differenceInCalendarMonths = __webpack_require__(614)
+var compareAsc = __webpack_require__(615)
 
 /**
  * @category Month Helpers
@@ -1180,10 +1180,10 @@ module.exports = differenceInMonths
 
 /***/ }),
 
-/***/ 613:
+/***/ 614:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Month Helpers
@@ -1219,10 +1219,10 @@ module.exports = differenceInCalendarMonths
 
 /***/ }),
 
-/***/ 614:
+/***/ 615:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Common Helpers
@@ -1277,11 +1277,11 @@ module.exports = compareAsc
 
 /***/ }),
 
-/***/ 615:
+/***/ 616:
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildDistanceInWordsLocale = __webpack_require__(616)
-var buildFormatLocale = __webpack_require__(617)
+var buildDistanceInWordsLocale = __webpack_require__(617)
+var buildFormatLocale = __webpack_require__(618)
 
 /**
  * @category Locales
@@ -1295,7 +1295,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 616:
+/***/ 617:
 /***/ (function(module, exports) {
 
 function buildDistanceInWordsLocale () {
@@ -1401,10 +1401,10 @@ module.exports = buildDistanceInWordsLocale
 
 /***/ }),
 
-/***/ 617:
+/***/ 618:
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildFormattingTokensRegExp = __webpack_require__(618)
+var buildFormattingTokensRegExp = __webpack_require__(619)
 
 function buildFormatLocale () {
   // Note: in English, the names of days of the week and months are capitalized.
@@ -1496,7 +1496,7 @@ module.exports = buildFormatLocale
 
 /***/ }),
 
-/***/ 618:
+/***/ 619:
 /***/ (function(module, exports) {
 
 var commonFormatterKeys = [

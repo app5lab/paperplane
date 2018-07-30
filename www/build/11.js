@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 583:
+/***/ 582:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConversationPageModule", function() { return ConversationPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlightInfoPageModule", function() { return FlightInfoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__conversation__ = __webpack_require__(604);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__flight_info__ = __webpack_require__(604);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,26 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ConversationPageModule = /** @class */ (function () {
-    function ConversationPageModule() {
+var FlightInfoPageModule = /** @class */ (function () {
+    function FlightInfoPageModule() {
     }
-    ConversationPageModule = __decorate([
+    FlightInfoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__conversation__["a" /* ConversationPage */],
+                __WEBPACK_IMPORTED_MODULE_2__flight_info__["a" /* FlightInfoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__conversation__["a" /* ConversationPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__flight_info__["a" /* FlightInfoPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__conversation__["a" /* ConversationPage */]
-            ]
         })
-    ], ConversationPageModule);
-    return ConversationPageModule;
+    ], FlightInfoPageModule);
+    return FlightInfoPageModule;
 }());
 
-//# sourceMappingURL=conversation.module.js.map
+//# sourceMappingURL=flight-info.module.js.map
 
 /***/ }),
 
@@ -45,9 +42,9 @@ var ConversationPageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConversationPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlightInfoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_api_api__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,82 +56,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var ConversationPage = /** @class */ (function () {
-    function ConversationPage(_zone, api) {
-        this._zone = _zone;
-        this.api = api;
-        // @ViewChild( 'content' ) content: any;
-        this.messages = [];
-        this.chatBox = "";
-        this.btnEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.messages = [];
-        this.chatBox = "";
-        this.init();
-        var user = JSON.parse(localStorage.getItem('zip_user'));
-        this.api.firebase().ref('chat/users/' + user.id + '/' + '10').push({ msg: 'test' });
-        // this.api.firebase().ref('chat/users/' + user.id +'/' + '10').push({msg:'test'})
+/**
+ * Generated class for the FlightInfoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FlightInfoPage = /** @class */ (function () {
+    function FlightInfoPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.SwipedTabsIndicator = null;
+        this.tabs = [];
+        this.tabs = ["Something", "Something2", "Something3", "Something4"];
     }
-    // ionViewWillEnter ()
-    // {
-    //   this.databaseService.getJson( "messages" )
-    //     .then( messages =>
-    //     {
-    //       if ( messages )
-    //       {
-    //         this.messages = this.messages.concat( _.sortBy( messages, ['epoch'] ) );
-    //       }
-    //       this.scrollToBottom();
-    //     } );
-    //   this.socketService.connect();
-    // }
-    ConversationPage.prototype.ionViewWillLeave = function () {
-        // this.socketService.disconnect();
+    FlightInfoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FlightInfoPage');
     };
-    ConversationPage.prototype.init = function () {
-        // this.socketService.messages.subscribe( ( chatMessage: ChatMessage ) =>
-        // {
-        //   this._zone.run( () =>
-        //   {
-        //     this.messages.push( chatMessage );
-        //   } );
-        //   this.scrollToBottom();
-        // } );
+    FlightInfoPage.prototype.ionViewDidEnter = function () {
+        this.SwipedTabsIndicator = document.getElementById("indicator");
     };
-    ConversationPage.prototype.sendMessage = function () {
-        this.btnEmitter.emit("sent clicked");
-        this.txtChat.setFocus();
-        var message = this.txtChat.content;
-        this.send(message);
-        this.txtChat.clearInput();
+    FlightInfoPage.prototype.selectTab = function (index) {
+        this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+        this.SwipedTabsSlider.slideTo(index, 500);
     };
-    ConversationPage.prototype.send = function (message) {
-        //todo read email from database
-        var from = "annaggarwal@paypal.com";
-        // this.socketService.newRequest( UtilService.formatMessageRequest( message, from ) );
-        this.chatBox = '';
-        this.scrollToBottom();
+    FlightInfoPage.prototype.updateIndicatorPosition = function () {
+        // this condition is to avoid passing to incorrect index
+        if (this.SwipedTabsSlider.length() > this.SwipedTabsSlider.getActiveIndex()) {
+            this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
+        }
     };
-    ConversationPage.prototype.scrollToBottom = function () {
-        this._zone.run(function () {
-            setTimeout(function () {
-                // this.content.scrollToBottom( 300 );
-            });
-        });
+    FlightInfoPage.prototype.animateIndicator = function ($event) {
+        if (this.SwipedTabsIndicator)
+            this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('txtChat'),
-        __metadata("design:type", Object)
-    ], ConversationPage.prototype, "txtChat", void 0);
-    ConversationPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('SwipedTabsSlider'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */])
+    ], FlightInfoPage.prototype, "SwipedTabsSlider", void 0);
+    FlightInfoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-conversation',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/conversation/conversation.html"*/'<!--suppress ALL -->\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header> \n\n<ion-content #content>\n  <ion-list no-lines>\n    <ion-item *ngFor="let msg of messages">\n      <!-- <chat-bubble [chatMessage]="msg"></chat-bubble> -->\n    </ion-item>\n  </ion-list>\n</ion-content>\n\n<ion-footer no-border class="chatPageFooter" >\n  <ion-toolbar>\n    <ion-item no-lines>\n      <ion-label style="margin:0px;"></ion-label>\n      <div item-content style="width:100%;">\n        <!-- <wargae #txtChat lineHeight="20" maxExpand="5"></wargae> -->\n        <ion-item>\n          <ion-textarea #ionTxtArea  #txtChat type="text"  placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n        </ion-item>\n      </div>\n    </ion-item>\n    <ion-buttons right style="margin-left:10px">\n      <button ion-button icon-only style="margin-top: -15px;" (click)="sendMessage()">\n        <ion-icon name="md-send"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/conversation/conversation.html"*/,
+            selector: 'page-flight-info',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\flight-info\flight-info.html"*/'<!--\n\n  Generated template for the FlightInfoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content>\n\n  <ion-segment  class="SwipedTabs-tabs"  >\n\n		<ion-segment-button *ngFor=\'let tab of tabs ; let i = index \' value="IngoreMe" (click)="selectTab(i)"\n\n		[ngClass]=\'{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }\' >\n\n			{{tab}}\n\n		</ion-segment-button>\n\n  </ion-segment>\n\n  \n\n\n\n  <div id=\'indicator\' class="SwipedTabs-indicatorSegment" [ngStyle]="{\'width.%\': (100/this.tabs.length)}"></div>\n\n\n\n	<ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"\n\n							(ionSlideWillChange)="updateIndicatorPosition()"\n\n							(ionSlideDidChange)="updateIndicatorPosition()"\n\n							(pan)="updateIndicatorPosition()"\n\n							[pager]="false"\n\n				>\n\n	\n\n  \n\n    	<ion-slide>\n\n        \n\n      \n\n     <!---1-->  \n\n\n\n        </ion-slide>\n\n\n\n\n\n      <ion-slide>\n\n              <!---2-->    \n\n\n\n        </ion-slide>\n\n\n\n      <ion-slide>\n\n\n\n       <!---3-->     \n\n\n\n        </ion-slide>\n\n\n\n      <ion-slide>\n\n\n\n          <!---4-->  \n\n\n\n        </ion-slide>\n\n   \n\n      </ion-slides> \n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\flight-info\flight-info.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_1__providers_api_api__["a" /* ApiProvider */]])
-    ], ConversationPage);
-    return ConversationPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], FlightInfoPage);
+    return FlightInfoPage;
 }());
 
-//# sourceMappingURL=conversation.js.map
+//# sourceMappingURL=flight-info.js.map
 
 /***/ })
 

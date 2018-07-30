@@ -36,32 +36,78 @@
     <div *ngFor='let flight of flightss'>
       <ion-card text-center class="crd">
         <ion-grid>
-          <ion-row style="height: 70px;">
-            <ion-col col-4 align-self-center>
-              <h1>{{flight.source_country}}</h1>
-            </ion-col>
+          <ion-row style="padding-top: 10px; padding-left: 10px; ">
+              <ion-col col-8 align-self-center>
+                  <h3 style="text-align: left; padding-top: 10px; " > <b>
+                    <span  >{{flight.date}}</span> </b>
+                  </h3>
+                </ion-col>
 
-            <ion-col col-4 align-self-center>
-              <h1>{{flight.source_city}}</h1>
-            </ion-col>
+                <ion-col col-2 align-self-center>
+                       <ion-icon class="larger2" name="create"></ion-icon>
+                  </ion-col>
+                
+                  <ion-col col-2 align-self-center>
+                     <ion-icon  class="larger1" name="close-circle-outline"></ion-icon>
+                    </ion-col>
+                  
+                  
+                 
+                  
+          </ion-row>
 
-            <ion-col col-4 align-self-center>
-              <h2>
-                <span>{{flight.date}}</span>
-              </h2>
-            </ion-col>
 
-            <ion-col col-4 align-self-center>
-              <h1>{{flight.destination_country}}</h1>
+          <ion-card  class="crd2">
+            <ion-row style=" padding-left: 10px; padding-top: 10px;" > 
+              <ion-col col-4 align-self-center>
+                <h2 style="text-align: left; color: gray; " ><b>TO</b></h2>
+              </ion-col>
+            </ion-row>
+<ion-row style="height: 40px; padding-left: 10px; padding-bottom: 10px;"  >
+            <ion-col col-6 align-self-center>
+              <h1 style="text-align: left" >{{flight.destination_country}}</h1>
             </ion-col>
-            <ion-col col-4 align-self-center>
-              <h1>{{flight.destination_city}}</h1>
+            <ion-col col-6 align-self-center>
+              <h1  style="text-align: left" >{{flight.destination_city}}</h1>
             </ion-col>
           </ion-row>
-          <ion-row>
-            <button ion-button outline style="width: 48%;">Remove</button>
-            <button ion-button style="width: 48%;">Edit</button>
-          </ion-row>
+        </ion-card>
+
+
+            <ion-row >
+                <ion-col col-12 align-self-center>
+                             
+                    <ion-icon class="larger" name="paper-plane"></ion-icon>
+                 
+            
+                </ion-col>
+            </ion-row>
+
+
+            
+
+          <ion-card class="crd2">
+            <ion-row style=" padding-left: 10px; padding-top:10px; " >
+                <ion-col col-4 align-self-center>
+                    <h2 style="text-align: left; color: gray;" ><b>FROM</b></h2>
+                  </ion-col>
+            </ion-row>
+  
+            <ion-row style="height: 40px ; padding-left: 10px; padding-bottom: 10px; ">
+              <ion-col col-6 align-self-center>
+                <h1 style="text-align: left" >{{flight.source_country}}</h1>
+              </ion-col>
+  
+              <ion-col col-6 align-self-center>
+                <h1 style="text-align: left" >{{flight.source_city}}</h1>
+              </ion-col>
+  
+        
+              </ion-row>
+              </ion-card>
+
+
+
         </ion-grid>
       </ion-card>
     </div>

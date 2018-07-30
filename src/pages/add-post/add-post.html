@@ -8,6 +8,7 @@
 
 
 <ion-content padding>
+  
     <ion-list>
         <ion-item id="card-x">
           <ion-label floating>Title</ion-label>
@@ -25,8 +26,8 @@
             <ion-input type="text"></ion-input>
           </ion-item>
           <button ion-button style="width: 100%;         border: 1px solid white;
-          border-radius: 0 40px !important;  margin-bottom: 3%;" (click)="upload()">
-            Choose Images
+          border-radius:10px !important;  margin-bottom: 3%;" (click)="upload()">
+            Click To Select Images
           </button>
           <img src="{{file}}" *ngFor="let file of files" style="width: 33%;">
         </div>
@@ -99,5 +100,5 @@
 
     </ion-list>
   <button ion-button style="width: 100%;         border: 1px solid white;
-  border-radius: 0 40px !important;" (click)='add()'> Add </button>
+  border-radius: 10px !important;" (click)='add()'> Add </button>
 </ion-content>

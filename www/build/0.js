@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 584:
+/***/ 583:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49,7 +49,7 @@ var ChatModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 594:
 /***/ (function(module, exports, __webpack_require__) {
 
 var isDate = __webpack_require__(610)
@@ -623,7 +623,7 @@ var Chat = /** @class */ (function () {
     ], Chat.prototype, "messageInput", void 0);
     Chat = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chat',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/chat/chat.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{toUser.name}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <div class="message-wrap">\n\n    <div *ngFor="let msg of msgList"\n         class="message"\n         [class.left]=" msg.userId === toUser.id "\n         [class.right]=" msg.userId === user.id ">\n      <img class="user-img" [src]="msg.userAvatar" alt="" src="">\n      <ion-spinner name="dots" *ngIf="msg.status === \'pending\'"></ion-spinner>\n      <div class="msg-detail">\n        <div class="msg-info">\n          <p>\n            {{msg.userName}}&nbsp;&nbsp;&nbsp;{{msg.time | relativeTime}}</p>\n        </div>\n        <div class="msg-content">\n          <span class="triangle"></span>\n          <p class="line-breaker ">{{msg.message}}</p>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n</ion-content>\n\n<ion-footer no-border [style.height]="showEmojiPicker ? \'255px\' : \'55px\'">\n  <div class="input-wrap">\n    <!-- <button ion-button clear icon-only item-right (click)="switchEmojiPicker()">\n      <ion-icon name="md-happy"></ion-icon>\n    </button> -->\n    <textarea #chat_input\n              placeholder="Text Input"\n              [(ngModel)]="editorMsg"\n              (keyup.enter)="sendMsg()"\n              (focusin)="onFocus()">\n    </textarea>\n    <button ion-button clear icon-only item-right (click)="sendMsg()">\n      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n    </button>\n  </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/chat/chat.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\chat\chat.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{toUser.name}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n  <div class="message-wrap">\n\n\n\n    <div *ngFor="let msg of msgList"\n\n         class="message"\n\n         [class.left]=" msg.userId === toUser.id "\n\n         [class.right]=" msg.userId === user.id ">\n\n      <img class="user-img" [src]="msg.userAvatar" alt="" src="">\n\n      <ion-spinner name="dots" *ngIf="msg.status === \'pending\'"></ion-spinner>\n\n      <div class="msg-detail">\n\n        <div class="msg-info">\n\n          <p>\n\n            {{msg.userName}}&nbsp;&nbsp;&nbsp;{{msg.time | relativeTime}}</p>\n\n        </div>\n\n        <div class="msg-content">\n\n          <span class="triangle"></span>\n\n          <p class="line-breaker ">{{msg.message}}</p>\n\n        </div>\n\n      </div>\n\n    </div>\n\n\n\n  </div>\n\n\n\n</ion-content>\n\n\n\n<ion-footer no-border [style.height]="showEmojiPicker ? \'255px\' : \'55px\'">\n\n  <div class="input-wrap">\n\n    <!-- <button ion-button clear icon-only item-right (click)="switchEmojiPicker()">\n\n      <ion-icon name="md-happy"></ion-icon>\n\n    </button> -->\n\n    <textarea #chat_input\n\n              placeholder="Text Input"\n\n              [(ngModel)]="editorMsg"\n\n              (keyup.enter)="sendMsg()"\n\n              (focusin)="onFocus()">\n\n    </textarea>\n\n    <button ion-button clear icon-only item-right (click)="sendMsg()">\n\n      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-footer>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\chat\chat.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
             __WEBPACK_IMPORTED_MODULE_2__providers_chat_service_chat_service__["a" /* ChatService */],
@@ -773,7 +773,7 @@ module.exports = distanceInWordsToNow
 /***/ (function(module, exports, __webpack_require__) {
 
 var compareDesc = __webpack_require__(609)
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 var differenceInSeconds = __webpack_require__(611)
 var differenceInMonths = __webpack_require__(613)
 var enLocale = __webpack_require__(616)
@@ -982,7 +982,7 @@ module.exports = distanceInWords
 /***/ 609:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Common Helpers
@@ -1102,7 +1102,7 @@ module.exports = differenceInSeconds
 /***/ 612:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Millisecond Helpers
@@ -1138,7 +1138,7 @@ module.exports = differenceInMilliseconds
 /***/ 613:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 var differenceInCalendarMonths = __webpack_require__(614)
 var compareAsc = __webpack_require__(615)
 
@@ -1183,7 +1183,7 @@ module.exports = differenceInMonths
 /***/ 614:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Month Helpers
@@ -1222,7 +1222,7 @@ module.exports = differenceInCalendarMonths
 /***/ 615:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(593)
+var parse = __webpack_require__(594)
 
 /**
  * @category Common Helpers

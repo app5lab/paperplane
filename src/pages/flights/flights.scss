@@ -4,17 +4,30 @@ page-flights {
         border: #671a94 1.5px solid;        
         border-radius: 0 40px !important;
     }
+    .larger {
+        font-size: 40px;  color: #671a94;
+    }
+
+    .larger1 {
+        font-size: 30px;
+        color: rgb(143, 14, 14);
+    }
+    .larger2 {
+        font-size: 30px;
+        color: #057002;
+    }
     .crd{
-        border: #671a94 1.5px solid;    
-        color:#671a94;
-        border-radius: 10px !important;
-        background-image: url('../../assets/imgs/Statue.jpg') !important;
+        border: #d8ccdd 1px solid;    
+       //color:#671a94;
+       border-radius: 5px !important;
+       // background-image: url('../../assets/imgs/Statue.jpg') !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
+        background-color: #f8f7f7;
         background-size: cover !important;
     }
     .crd1{
-        border: #671a94 1.5px solid;     
+        border: #671a94 1px solid;     
         color:#671a94;
         border-radius: 10px !important;
         background-image: url('../../assets/imgs/Eifil.jpg') !important;
@@ -24,10 +37,13 @@ page-flights {
         background-size: cover !important;
     }
     .crd2{
-        border: #671a94 1.5px solid;     
-        color:#671a94;
-        border-radius: 10px !important;
-        background-image: url('../../assets/imgs/UAE.jpg') !important;
+       // border: #671a94 1.5px solid;     
+       // color:#671a94;
+     
+        border-radius:  5px !important;
+        box-shadow: #7d7c7e;
+      //  margin-bottom: 29px;
+//background-image: url('../../assets/imgs/UAE.jpg') !important;
           
         background-repeat: no-repeat !important;
         background-position: center !important;
@@ -51,14 +67,17 @@ page-flights {
     }
     h1{
         font-size: 20px !important;
-        font-weight: bold !important;
+        
+        //-transform: uppercase;
+       font-weight: bold !important;
     }
     h2 {
-        width: 100%; 
-        text-align: center; 
-        border-bottom: 1px solid #000; 
-        line-height: 0.1em;
-        margin: 10px 0 20px; 
+        transform: uppercase;
+   //     width: 100%; 
+    //    text-align: center; 
+      //  border-bottom: 1px solid #000; 
+       // line-height: 0.1em;
+    //    margin: 10px 0 20px; 
     } 
     h2 span { 
         background:#fff; 

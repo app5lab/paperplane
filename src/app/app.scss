@@ -29,8 +29,9 @@
 }
 
 .tabbar{
-    background-color: #3a1053   !important;
-    
+   // background-color: #3a1053   !important;
+   background-color: white   !important;
+   
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon{
@@ -53,13 +54,15 @@
 
 
 .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
-    color: white;
+  //  color: white;
+  color:  #3a1053;
 }
 .tabs-ios .tab-button[aria-selected=true] {
-    color: #fefcff;
+    //color: #fefcff;
+    color:  #3a1053;
 }
 
 .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
-    color: #f6fffa;
+   // color: #f6fffa;
     background-color: transparent;
 }

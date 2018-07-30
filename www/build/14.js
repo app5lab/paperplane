@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 578:
+/***/ 580:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountPageModule", function() { return AccountPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllChatsPageModule", function() { return AllChatsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__account__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__all_chats__ = __webpack_require__(602);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AccountPageModule = /** @class */ (function () {
-    function AccountPageModule() {
+var AllChatsPageModule = /** @class */ (function () {
+    function AllChatsPageModule() {
     }
-    AccountPageModule = __decorate([
+    AllChatsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */],
+                __WEBPACK_IMPORTED_MODULE_2__all_chats__["a" /* AllChatsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__all_chats__["a" /* AllChatsPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__account__["a" /* AccountPage */]
-            ]
         })
-    ], AccountPageModule);
-    return AccountPageModule;
+    ], AllChatsPageModule);
+    return AllChatsPageModule;
 }());
 
-//# sourceMappingURL=account.module.js.map
+//# sourceMappingURL=all-chats.module.js.map
 
 /***/ }),
 
-/***/ 599:
+/***/ 602:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AllChatsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,43 +57,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
- * Generated class for the AccountPage page.
+ * Generated class for the AllChatsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var AccountPage = /** @class */ (function () {
-    function AccountPage(app, loadingCtrl, navCtrl, navParams) {
-        this.app = app;
-        this.loadingCtrl = loadingCtrl;
+var AllChatsPage = /** @class */ (function () {
+    function AllChatsPage(navCtrl, navParams, api) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.user = { firstname: 'hassan', lastname: 'ali', address: '363 ', phone: '03000417591', email: 'hassan@appslab.io', password: 'qwerty', rp: 'qwerty' };
-        this.settings = 'profile';
-        var loading = this.loadingCtrl.create({
-            spinner: 'hide',
-            content: "<img src=\"assets/imgs/l.gif\"/>\n      <h3 style=\"text-align:center;\">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLoading...</h3",
-            duration: 30000
+        this.api = api;
+        this.chats = [];
+        var user = JSON.parse(localStorage.getItem('zip_user'));
+        api.firebase().ref('rooms/' + user.id).once('value', function (data) {
+            // console.log(data.val());
+            if (data.val() != null)
+                _this.chats = data.val();
         });
-        // loading.present();
     }
-    AccountPage.prototype.logout = function () {
-        this.app.getRootNav().setRoot('LoginPage');
+    AllChatsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AllChatsPage');
     };
-    AccountPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AccountPage');
+    AllChatsPage.prototype.openChat = function () {
+        this.navCtrl.push('Chat');
     };
-    AccountPage = __decorate([
+    AllChatsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-account',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/pages/account/account.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-segment [(ngModel)]="settings" color="light">\n      <ion-segment-button value="profile" checked>\n      <b>  PROFILE  </b>\n      </ion-segment-button>\n      <ion-segment-button value="info">\n       <b> INFORMATION </b>\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n  <div [ngSwitch]="settings">\n    <ion-list *ngSwitchCase="\'profile\'">\n      <ion-card  id="card-l" >\n        <div style="width: 100%;display: flex;justify-content: center; ">\n          <ion-avatar>\n            <img src="assets/imgs/logo.jpg">\n          </ion-avatar>\n        </div>\n        <ion-card-content>\n          <h2 style="text-align:center;">Hassan Ali</h2>\n        </ion-card-content>\n        <ion-list >\n           \n          <ion-item>\n              <ion-label floating>Address</ion-label>\n            <ion-input [disabled]="true" type="text" [(ngModel)]="user.address"></ion-input>\n          </ion-item>\n       \n        \n          <ion-item>\n            \n              <ion-label floating>Phone</ion-label>\n            <ion-input [disabled]="true" type="text" [(ngModel)]="user.phone"></ion-input>\n          </ion-item>\n        \n          <ion-item>\n              <ion-label floating>Email</ion-label>\n            <ion-input [disabled]="true" type="text"[(ngModel)]="user.email"></ion-input>\n          </ion-item>\n        \n\n\n          \n          <ion-item>\n          \n              <ion-badge  style="height:50%;" item-end>  <ion-icon name="create"></ion-icon>Edit</ion-badge>\n             \n          </ion-item>\n        </ion-list>\n\n      </ion-card>\n      <button style="width: 100%;         border: 1px solid #4d077c;\n      border-radius: 0 40px !important;" ion-button  outline (click)="logout()">Log Out</button>\n    </ion-list>\n  \n    <ion-list *ngSwitchCase="\'info\'">\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/pages/account/account.html"*/,
+            selector: 'page-all-chats',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\all-chats\all-chats.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>chat</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-card id=\'asd\' *ngIf="chats.length == 0" class="Main">\n\n    <ion-card-content text-center>\n\n      <p>\n\n        No chats to display!\n\n      </p>\n\n      <br>\n\n      <br>\n\n      <button style=" border: 1px solid #4d077c; border-radius: 0 40px !important;" ion-button outline item-center (click)=\'addflight()\'>Add Flight</button>\n\n    </ion-card-content>\n\n  </ion-card>\n\n  <ion-card style="border: 1px solid #4d077c; border-radius: 0 40px !important;" *ngFor="let chat of chats">\n\n    <ion-list >\n\n      <ion-item (click)=\'openChat()\'>\n\n        <ion-avatar item-start>\n\n          <img src="assets/imgs/qasim.jpeg">\n\n        </ion-avatar>\n\n        <h2>Hamza</h2>\n\n        <p>{{chat.msg}}</p>\n\n        <ion-note item-end>3:43 pm</ion-note>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\all-chats\all-chats.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], AccountPage);
-    return AccountPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]])
+    ], AllChatsPage);
+    return AllChatsPage;
 }());
 
-//# sourceMappingURL=account.js.map
+//# sourceMappingURL=all-chats.js.map
 
 /***/ })
 

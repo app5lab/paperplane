@@ -30,6 +30,7 @@ settings:any = 'profile'
     // loading.present();
   }
 
+
   logout(){
     this.app.getRootNav().setRoot('LoginPage')
   }

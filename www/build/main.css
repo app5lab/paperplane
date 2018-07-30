@@ -25696,7 +25696,7 @@ ion-navbar.toolbar {
 }
 
 .tabbar {
-  background-color: #3a1053   !important;
+  background-color: white   !important;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
@@ -25716,15 +25716,14 @@ ion-navbar.toolbar {
 }
 
 .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
-  color: white;
+  color: #3a1053;
 }
 
 .tabs-ios .tab-button[aria-selected=true] {
-  color: #fefcff;
+  color: #3a1053;
 }
 
 .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
-  color: #f6fffa;
   background-color: transparent;
 }
 
@@ -25742,25 +25741,37 @@ page-account ion-label {
 }
 
 page-account #card-l {
-  border: 1px solid #4d077c;
-  border-radius: 0 40px !important;
+  border: 1px solid #cdc6d1;
+  border-radius: 10px !important;
   padding: 5%;
   margin-bottom: 3%;
 }
 
-page-add-post #card-x {
-  border: 1px solid #4d077c;
-  border-radius: 0 40px !important;
-  padding: 5%;
-  margin-bottom: 3%;
-}
+page-add-post {
+  /*
+    #card-x{
 
-page-add-post #card-y {
-  border: 1px solid #4d077c;
-  border-radius: 0 40px !important;
-  padding: 5%;
-  margin-bottom: 3%;
-  margin-top: 4%;
+    border: 1px solid #4d077c;
+    border-radius: 0 40px !important;
+    padding: 5%;
+    margin-bottom: 3%;
+   //box-shadow: 0px 0px 0px 2px;
+    
+  }
+
+  
+  #card-y{
+
+    border: 1px solid #4d077c;
+    border-radius: 0 40px !important;
+    padding: 5%;
+    margin-bottom: 3%;
+    margin-top: 4%;
+   //box-shadow: 0px 0px 0px 2px;
+    
+  }
+
+*/
 }
 
 page-addflight ion-card {
@@ -25948,24 +25959,63 @@ page-conversation .chatPageFooter .toolbar {
   padding: 4px 8px !important;
 }
 
+page-flight-info .SwipedTabs-indicatorSegment {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-transform-origin: top 0 left 0;
+  transform-origin: top 0 left 0;
+  height: 2px;
+  position: relative;
+  top: -2px;
+  background-color: white !important;
+}
+
+page-flight-info .SwipedTabs-tabs ion-segment-button {
+  border: none !important;
+  color: gray !important;
+  background-color: #3a1053 !important;
+}
+
+page-flight-info .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+  color: white !important;
+}
+
+page-flight-info .SwipedTabs-tabs {
+  border-bottom: solid 1px #e6e6e6  !important;
+}
+
 page-flights #asd {
   margin-top: 50% !important;
   border: #671a94 1.5px solid;
   border-radius: 0 40px !important;
 }
 
-page-flights .crd {
-  border: #671a94 1.5px solid;
+page-flights .larger {
+  font-size: 40px;
   color: #671a94;
-  border-radius: 10px !important;
-  background-image: url("../../assets/imgs/Statue.jpg") !important;
+}
+
+page-flights .larger1 {
+  font-size: 30px;
+  color: #8f0e0e;
+}
+
+page-flights .larger2 {
+  font-size: 30px;
+  color: #057002;
+}
+
+page-flights .crd {
+  border: #d8ccdd 1px solid;
+  border-radius: 5px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
+  background-color: #f8f7f7;
   background-size: cover !important;
 }
 
 page-flights .crd1 {
-  border: #671a94 1.5px solid;
+  border: #671a94 1px solid;
   color: #671a94;
   border-radius: 10px !important;
   background-image: url("../../assets/imgs/Eifil.jpg") !important;
@@ -25975,10 +26025,9 @@ page-flights .crd1 {
 }
 
 page-flights .crd2 {
-  border: #671a94 1.5px solid;
-  color: #671a94;
-  border-radius: 10px !important;
-  background-image: url("../../assets/imgs/UAE.jpg") !important;
+  border-radius: 5px !important;
+  -webkit-box-shadow: #7d7c7e;
+  box-shadow: #7d7c7e;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
@@ -26008,11 +26057,8 @@ page-flights h1 {
 }
 
 page-flights h2 {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #000;
-  line-height: 0.1em;
-  margin: 10px 0 20px;
+  -webkit-transform: uppercase;
+  transform: uppercase;
 }
 
 page-flights h2 span {
@@ -26335,7 +26381,7 @@ page-home #maincard {
 }
 
 page-login .getstart {
-  background-image: url("../../assets/imgs/login bg.jpg");
+  background-color: #f1f0f0;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -26349,7 +26395,7 @@ page-login .getstart img {
 
 page-login .in {
   border: 1px solid #ffffff;
-  border-radius: 0 40px !important;
+  border-radius: 10px !important;
   border-top-left-radius: 29px;
   border-top-right-radius: 29px;
   border-bottom-left-radius: 29px;
@@ -26357,14 +26403,14 @@ page-login .in {
 }
 
 page-login ion-item.item {
-  background-color: rgba(45, 8, 70, 0.466);
-  border: white 1px solid;
-  color: #cfcfcf;
+  background-color: #b9b8b9;
+  border: #b9b8b9 1px solid;
+  color: white;
 }
 
 page-login ion-item.item .label {
   width: 10%;
-  color: rgba(237, 234, 240, 0.63);
+  color: white;
 }
 
 page-login ion-item .item-inner {
@@ -26376,15 +26422,16 @@ page-login ion-spinner * {
 }
 
 page-login #t {
-  background-color: rgba(255, 255, 255, 0.486);
-  color: rgba(28, 6, 49, 0.925);
+  background-color: #3d0a55;
+  color: rgba(231, 230, 231, 0.925);
   border: 1px solid #4d077c;
-  border-radius: 0 40px !important;
+  border-radius: 10px !important;
 }
 
 page-login #tt {
-  border: 1px solid #ffffff;
-  border-radius: 0 40px !important;
+  border: 1px solid #460a55;
+  background-color: rgba(255, 255, 255, 0.925);
+  border-radius: 10px !important;
 }
 
 page-login .test {

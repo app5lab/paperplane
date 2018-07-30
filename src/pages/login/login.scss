@@ -1,7 +1,8 @@
 page-login {
 
     .getstart {
-        background-image: url('../../assets/imgs/login bg.jpg');
+       // background-image: url('../../assets/imgs/login bg.jpg');
+       background-color: rgb(241, 240, 240);
         background-repeat: no-repeat;
         background-size:cover;
     }
@@ -20,7 +21,8 @@ page-login {
     
     .in{
         border: 1px solid #ffffff;
-        border-radius: 0 40px !important;
+        border-radius: 10px !important;
+    
         // width: 50%;
         // margin: 0 25%;
         // min-width: 300px !important;
@@ -31,13 +33,14 @@ page-login {
         
     }
     ion-item.item {
-        background-color: rgba(45, 8, 70, 0.466);
-        border: white 1px solid;
-        color: rgb(207, 207, 207);
+        background-color: rgb(185, 184, 185);
+        border:  rgb(185, 184, 185) 1px solid;
+       color:white;
+       // color: white;
 
     .label { 
       width: 10%;
-      color: rgba(237, 234, 240, 0.63);
+      color:white;
     }
     }
     ion-item .item-inner{
@@ -48,15 +51,16 @@ page-login {
         fill: rgba(102, 51, 153, 0.11);
     }
 #t{
-    background-color: rgba(255, 255, 255, 0.486);
-    color: rgba(28, 6, 49, 0.925);
+    background-color:rgb(61, 10, 85);
+    color: rgba(231, 230, 231, 0.925);
 
     border: 1px solid #4d077c;
-    border-radius: 0 40px !important;
+    border-radius: 10px !important;
 }
 #tt{
-    border: 1px solid #ffffff;
-    border-radius: 0 40px !important;
+    border: 1px solid rgb(70, 10, 85);
+    background-color:rgba(255, 255, 255, 0.925);
+    border-radius: 10px !important;
 }
     .test{
         fill: rebeccapurple;
