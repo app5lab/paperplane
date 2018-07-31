@@ -16,20 +16,17 @@
 
     <ion-card-content>
       <ion-card-title>
-        <!-- <ion-chip color="dark" style="margin-right: 5px" *ngFor="let cat of product.categories" center>
-          <ion-label color="light" > {{ cat }} </ion-label>
-        </ion-chip> -->
-
+<!-- 
         <ion-list>
          <ion-item>
-          <ion-label style="font-size:25px;" >Nike Air <b>(Shoes)</b>  </ion-label>
+          <ion-label style="font-size:25px;" >{{product.name}}</ion-label>
          </ion-item>       
-        </ion-list>
+        </ion-list> -->
 
         <ion-label style="margin-left:12px">Item Price <b>${{product.price}}</b></ion-label>
          </ion-card-title>
         <ion-label style="text-align: center"> <u> Traveler's Reward </u></ion-label>
-        <h1>from <b>$10</b></h1> 
+        <h1>from <b>{{user.tr}}</b></h1> 
       <p *ngIf="product.short_description" [innerHTML]="product.short_description"></p>
 
       <ion-item>
@@ -46,11 +43,6 @@
     </ion-card-content>
 
   </ion-card>
-
-
-
-  
-
 
   <ion-card *ngIf="details.length > 0">
     <ion-card-content>
@@ -78,11 +70,11 @@
         <img  style="width:60px; height:60px" src="assets/imgs/s1.jpg">   
       </ion-avatar>    
     </ion-item>
-    <h2 style="margin-left:15%"><b>Uzair</b> requested 22 minutes ago</h2>
+    <h2 style="margin-left:15%"><b>{{user.name}}</b> requested on {{user.time}}</h2>
 
-    <button ion-button   style="border:#671a94; margin-left:25% ; color:white">
+    <button ion-button   style="border:#671a94; margin-left:25% ; color:white" (click)='chat()'>
       <ion-icon name='mail' is-active="false" style=""></ion-icon>
-     &nbsp;&nbsp; Chat with <b>&nbsp;&nbsp;Uzair </b>
+     &nbsp;&nbsp; Chat with <b>&nbsp;&nbsp;{{user.name}} </b>
     </button>
 
 <div style="margin:30px; font-size:50%;">

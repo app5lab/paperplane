@@ -12,30 +12,45 @@ export class ProductDetailsPage
   public product: any;
   public reviews: any[] = [];
   public details :any[] = [];
-
+  public user :any
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams)
   {
+    var item = navParams.get('data')
+
 
     this.product = {
-      name:'Nike Air',
-      images: ['../../assets/imgs/s1.jpg', 'assets/imgs/s2.jpg','assets/imgs/s3.jpg'],
-      categories: ['Shoes','Air','Nike'],
-      price: 200
+      name:item.title,
+      images: [item.image_1, item.image_2,item.image_3],
+      // categories: ['Shoes','Air','Nike'],
+      price: item.item_price
+    }
+
+    this.user = {
+      name:item.firstname + ' ' + item.lastname,
+      dp:item.dp,
+      tr:item.traveler_reward,
+      time:item.created_at,
+      id:item.user_id
     }
 
     this.reviews = [{ 
       reviewer_name: 'Hassan Ali',
       review: `'So comfortable and durable. Definitely get them if you need comfy shoes, I don't run in them, I use them for fashion and I can say they go with everything.'`
- 
- 
     }]
 
     this.details =[{
     title:'Product details',
     p_det:'-Color Blue -Size 7 -Nike Sole -Soft Rubber -Blue Laces '
     }]
+  }
+
+  chat(){
+    let user = {
+      id:this.user.id,name:this.user.name,img:this.user.dp
+    }
+    this.navCtrl.push('Chat',{user:user})
   }
 
   //Slider options

@@ -46,7 +46,7 @@
               <p>Posted {{post.created_at}}</p>
             </ion-item>
         
-            <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct()">
+            <ion-card-content style="display: flex;padding-bottom: 0;" (click)="openProduct(post)">
               <img class="im" src="{{post.image_1}}">
               <ion-card-title style="width: 60%;">
                 <h3>

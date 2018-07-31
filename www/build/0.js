@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 584:
+/***/ 583:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,9 +8,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatModule", function() { return ChatModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(605);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(604);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chat_service_chat_service__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_relative_time__ = __webpack_require__(606);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_relative_time__ = __webpack_require__(605);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,7 +52,7 @@ var ChatModule = /** @class */ (function () {
 /***/ 593:
 /***/ (function(module, exports, __webpack_require__) {
 
-var isDate = __webpack_require__(610)
+var isDate = __webpack_require__(609)
 
 var MILLISECONDS_IN_HOUR = 3600000
 var MILLISECONDS_IN_MINUTE = 60000
@@ -376,7 +376,7 @@ module.exports = parse
 
 /***/ }),
 
-/***/ 605:
+/***/ 604:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -427,14 +427,14 @@ var Chat = /** @class */ (function () {
         this.user = {
             id: user.id,
             name: user.fname + ' ' + user.lname,
-            avatar: user.img
+            avatar: user.img + 'no'
         };
-        this.toUser = navParams.get('to_user');
-        // this.toUser = {
-        //   id: '4',
-        //   name: 'test',
-        //   avatar:''
-        // };
+        var u = navParams.get('user');
+        this.toUser = {
+            id: u.id,
+            name: u.name,
+            avatar: u.dp
+        };
         this.sender_id = user.id;
         var that = this;
         api.firebase().ref('chats/').child(user.id + '_' + this.toUser.id).once('value', function (d) {
@@ -456,11 +456,12 @@ var Chat = /** @class */ (function () {
                         });
                     }
                 });
-                _this.chat.once('value', function (data) {
+                _this.chat.on('value', function (data) {
                     if (data != null)
                         _this.m = that.snapshotToArray(data);
                     _this.msgList = _this.m;
                 });
+                _this.scrollToBottom();
             }
             else {
                 console.log('asd');
@@ -481,10 +482,11 @@ var Chat = /** @class */ (function () {
                         });
                     }
                 });
-                _this.chat.once('value', function (data) {
+                _this.chat.on('value', function (data) {
                     if (data != null)
                         _this.m = that.snapshotToArray(data);
                     _this.msgList = _this.m;
+                    _this.scrollToBottom();
                 });
             }
         });
@@ -582,9 +584,9 @@ var Chat = /** @class */ (function () {
             console.log('pushing to db');
             msg.status = 'success';
             this.chat.push(msg).then(function () {
-                _this.api.firebase().ref('rooms/' + _this.user.id + '/' + _this.toUser.id).set({ msg: msg.message });
-                _this.api.firebase().ref('rooms/' + _this.toUser.id + '/' + _this.user.id).set({ msg: msg.message });
-                _this.msgList.push(msg);
+                _this.api.firebase().ref('rooms/' + _this.user.id + '/' + _this.toUser.id).set({ msg: msg.message, name: _this.toUser.name });
+                _this.api.firebase().ref('rooms/' + _this.toUser.id + '/' + _this.user.id).set({ msg: msg.message, name: _this.user.name });
+                // this.msgList.push(msg);
                 _this.data.message = '';
             });
         }
@@ -636,13 +638,13 @@ var Chat = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 606:
+/***/ 605:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RelativeTime; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__ = __webpack_require__(607);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__ = __webpack_require__(606);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_date_fns_distance_in_words_to_now__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -677,10 +679,10 @@ var RelativeTime = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 607:
+/***/ 606:
 /***/ (function(module, exports, __webpack_require__) {
 
-var distanceInWords = __webpack_require__(608)
+var distanceInWords = __webpack_require__(607)
 
 /**
  * @category Common Helpers
@@ -769,14 +771,14 @@ module.exports = distanceInWordsToNow
 
 /***/ }),
 
-/***/ 608:
+/***/ 607:
 /***/ (function(module, exports, __webpack_require__) {
 
-var compareDesc = __webpack_require__(609)
+var compareDesc = __webpack_require__(608)
 var parse = __webpack_require__(593)
-var differenceInSeconds = __webpack_require__(611)
-var differenceInMonths = __webpack_require__(613)
-var enLocale = __webpack_require__(616)
+var differenceInSeconds = __webpack_require__(610)
+var differenceInMonths = __webpack_require__(612)
+var enLocale = __webpack_require__(615)
 
 var MINUTES_IN_DAY = 1440
 var MINUTES_IN_ALMOST_TWO_DAYS = 2520
@@ -979,7 +981,7 @@ module.exports = distanceInWords
 
 /***/ }),
 
-/***/ 609:
+/***/ 608:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1037,7 +1039,7 @@ module.exports = compareDesc
 
 /***/ }),
 
-/***/ 610:
+/***/ 609:
 /***/ (function(module, exports) {
 
 /**
@@ -1064,10 +1066,10 @@ module.exports = isDate
 
 /***/ }),
 
-/***/ 611:
+/***/ 610:
 /***/ (function(module, exports, __webpack_require__) {
 
-var differenceInMilliseconds = __webpack_require__(612)
+var differenceInMilliseconds = __webpack_require__(611)
 
 /**
  * @category Second Helpers
@@ -1099,7 +1101,7 @@ module.exports = differenceInSeconds
 
 /***/ }),
 
-/***/ 612:
+/***/ 611:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1135,12 +1137,12 @@ module.exports = differenceInMilliseconds
 
 /***/ }),
 
-/***/ 613:
+/***/ 612:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
-var differenceInCalendarMonths = __webpack_require__(614)
-var compareAsc = __webpack_require__(615)
+var differenceInCalendarMonths = __webpack_require__(613)
+var compareAsc = __webpack_require__(614)
 
 /**
  * @category Month Helpers
@@ -1180,7 +1182,7 @@ module.exports = differenceInMonths
 
 /***/ }),
 
-/***/ 614:
+/***/ 613:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1219,7 +1221,7 @@ module.exports = differenceInCalendarMonths
 
 /***/ }),
 
-/***/ 615:
+/***/ 614:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(593)
@@ -1277,11 +1279,11 @@ module.exports = compareAsc
 
 /***/ }),
 
-/***/ 616:
+/***/ 615:
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildDistanceInWordsLocale = __webpack_require__(617)
-var buildFormatLocale = __webpack_require__(618)
+var buildDistanceInWordsLocale = __webpack_require__(616)
+var buildFormatLocale = __webpack_require__(617)
 
 /**
  * @category Locales
@@ -1295,7 +1297,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 617:
+/***/ 616:
 /***/ (function(module, exports) {
 
 function buildDistanceInWordsLocale () {
@@ -1401,10 +1403,10 @@ module.exports = buildDistanceInWordsLocale
 
 /***/ }),
 
-/***/ 618:
+/***/ 617:
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildFormattingTokensRegExp = __webpack_require__(619)
+var buildFormattingTokensRegExp = __webpack_require__(618)
 
 function buildFormatLocale () {
   // Note: in English, the names of days of the week and months are capitalized.
@@ -1496,7 +1498,7 @@ module.exports = buildFormatLocale
 
 /***/ }),
 
-/***/ 619:
+/***/ 618:
 /***/ (function(module, exports) {
 
 var commonFormatterKeys = [

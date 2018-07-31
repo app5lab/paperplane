@@ -54,11 +54,11 @@ var map = {
 		10
 	],
 	"../pages/history/history.module": [
-		586,
+		587,
 		9
 	],
 	"../pages/home/home.module": [
-		587,
+		586,
 		8
 	],
 	"../pages/login/login.module": [
@@ -70,11 +70,11 @@ var map = {
 		6
 	],
 	"../pages/product-details/product-details.module": [
-		590,
+		591,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
-		591,
+		590,
 		5
 	],
 	"../pages/tabs/tabs.module": [
@@ -300,7 +300,7 @@ var ApiProvider = /** @class */ (function () {
         });
         return promise;
     };
-    ApiProvider.prototype.getPostbyLoc = function (from, to) {
+    ApiProvider.prototype.getPostbyLoc = function () {
         var _this = this;
         var data = {
             // from_loc: from,
@@ -312,7 +312,7 @@ var ApiProvider = /** @class */ (function () {
             _this.http.setDataSerializer('json');
             _this.http.post('https://zipship.io/api/user-posts.php', data, {})
                 .then(function (res) {
-                console.log(JSON.stringify(res));
+                // console.log(JSON.parse(res.data));
                 if (res.data != 'Data not Found' && res.data != 'Security Key is invalid') {
                     resolve(JSON.parse(res.data));
                 }
@@ -468,11 +468,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(477);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_responsive__ = __webpack_require__(478);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator__ = __webpack_require__(330);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_css_animator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_css_animator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_keyboard__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(333);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_google_maps__ = __webpack_require__(574);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_api_api__ = __webpack_require__(328);
@@ -550,12 +550,12 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/chat/chat.module#ChatModule', name: 'Chat', segment: 'chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/conversation/conversation.module#ConversationPageModule', name: 'ConversationPage', segment: 'conversation', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/flights/flights.module#FlightsPageModule', name: 'FlightsPage', segment: 'flights', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/history/history.module#HistoryPageModule', name: 'HistoryPage', segment: 'history', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/orders/orders.module#OrdersPageModule', name: 'OrdersPage', segment: 'orders', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/product-details/product-details.module#ProductDetailsPageModule', name: 'ProductDetailsPage', segment: 'product-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -592,9 +592,9 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -623,7 +623,7 @@ var config = {
 var MyApp = /** @class */ (function () {
     function MyApp(Keyboard, platform, statusBar, splashScreen) {
         this.Keyboard = Keyboard;
-        this.rootPage = "TabsPage";
+        this.rootPage = "LoginPage";
         platform.ready().then(function () {
             statusBar.backgroundColorByHexString('#fff');
             statusBar.styleDefault();
@@ -632,7 +632,7 @@ var MyApp = /** @class */ (function () {
         __WEBPACK_IMPORTED_MODULE_5_firebase__["initializeApp"](config);
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -700,7 +700,7 @@ var WargaeComponent = /** @class */ (function () {
     ], WargaeComponent.prototype, "ionTxtArea", void 0);
     WargaeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'wargae',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\components\wargae\wargae.html"*/'<ion-item>\n\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n\n</ion-item>'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\components\wargae\wargae.html"*/
+            selector: 'wargae',template:/*ion-inline-start:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/'<ion-item>\n  <ion-textarea #ionTxtArea type="text" placeholder="Enter a description" (ngModelChange)=\'onChange($event)\'></ion-textarea>\n</ion-item>'/*ion-inline-end:"/Users/Hassan/Desktop/Ionic/src/components/wargae/wargae.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], WargaeComponent);

@@ -49,7 +49,7 @@ export class HistoryPage {
 
     this.event.publish('open');
     this.api.allFlights.forEach(item=>{
-      this.api.getPostbyLoc(item.source_country,item.destination_country).then(data=>{
+      this.api.getPostbyLoc().then(data=>{
         this.posts.push(data)
       })
     })

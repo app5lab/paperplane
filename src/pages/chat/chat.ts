@@ -34,14 +34,14 @@ export class Chat {
     this.user = {
       id:user.id,
       name:user.fname + ' ' + user.lname,
-      avatar:user.img
+      avatar:user.img+'no'
     }
-    this.toUser = navParams.get('to_user')
-    // this.toUser = {
-    //   id: '4',
-    //   name: 'test',
-    //   avatar:''
-    // };
+    var u  = navParams.get('user')
+    this.toUser = {
+      id: u.id,
+      name: u.name,
+      avatar: u.dp
+    };
 
 
     this.sender_id = user.id
@@ -71,11 +71,12 @@ export class Chat {
             }
 
           })
-          this.chat.once('value', data => {
+          this.chat.on('value', data => {
             if(data != null)
               this.m = that.snapshotToArray(data)
             this.msgList = this.m
             })
+            this.scrollToBottom()
         }
       else{
           console.log('asd');
@@ -100,10 +101,11 @@ export class Chat {
               })
             }
           })
-          this.chat.once('value', data => {
+          this.chat.on('value', data => {
             if(data != null)
               this.m = that.snapshotToArray(data)
             this.msgList = this.m
+            this.scrollToBottom()
             })
         }
     })
@@ -224,9 +226,9 @@ export class Chat {
       console.log('pushing to db');
     msg.status='success'
     this.chat.push(msg).then( () => {
-      this.api.firebase().ref('rooms/' + this.user.id +'/'+ this.toUser.id).set({msg:msg.message})
-      this.api.firebase().ref('rooms/' + this.toUser.id +'/'+ this.user.id).set({msg:msg.message})
-      this.msgList.push(msg);
+      this.api.firebase().ref('rooms/' + this.user.id +'/'+ this.toUser.id).set({msg:msg.message,name:this.toUser.name})
+      this.api.firebase().ref('rooms/' + this.toUser.id +'/'+ this.user.id).set({msg:msg.message,name:this.user.name})
+      // this.msgList.push(msg);
       this.data.message = '';
       })
     } else if (msg.toUserId === userId && msg.userId === toUserId) {

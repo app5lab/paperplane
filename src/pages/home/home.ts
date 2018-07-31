@@ -42,8 +42,7 @@ export class HomePage {
       data.forEach(element => {
         this.posts.push(element)
       });
-      console.log(this.posts.length);
-      
+      console.log(this.posts.length)
     })
     // this.posts.push(
     //   {
@@ -116,8 +115,8 @@ flight_id:any= ''
     this.navCtrl.push('AccountPage')
   }
 
-  openProduct(){
-    this.navCtrl.push('ProductDetailsPage')
+  openProduct(item){
+    this.navCtrl.push('ProductDetailsPage',{data:item})
   }
 
   addPost(){

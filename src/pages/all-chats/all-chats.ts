@@ -19,10 +19,16 @@ chats:any [] = []
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider) {
     var user = JSON.parse( localStorage.getItem( 'zip_user' ) )
     api.firebase().ref('rooms/' + user.id).once('value', data => {
-      // console.log(data.val());
-      if(data.val()!=null)
-        this.chats = data.val()
-      
+      // console.log(data.exportVal());
+      if(data.exists()){
+        var x = data.val()
+        console.log(x);
+          for(let index in x) {
+           this.chats.push({name:x[index].name,msg:x[index].msg,id:index})
+          }
+          console.log(this.chats);
+          
+      }
     })
   }
 
@@ -30,8 +36,12 @@ chats:any [] = []
     console.log('ionViewDidLoad AllChatsPage');
   }
 
-  openChat(){
-    this.navCtrl.push('Chat') 
+  openChat(id,name){
+    console.log(id,name);
+    
+    var user = {name:name,id:id}
+    this.navCtrl.push('Chat',{user:user}) 
   }
 
 }
+   

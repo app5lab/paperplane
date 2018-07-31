@@ -26181,20 +26181,20 @@ page-history .SwipedTabs-indicatorSegment {
   transition: 0.3s all;
   -webkit-transform-origin: top 0 left 0;
   transform-origin: top 0 left 0;
-  height: 1px;
+  height: 2px;
   position: relative;
   top: -2px;
-  background-color: black !important;
+  background-color: white !important;
 }
 
 page-history .SwipedTabs-tabs ion-segment-button {
   border: none !important;
   color: gray !important;
-  background-color: white !important;
+  background-color: #3a1053 !important;
 }
 
 page-history .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
-  color: #330333 !important;
+  color: white !important;
 }
 
 page-history .SwipedTabs-tabs {
@@ -26291,7 +26291,7 @@ page-home .card-md {
 }
 
 page-home .card2 {
-  height: 115px;
+  height: 110px;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
   position: relative;
@@ -26331,11 +26331,7 @@ page-home .card-a {
 }
 
 page-home #maincard {
-<<<<<<< HEAD
-  border-radius: 0px 0px  40px  40px;
-=======
   border-radius: 0 0 40px 40px;
->>>>>>> 03569675effff80469934ad2a6a1e831dd631c73
 }
 
 page-login .getstart {
