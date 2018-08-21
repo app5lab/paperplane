@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 586:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(622);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(631);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,14 +41,14 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 622:
+/***/ 631:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -129,7 +129,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\login\login.html"*/'<ion-content padding class="getstart">\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <img src="assets/imgs/logo.jpg" alt="" style="height: 120px;  border-radius: 80%;">\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    \n\n <!-- <img src="assets/imgs/final.png" alt="" style="height: 350px;"> -->\n\n      <ion-item class="in">\n\n        <ion-label fixed>\n\n          <ion-icon name="person"></ion-icon>\n\n          Username</ion-label>\n\n        <ion-input type="text" [(ngModel)]="username" (ionBlur)=\'test()\'></ion-input>\n\n      </ion-item>\n\n    <br>\n\n    <ion-item class="in">\n\n      <ion-label >\n\n        <ion-icon name="lock"></ion-icon>\n\n         Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password" (ionBlur)=\'test()\'></ion-input>\n\n    </ion-item>\n\n<br>\n\n    \n\n    <button id=\'t\' ion-button full round (click)="login()">Sign In</button>\n\n    <br>\n\n    <br>\n\n    <br> \n\n    <div style="width: 100%;display: flex;justify-content: center;">\n\n      <button id=\'tt\' ion-button outline color=black style="width: 60%;" (click)=\'signup()\'>\n\n        Sign Up?\n\n      </button>   \n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\login\login.html"*/'<ion-content padding class="getstart" >\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n  \n\n    \n\n   <!-- <img src="assets/imgs/logo.jpg" alt="" style="height: 120px;  border-radius: 80%;">  -->\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    <br>\n\n    \n\n    \n\n <!-- <img src="assets/imgs/final.png" alt="" style="height: 350px;"> -->\n\n      <ion-item class="in">\n\n        <ion-label fixed>\n\n          <ion-icon name="person"></ion-icon>\n\n          Username</ion-label>\n\n        <ion-input type="text" [(ngModel)]="username" (ionBlur)=\'test()\'></ion-input>\n\n      </ion-item>\n\n    <br>\n\n    <ion-item class="in">\n\n      <ion-label >\n\n        <ion-icon name="lock"></ion-icon>\n\n         Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password" (ionBlur)=\'test()\'></ion-input>\n\n    </ion-item>\n\n<br>\n\n<div style="width: 100%;display: flex;justify-content: center;">\n\n    <button id=\'t\' ion-button full round style="width: 60%;"  (click)="login()">Sign In</button>\n\n</div>\n\n    <br>\n\n    <br>\n\n    <br> \n\n    <div style="width: 100%;display: flex;justify-content: center;">\n\n      <button id=\'tt\' ion-button full round style="width: 60%;" (click)=\'signup()\'>\n\n        Sign Up?\n\n      </button>   \n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Tajallah Shafaqat\Documents\zipship\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_keyboard__["a" /* Keyboard */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]])
     ], LoginPage);

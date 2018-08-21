@@ -1,11 +1,4 @@
-<ion-content padding class="getstart">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <img src="assets/imgs/logo.jpg" alt="" style="height: 120px;  border-radius: 80%;">
+<ion-content padding class="getstart" >
     <br>
     <br>
     <br>
@@ -15,6 +8,23 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  
+    
+   <!-- <img src="assets/imgs/logo.jpg" alt="" style="height: 120px;  border-radius: 80%;">  -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
     
  <!-- <img src="assets/imgs/final.png" alt="" style="height: 350px;"> -->
       <ion-item class="in">
@@ -31,13 +41,14 @@
       <ion-input type="password" [(ngModel)]="password" (ionBlur)='test()'></ion-input>
     </ion-item>
 <br>
-    
-    <button id='t' ion-button full round (click)="login()">Sign In</button>
+<div style="width: 100%;display: flex;justify-content: center;">
+    <button id='t' ion-button full round style="width: 60%;"  (click)="login()">Sign In</button>
+</div>
     <br>
     <br>
     <br> 
     <div style="width: 100%;display: flex;justify-content: center;">
-      <button id='tt' ion-button outline color=black style="width: 60%;" (click)='signup()'>
+      <button id='tt' ion-button full round style="width: 60%;" (click)='signup()'>
         Sign Up?
       </button>   
     </div>

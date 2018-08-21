@@ -1,49 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Hassan\\Desktop\\Ionic\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-or\\values-or.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-tagmanager-16.0.1.aar\\7f145f251ac8801fa28ede40fe918936\\res\\values-or\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6",
-                        "startColumns": "0,0,0",
-                        "startOffsets": "208,307,427",
-                        "endColumns": "98,119,97",
-                        "endOffsets": "306,426,524"
-                    },
-                    "to": {
-                        "startLines": "3,4,5",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "162,265,389",
-                        "endColumns": "102,123,101",
-                        "endOffsets": "260,384,486"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Hassan\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-17.1.0.aar\\287fed11117f736e0e5249203eb58775\\res\\values-or\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "205",
-                        "endColumns": "102",
-                        "endOffsets": "307"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "106",
-                        "endOffsets": "157"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Tajallah Shafaqat\\Documents\\zipship\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-or\\values-or.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Tajallah Shafaqat\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-17.1.0.aar\\b2ac67c831206671c9eee53a82a546b2\\res\\values-or\\values.xml",
+                    "source": "C:\\Users\\Tajallah Shafaqat\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-17.3.0.aar\\8b7bd4687f2b6ee7274624ea16bf0e7d\\res\\values-or\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
